@@ -1,0 +1,58 @@
+{
+  "_comment": "Configurações gerais do site. Atualize aqui para mudar contatos, links e informações básicas sem alterar o HTML. Textos longos estão em /content/site/*.txt",
+  "meta": {
+    "title": "Krav-Maga Bukan Santos | Defesa Pessoal Real",
+    "description_txt": "site/meta-description.txt",
+    "lang": "pt-BR",
+    "themeColor": "#0B0B0B"
+  },
+  "escolaMae": {
+    "url": "https://kravmaga-bukan.com/pt/bukan",
+    "label": "Escola Mãe — Bukan Oficial (Rehovot, Israel)",
+    "title": "Visite o site oficial da linhagem Bukan"
+  },
+  "contato": {
+    "whatsapp": {
+      "numero": "(13) 98848-6092",
+      "link": "https://wa.me/5513988486092",
+      "textoBase": "https://wa.me/5513988486092",
+      "mensagens": {
+        "aulaExperimental": "?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga.",
+        "conhecerMetodo": "?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",
+        "falarComInstrutor": "?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."
+      }
+    },
+    "email": "contato@kravmagabukansantos.com.br",
+    "endereco": {
+      "rua": "Rua Dr. Carvalho de Mendonça, 236",
+      "complemento": "Sala 11 — Vila Belmiro",
+      "cidade": "Santos — SP"
+    }
+  },
+  "redesSociais": {
+    "instagram": "https://www.instagram.com/kravmagabukansantos/",
+    "facebook":  "https://www.facebook.com/kravmagabukansantos/",
+    "youtube":   "https://www.youtube.com/user/KaKautec"
+  },
+  "logo": {
+      "src": "logo_Bukan.png",
+      "alt": "Brasão oficial Bukan"
+    },
+  "assets": {
+    "instrutores": {
+      "kakau": {
+        "src": "Kakau_01.jpg",
+        "alt": "Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"
+      },
+      "samuel": {
+        "src": "Samuka_01.jpeg",
+        "alt": "Profº. Samuel Arcanjo em posição de treino de Krav-Maga"
+      }
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",
+    "linhagem": "Linhagem Bukan Oficial — Rehovot, Israel",
+    "sobre_txt": "site/footer-sobre.txt"
+  }
+}

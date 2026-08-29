@@ -1,0 +1,63 @@
+{
+  "_comment": "Textos da navegação, logo e rodapé.",
+  "logo": {
+    "top": "Defesa Pessoal · Linhagem Oficial",
+    "mid": "KRAV-MAGA",
+    "destaque": "BUKAN"
+  },
+  "navegacao": [
+    {
+      "ancora": "#escola",
+      "texto": "A Escola"
+    },
+    {
+      "ancora": "#instrutores",
+      "texto": "Instrutores"
+    },
+    {
+      "ancora": "#metodo",
+      "texto": "O Método"
+    },
+    {
+      "ancora": "#regras",
+      "texto": "As 15 Regras"
+    },
+    {
+      "ancora": "#contato",
+      "texto": "Contato"
+    }
+  ],
+  "ctaHeader": {
+    "texto": "Aula Experimental",
+    "tipo": "whatsapp-aula"
+  },
+  "navegacaoRodape": [
+    {
+      "ancora": "#escola",
+      "texto": "A Escola"
+    },
+    {
+      "ancora": "#instrutores",
+      "texto": "Instrutores"
+    },
+    {
+      "ancora": "#metodo",
+      "texto": "O Método"
+    },
+    {
+      "ancora": "#regras",
+      "texto": "As 15 Regras"
+    },
+    {
+      "ancora": "#contato",
+      "texto": "Contato"
+    }
+  ],
+  "colunasRodape": {
+    "navegacao": "Navegação",
+    "encontreNos": "Encontre-nos"
+  },
+  "whatsappFlutuante": {
+    "label": "Agende sua aula →"
+  }
+}

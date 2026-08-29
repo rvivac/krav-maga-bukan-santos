@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-content-lang>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" data-content="site.meta.description" content="" />
+<meta name="theme-color" data-content="site.meta.themeColor" content="#0B0B0B" />
+<title data-content="site.meta.title">Krav-Maga Bukan Santos | Defesa Pessoal Real</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-0:#070708;--bg-1:#0B0B0B;--bg-2:#101316;--bg-3:#16191c;--bg-4:#1e2328;
+  --accent:#7B5BB8;--accent-2:#9E84D6;--accent-deep:#5A3F91;
+  --accent-soft:rgba(123,91,184,.16);--accent-glow:rgba(158,132,214,.42);
+  --gold:#F3CC1F;--gold-bright:#FFE352;--gold-deep:#BA940C;
+  --gold-soft:rgba(243,204,31,.14);--gold-glow:rgba(243,204,31,.42);
+  --seal-red:#D62833;--seal-red-deep:#9D121C;--seal-red-glow:rgba(214,40,51,.3);
+  --text-1:#F6F7F9;--text-2:#C9CED5;--text-3:#8A929B;--text-4:#5A6169;
+  --whatsapp:#25D366;--line:rgba(255,255,255,.06);--line-accent:rgba(158,132,214,.28);
+  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;
+  --shadow-lg:0 20px 60px -20px rgba(0,0,0,.8), 0 2px 8px rgba(0,0,0,.5);
+  --shadow-accent:0 10px 40px -10px rgba(158,132,214,.5);
+  --max:1200px;--pad:56px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  background:var(--bg-1);color:var(--text-2);line-height:1.6;overflow-x:hidden;
+  font-weight:400;letter-spacing:.01em;
+  position:relative;min-height:100vh;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background-image:url('Bukan_Santos.jpeg');
+  background-repeat:no-repeat;background-position:center center;background-size:cover;
+  opacity:.10;filter:saturate(.85) contrast(1.05);
+  pointer-events:none;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(1200px 800px at 80% -10%,rgba(123,91,184,.18),transparent 60%),
+             radial-gradient(900px 600px at -10% 110%,rgba(243,204,31,.10),transparent 55%),
+             linear-gradient(180deg,rgba(7,7,8,.82) 0%,rgba(11,11,11,.90) 40%,rgba(10,10,12,.94) 100%);
+  pointer-events:none;
+}
+img,svg{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none;transition:color .25s ease}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--gold);color:#1a1400}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:#2a2f35;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+.font-display{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.01em;line-height:1.02;text-transform:uppercase}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
+.text-accent{color:var(--gold)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:18px;
+}
+.eyebrow::before{
+  content:'';display:block;width:38px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));
+  box-shadow:0 0 14px var(--gold-glow);
+}
+h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bottom:18px}
+.section-lead{font-size:1.06rem;color:var(--text-3);max-width:620px;margin-bottom:48px;line-height:1.7}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(180deg,var(--accent-2) 0%,var(--accent) 60%,var(--accent-deep) 100%);
+  color:#fff;padding:16px 30px;border-radius:var(--radius-md);
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 6px 24px -6px var(--accent-glow),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.25);
+  border:1px solid rgba(243,204,31,.28);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,background .25s ease,border-color .25s ease;
+  position:relative;overflow:hidden;
+}
+.cta-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(243,204,31,.22) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .6s ease;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -10px var(--accent-glow),inset 0 1px 0 rgba(255,255,255,.3),inset 0 -2px 0 rgba(0,0,0,.25);border-color:var(--gold)}
+.cta-btn:hover::after{transform:translateX(100%)}
+.cta-btn svg{width:18px;height:18px;transition:transform .25s ease;flex-shrink:0;color:var(--gold)}
+.cta-btn:hover svg{transform:translateX(4px)}
+.cta-btn.ghost{background:transparent;color:var(--text-1);border:1px solid rgba(255,255,255,.16);box-shadow:none}
+.cta-btn.ghost svg{color:var(--gold)}
+.cta-btn.ghost:hover{background:rgba(158,132,214,.06);border-color:var(--gold)}
+.section{padding:var(--pad) 0}
+.section--alt{background:var(--bg-2);position:relative}
+.section--alt::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(123,91,184,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(243,204,31,.04) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);
+  pointer-events:none;
+}
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,11,.55);backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease;
+}
+.site-header.scrolled{background:rgba(7,7,8,.82);border-bottom-color:var(--line-accent)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;flex-direction:row;align-items:center;gap:12px;line-height:1.05;font-family:'Barlow Condensed',sans-serif;font-weight:800}
+.logo-stack{display:flex;flex-direction:column;gap:2px}
+.logo-top{font-size:12px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;font-weight:700;opacity:.9}
+.logo-mid{font-size:22px;letter-spacing:.06em;color:var(--text-1);text-transform:uppercase;display:flex;gap:6px;align-items:center}
+.logo-mid .red{color:var(--gold);text-shadow:0 0 22px var(--gold-glow)}
+.logo-badge{
+  width:52px;height:58px;flex-shrink:0;
+  filter:drop-shadow(0 4px 16px var(--accent-glow));
+  display:flex;align-items:center;justify-content:center;
+}
+.logo-badge img{width:100%;height:100%;object-fit:contain;display:block}
+.nav{display:flex;align-items:center;gap:40px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav a{
+  position:relative;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-2);padding:6px 0;
+}
+.nav a::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--accent-2),var(--gold));transform:scaleX(0);transform-origin:right;
+  transition:transform .35s cubic-bezier(.7,0,.3,1);box-shadow:0 0 10px var(--gold-glow);
+}
+.nav a:hover,.nav a.active{color:var(--text-1)}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{padding:10px 22px;font-size:13px}
+.menu-toggle{display:none;width:44px;height:44px;place-items:center;border-radius:8px;border:1px solid var(--line);color:var(--text-1)}
+.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{
+  content:'';display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:.3s;position:relative;
+}
+.menu-toggle span::before{position:absolute;top:-7px}
+.menu-toggle span::after{position:absolute;top:7px}
+.menu-toggle.open span{background:transparent}
+.menu-toggle.open span::before{top:0;transform:rotate(45deg)}
+.menu-toggle.open span::after{top:0;transform:rotate(-45deg)}
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:120px 0 80px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 20%,rgba(158,132,214,.22),transparent 60%),
+    radial-gradient(ellipse 60% 80% at 0% 100%,rgba(243,204,31,.08),transparent 55%),
+    linear-gradient(180deg,var(--bg-0),var(--bg-1) 70%,var(--bg-2));
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><rect width='4' height='4' fill='%23ffffff0a'/></svg>");
+  background-size:3px 3px;opacity:.5;
+  mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 80%);
+  pointer-events:none;
+}
+.hero-stripe{
+  position:absolute;top:-10%;right:-6%;width:560px;height:280px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--accent-2) 55%,transparent 70%);
+  transform:rotate(18deg);opacity:.14;filter:blur(6px);pointer-events:none;
+}
+.hero-stripe-2{
+  position:absolute;bottom:-14%;left:-10%;width:700px;height:240px;
+  background:linear-gradient(45deg,transparent 0%,var(--accent) 40%,var(--seal-red) 80%,transparent 90%);
+  transform:rotate(-22deg);opacity:.08;pointer-events:none;
+}
+.hero-tactical{
+  position:absolute;right:0;top:0;bottom:0;width:48%;
+  background:radial-gradient(ellipse 90% 70% at 80% 50%,rgba(158,132,214,.26),transparent 60%);
+  pointer-events:none;
+}
+.hero-tactical::after{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 78px,rgba(243,204,31,.06) 78px 79px),
+    repeating-linear-gradient(0deg,transparent 0 78px,rgba(123,91,184,.05) 78px 79px);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px 8px 10px;background:rgba(158,132,214,.1);
+  border:1px solid var(--line-accent);border-radius:100px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:30px;animation:fadeUp .8s ease both;
+}
+.hero-tag .mini-badge{width:24px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.hero-tag .mini-badge img{width:100%;height:100%;object-fit:contain;display:block}
+.hero-tag .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 4px rgba(243,204,31,.22),0 0 14px var(--gold-glow);
+  animation:pulse-ring 2s ease-in-out infinite;
+}
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;line-height:.95;
+  font-size:clamp(3rem,9vw,6.6rem);text-transform:uppercase;letter-spacing:.01em;
+  color:var(--text-1);margin-bottom:28px;animation:fadeUp 1s .1s ease both;
+}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;animation:slideUp 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.hero h1 .word-accent{
+  background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 50%,var(--gold-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 60px var(--gold-glow);
+  filter:drop-shadow(0 0 30px rgba(243,204,31,.2));
+}
+.hero-sub{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--text-2);line-height:1.7;max-width:580px;margin-bottom:42px;animation:fadeUp 1s .25s ease both}
+.hero-sub strong{color:var(--gold);font-weight:700}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 1s .4s ease both}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;max-width:520px;margin-top:64px;
+  padding-top:32px;border-top:1px solid var(--line-accent);
+  animation:fadeUp 1.1s .55s ease both;
+}
+.hero-stats div b{
+  display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;
+  font-size:2rem;color:var(--text-1);letter-spacing:.02em;line-height:1;margin-bottom:6px;
+}
+.hero-stats div b small{color:var(--gold);font-size:1.6rem;text-shadow:0 0 18px var(--gold-glow)}
+.hero-stats div span{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-3);font-family:'Barlow Condensed',sans-serif;font-weight:500;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-ring{
+  0%,100%{box-shadow:0 0 0 0 rgba(243,204,31,.35),0 0 14px var(--gold-glow)}
+  50%{box-shadow:0 0 0 10px rgba(243,204,31,0),0 0 14px var(--gold-glow)}
+}
+.historia-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:stretch}
+.historia-visual{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  background:
+    radial-gradient(ellipse at 0% 0%,rgba(158,132,214,.18),transparent 55%),
+    linear-gradient(160deg,var(--bg-4) 0%,var(--bg-2) 100%);
+  border:1px solid var(--line-accent);padding:36px;min-height:460px;box-shadow:var(--shadow-lg);
+}
+.historia-visual::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(243,204,31,.18),transparent 50%),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 14px);
+}
+.historia-visual::after{
+  content:'1978';position:absolute;bottom:-40px;right:-10px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;
+  font-size:14rem;line-height:1;color:var(--gold);opacity:.07;letter-spacing:-.04em;
+}
+.historia-crest{
+  position:relative;z-index:1;width:200px;max-width:100%;aspect-ratio:1/1.12;margin:0 auto 28px;
+  filter:drop-shadow(0 20px 40px rgba(158,132,214,.28)) drop-shadow(0 6px 22px rgba(243,204,31,.25));
+  display:flex;align-items:center;justify-content:center;
+}
+.historia-crest img{width:100%;height:100%;object-fit:contain;display:block}
+.historia-title{
+  position:relative;z-index:1;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;
+  line-height:1;text-transform:uppercase;color:var(--text-1);margin-bottom:16px;
+  letter-spacing:.01em;text-align:center;
+}
+.historia-title em{display:block;font-style:normal;color:var(--gold);font-size:1rem;letter-spacing:.35em;margin-bottom:14px;font-weight:700;text-shadow:0 0 16px var(--gold-glow)}
+.historia-quote{
+  position:relative;z-index:1;color:var(--text-2);font-size:1.02rem;line-height:1.7;
+  padding-left:20px;border-left:3px solid var(--gold);margin-top:24px;font-style:italic;background:linear-gradient(90deg,rgba(243,204,31,.08),transparent);padding-top:8px;padding-bottom:8px;
+}
+.historia-quote cite{display:block;margin-top:10px;font-style:normal;color:var(--text-3);font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600}
+.historia-body p{color:var(--text-2);margin-bottom:18px;line-height:1.75;font-size:1rem}
+.historia-body p strong{color:var(--text-1);font-weight:600}
+.historia-body p .hl{color:var(--gold);font-weight:700;text-shadow:0 0 10px rgba(243,204,31,.15)}
+details.history-detail{
+  margin-top:8px;border:1px solid var(--line-accent);border-radius:var(--radius-md);overflow:hidden;
+  background:var(--bg-3);transition:border-color .3s ease,box-shadow .3s ease;
+}
+details.history-detail[open]{border-color:var(--gold);box-shadow:0 6px 28px -12px var(--gold-glow)}
+details.history-detail > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);font-size:15px;
+  background:linear-gradient(180deg,var(--bg-4),var(--bg-3));user-select:none;
+}
+details.history-detail > summary::-webkit-details-marker{display:none}
+details.history-detail > summary .sum-left{display:flex;align-items:center;gap:14px}
+details.history-detail > summary .sum-left svg{width:20px;height:20px;color:var(--accent-2)}
+.chev{width:22px;height:22px;color:var(--gold);transition:transform .35s cubic-bezier(.7,0,.3,1)}
+details.history-detail[open] .chev{transform:rotate(180deg)}
+.history-detail .detail-body{padding:8px 24px 24px;border-top:1px solid var(--line-accent);display:grid;gap:16px;animation:fadeIn .45s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.history-detail .detail-body p{color:var(--text-2);line-height:1.78;font-size:.98rem;margin:0}
+.history-detail .detail-body p strong{color:var(--gold);font-weight:700}
+.linha-tempo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.linha-tempo div{
+  padding:14px 16px;border-radius:var(--radius-sm);background:var(--bg-3);
+  border:1px solid var(--line-accent);border-top:2px solid var(--gold);
+  transition:transform .25s ease,border-color .25s ease;
+}
+.linha-tempo div:hover{transform:translateY(-2px);border-color:var(--gold)}
+.linha-tempo div b{
+  display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;
+  color:var(--gold);font-size:1.1rem;letter-spacing:.05em;margin-bottom:4px;
+}
+.linha-tempo div span{color:var(--text-3);font-size:.85rem;line-height:1.5}
+.instrutores-head{text-align:center;margin-bottom:56px}
+.instrutores-head .eyebrow{justify-content:center}
+.instrutores-head h2{margin-bottom:12px}
+.instrutores-head p{max-width:640px;margin:0 auto;color:var(--text-3);line-height:1.7}
+.instrutores-grid{display:grid;grid-template-columns:repeat(var(--col-instr,minmax(0,1fr)),minmax(0,1fr));gap:32px}
+.instrutor-card{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  background:linear-gradient(180deg,var(--bg-3) 0%,var(--bg-2) 100%);
+  border:1px solid var(--line);transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease,box-shadow .4s ease;
+  display:flex;flex-direction:column;
+}
+.instrutor-card:hover{transform:translateY(-6px);border-color:var(--line-accent);box-shadow:var(--shadow-lg),0 0 0 1px var(--line-accent)}
+.instrutor-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .5s ease;box-shadow:0 0 12px var(--gold-glow);
+}
+.instrutor-card:hover::before{transform:scaleX(1)}
+.instrutor-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg-4);display:block}
+.instrutor-media .portrait{position:relative;width:100%;height:100%;display:block;overflow:hidden}
+.instrutor-media .portrait img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);filter:saturate(1.05) contrast(1.03);
+}
+.instrutor-card:hover .instrutor-media .portrait img{transform:scale(1.06)}
+.instrutor-media::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,transparent 35%,rgba(7,7,8,.35) 75%,rgba(7,7,8,.85) 100%),
+    linear-gradient(135deg,rgba(158,132,214,.18) 0%,transparent 55%);
+  z-index:1;pointer-events:none;
+}
+.portrait-initial{display:none}
+.instrutor-tag{
+  position:absolute;top:20px;left:20px;z-index:2;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:100px;background:rgba(11,11,11,.7);backdrop-filter:blur(8px);
+  border:1px solid var(--line-accent);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 10px rgba(243,204,31,.25);
+}
+.instrutor-tag svg{width:14px;height:14px}
+.instrutor-info{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
+.instrutor-nome{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:var(--text-1);letter-spacing:.02em;line-height:1.1;margin-bottom:4px}
+.instrutor-tratamento{color:var(--accent-2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px;text-shadow:0 0 12px rgba(158,132,214,.2)}
+.cref-badge{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  background:rgba(158,132,214,.1);border:1px solid var(--line-accent);
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  width:fit-content;margin-bottom:20px;
+}
+.cref-badge svg{width:12px;height:12px;color:var(--gold)}
+.cref-badge.variante-verde{background:rgba(15,169,88,.1);border-color:rgba(15,169,88,.28)}
+.cref-badge.variante-verde svg{stroke:#4ADE80}
+.instrutor-bio{color:var(--text-3);line-height:1.8;font-size:.97rem;flex:1;margin-bottom:20px}
+.instrutor-bio p + p{margin-top:12px}
+.instrutor-meta{display:flex;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line-accent)}
+.instrutor-meta span{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;background:var(--bg-3);
+  border:1px solid var(--line-accent);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--gold);
+}
+.instrutor-meta span svg{width:12px;height:12px;color:var(--accent-2)}
+.metodo-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.metodo-intro h2{margin-bottom:18px}
+.metodo-intro .big{font-size:1.1rem;color:var(--text-2);line-height:1.8;margin-bottom:28px;max-width:520px}
+.metodo-intro .big strong{color:var(--gold)}
+.metodo-list{display:grid;gap:14px;margin-bottom:32px}
+.metodo-list li{
+  list-style:none;display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:var(--radius-md);
+  background:var(--bg-3);border:1px solid var(--line-accent);
+  transition:border-color .3s ease,transform .3s ease,background .3s ease;
+}
+.metodo-list li:hover{border-color:var(--gold);transform:translateX(4px);background:rgba(158,132,214,.04)}
+.metodo-list li svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:2px;filter:drop-shadow(0 0 6px var(--gold-glow))}
+.metodo-list li b{display:block;color:var(--gold);margin-bottom:4px;font-size:1rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.metodo-list li span{color:var(--text-3);font-size:.93rem;line-height:1.65}
+.metodo-card{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feature{
+  position:relative;padding:30px 24px 28px;border-radius:var(--radius-md);
+  background:linear-gradient(180deg,var(--bg-3) 0%,var(--bg-2) 100%);border:1px solid var(--line-accent);
+  overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s ease;
+}
+.feature:hover{transform:translateY(-4px);border-color:var(--gold)}
+.feature::before{content:'';position:absolute;top:0;left:0;width:48px;height:3px;background:linear-gradient(90deg,var(--accent-2),var(--gold));box-shadow:0 0 20px var(--gold-glow)}
+.feature::after{content:'';position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(158,132,214,.22),transparent 60%);transition:opacity .4s ease;opacity:.7}
+.feature-num{
+  position:relative;font-family:'Barlow Condensed',sans-serif;font-weight:800;color:var(--gold);font-size:2.8rem;letter-spacing:-.02em;line-height:1;
+  margin-bottom:18px;opacity:.3;z-index:1;text-shadow:0 0 18px var(--gold-glow);
+}
+.feature-icon{
+  position:relative;z-index:1;width:44px;height:44px;display:grid;place-items:center;border-radius:10px;
+  background:rgba(243,204,31,.08);color:var(--gold);margin-bottom:16px;
+  border:1px solid var(--line-accent);box-shadow:inset 0 0 0 1px rgba(243,204,31,.05);
+}
+.feature-icon svg{width:22px;height:22px;filter:drop-shadow(0 0 6px rgba(243,204,31,.25))}
+.feature h3{position:relative;z-index:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.02em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;line-height:1.2}
+.feature p{position:relative;z-index:1;color:var(--text-3);font-size:.94rem;line-height:1.7}
+.feature p strong{color:var(--gold)}
+.feature.big-row{grid-column:span 2;padding:36px 32px}
+.feature.big-row::after{width:260px;height:260px;top:-80px;right:-80px;background:radial-gradient(circle,rgba(243,204,31,.18),transparent 60%)}
+.feature.big-row .feature-icon{width:56px;height:56px}
+.feature.big-row .feature-icon svg{width:28px;height:28px}
+.feature.big-row h3{font-size:1.5rem}
+.contato-band{
+  margin-top:48px;border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,var(--accent-deep) 0%,var(--accent) 40%,#6a47a8 70%,var(--gold-deep) 130%);
+  padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;
+  position:relative;overflow:hidden;box-shadow:0 20px 60px -20px var(--accent-glow);
+  border:1px solid rgba(243,204,31,.25);
+}
+.contato-band::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,rgba(243,204,31,.08) 0 2px,transparent 2px 24px);
+  mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);
+}
+.contato-band::after{
+  content:'';position:absolute;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(243,204,31,.18),transparent 60%);right:-120px;top:-120px;
+}
+.contato-band .band-text{position:relative;z-index:1;max-width:520px}
+.contato-band .band-text h3{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2rem;
+  color:#fff;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;margin-bottom:10px;
+  text-shadow:0 2px 20px rgba(243,204,31,.2);
+}
+.contato-band .band-text p{color:rgba(255,255,255,.86);font-size:1rem;line-height:1.65}
+.contato-band .cta-band{
+  position:relative;z-index:1;flex-shrink:0;
+  background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 100%);color:#1a1400;border:1px solid rgba(255,255,255,.4);
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.4),0 0 30px rgba(243,204,31,.3);
+}
+.contato-band .cta-band svg{color:var(--accent-deep)}
+.contato-band .cta-band:hover{background:var(--bg-1);color:var(--gold);border-color:var(--gold)}
+.contato-band .cta-band::after{display:none}
+footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56px 0 24px;margin-top:0}
+.footer-grid{
+  display:grid;grid-template-columns:1.2fr .9fr .9fr 1.1fr;gap:48px;
+  padding-bottom:40px;border-bottom:1px solid var(--line-accent);
+}
+.foot-brand .logo{margin-bottom:18px}
+.foot-brand p{color:var(--text-3);font-size:.92rem;line-height:1.75;max-width:380px;margin-bottom:22px}
+.foot-social{display:flex;gap:10px;margin-bottom:22px}
+.foot-social a{
+  width:42px;height:42px;border-radius:10px;display:grid;place-items:center;
+  background:var(--bg-3);border:1px solid var(--line-accent);color:var(--text-2);transition:all .3s ease;
+}
+.foot-social a:hover{color:#1a1400;background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px -8px var(--gold-glow)}
+.foot-social svg{width:18px;height:18px}
+.foot-escola-mae{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);
+  background:rgba(243,204,31,.08);border:1px solid rgba(243,204,31,.25);
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;line-height:1.3;
+  transition:all .25s ease;width:fit-content;
+}
+.foot-escola-mae svg{width:14px;height:14px;flex-shrink:0;color:var(--accent-2)}
+.foot-escola-mae:hover{background:rgba(243,204,31,.16);border-color:var(--gold);transform:translateY(-1px)}
+.foot-col h4{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;
+  display:flex;align-items:center;gap:10px;text-shadow:0 0 12px var(--gold-glow);
+}
+.foot-col h4::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-accent),transparent)}
+.foot-col ul{list-style:none;display:grid;gap:12px}
+.foot-col ul li a{display:flex;align-items:center;gap:10px;color:var(--text-3);font-size:.93rem;transition:color .2s ease,transform .2s ease}
+.foot-col ul li a:hover{color:var(--gold);transform:translateX(3px)}
+.foot-col ul li a svg{width:16px;height:16px;color:var(--accent-2);flex-shrink:0}
+.foot-col address{font-style:normal;color:var(--text-3);font-size:.93rem;line-height:1.75;display:grid;gap:12px}
+.foot-col address div{display:flex;gap:10px;align-items:flex-start}
+.foot-col address div svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;margin-top:4px;filter:drop-shadow(0 0 6px var(--gold-glow))}
+.foot-col address div strong{display:block;color:var(--gold);font-weight:700;font-size:.9rem;margin-bottom:2px;letter-spacing:.02em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.foot-col address div span{font-size:.88rem;line-height:1.55;color:var(--text-3)}
+.foot-col address div span a{color:inherit;text-decoration:underline;text-decoration-color:var(--line-accent);transition:all .2s ease}
+.foot-col address div span a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+.foot-bottom{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  padding-top:24px;color:var(--text-4);font-size:.82rem;letter-spacing:.05em;
+  text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:500;
+}
+.foot-bottom span strong{color:var(--gold);font-weight:700;text-shadow:0 0 10px var(--gold-glow)}
+.foot-shield{display:inline-flex;align-items:center;justify-content:center;width:22px;height:24px;margin-right:8px;vertical-align:middle;filter:drop-shadow(0 0 5px var(--accent-glow))}
+.foot-shield img{width:100%;height:100%;object-fit:contain;display:block}
+.foot-lineage{display:inline-flex;align-items:center}
+.whatsapp-float{
+  position:fixed;right:26px;bottom:26px;z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(180deg,#2ee072 0%,var(--whatsapp) 100%);color:#fff;
+  box-shadow:0 10px 30px -6px rgba(37,211,102,.55),0 2px 8px rgba(0,0,0,.35);
+  border:2px solid rgba(255,255,255,.18);animation:wapulse 2.6s ease-in-out infinite;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.whatsapp-float:hover{transform:scale(1.08);animation-play-state:paused;box-shadow:0 14px 40px -6px rgba(37,211,102,.7)}
+.whatsapp-float svg{width:30px;height:30px;z-index:2;position:relative;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
+.whatsapp-float::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(37,211,102,.35);
+  animation:waving 2.6s ease-out infinite;z-index:-1;
+}
+.whatsapp-label{
+  position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(10px);
+  background:var(--bg-3);color:var(--text-1);border:1px solid var(--line);
+  padding:10px 16px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.08em;white-space:nowrap;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow-lg);
+}
+.whatsapp-label::after{
+  content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);
+  width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line);
+}
+.whatsapp-float:hover .whatsapp-label{opacity:1;transform:translateY(-50%) translateX(0)}
+@keyframes wapulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.02)}}
+@keyframes waving{0%{transform:scale(.8);opacity:.7}80%,100%{transform:scale(1.6);opacity:0}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal.delay-1{transition-delay:.08s}.reveal.delay-2{transition-delay:.16s}.reveal.delay-3{transition-delay:.24s}.reveal.delay-4{transition-delay:.32s}
+
+/* --- As 15 Regras · Fichas --- */
+.regras-grid{
+  display:grid;gap:22px;
+  grid-template-columns:repeat(var(--col-regras,3),minmax(0,1fr));
+  margin-top:20px;
+}
+.regra-ficha{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:32px 28px 30px;border-radius:16px;
+  background:linear-gradient(180deg,rgba(30,35,40,.72) 0%,rgba(16,19,22,.80) 100%);
+  border:1px solid rgba(158,132,214,.18);
+  box-shadow:0 10px 36px -20px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.04);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s ease,box-shadow .3s ease;
+  display:flex;flex-direction:column;gap:18px;
+}
+.regra-ficha::before{
+  content:'';position:absolute;top:0;left:0;width:64px;height:3px;
+  background:linear-gradient(90deg,var(--gold-bright),var(--accent-2));
+  box-shadow:0 0 18px var(--gold-glow);
+}
+.regra-ficha::after{
+  content:'';position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none;
+  background:radial-gradient(500px 200px at 100% 0%,rgba(123,91,184,.22),transparent 55%),
+             radial-gradient(400px 200px at 0% 120%,rgba(243,204,31,.12),transparent 55%);
+  transition:opacity .4s ease;
+}
+.regra-ficha:hover{
+  transform:translateY(-5px);
+  border-color:rgba(243,204,31,.35);
+  box-shadow:0 20px 56px -18px rgba(158,132,214,.55),inset 0 1px 0 rgba(255,255,255,.08);
+}
+.regra-ficha:hover::after{opacity:1}
+.regra-num{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:-.01em;
+  font-size:clamp(3rem,4vw,4.4rem);line-height:1;color:transparent;
+  background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 55%,var(--accent-2) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  text-shadow:0 0 40px rgba(243,204,31,.25);
+  width:fit-content;position:relative;
+}
+.regra-num::after{
+  content:'';position:absolute;left:0;right:40%;bottom:-8px;height:2px;
+  background:linear-gradient(90deg,var(--accent-2),transparent);
+}
+.regra-texto{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.02em;
+  font-size:1.05rem;line-height:1.4;color:var(--text-1);text-transform:uppercase;
+}
+.regra-texto strong{color:var(--gold)}
+.regras-intro{max-width:720px;margin-bottom:36px}
+.regras-intro p.big{font-size:1.08rem;color:var(--text-3);line-height:1.75;margin-top:14px}
+.regras-cta{margin-top:38px;display:flex;justify-content:center}
+@media (max-width:1200px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .footer-grid .foot-brand{grid-column:span 2}
+}
+@media (max-width:1024px){
+  :root{--pad:48px}
+  .nav{gap:28px}
+  .historia-grid{gap:36px}
+  .historia-visual{min-height:420px;padding:30px}
+  .historia-title{font-size:2.1rem}
+  .metodo-wrap{gap:40px}
+  .feature.big-row{grid-column:span 1}
+  .metodo-card{grid-template-columns:1fr 1fr}
+  .regras-grid{grid-template-columns:1fr 1fr !important;gap:18px}
+  .regra-ficha{padding:28px 24px}
+  .regra-num{font-size:3rem}
+}
+@media (max-width:820px){.hero-tactical{display:none}}
+@media (max-width:768px){
+  :root{--pad:40px}
+  .site-header .container{height:70px}
+  .nav{
+    position:fixed;top:70px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;
+    padding:14px 20px 24px;background:rgba(7,7,8,.96);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line-accent);transform:translateY(-120%);transition:transform .4s cubic-bezier(.7,0,.3,1);
+  }
+  .nav.open{transform:translateY(0)}
+  .nav a{padding:16px 8px;border-bottom:1px solid var(--line);font-size:15px}
+  .nav a::after{display:none}
+  .nav-cta{margin-top:18px;text-align:center;justify-content:center}
+  .menu-toggle{display:grid}
+  .hero{min-height:auto;padding:110px 0 64px}
+  .hero h1{font-size:clamp(2.6rem,14vw,4.4rem);margin-bottom:22px}
+  .hero-sub{margin-bottom:34px;font-size:1.04rem}
+  .hero-stats{grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+  .hero-stats div b{font-size:1.6rem}
+  .hero-stats div b small{font-size:1.3rem}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .cta-btn{justify-content:center}
+  .historia-grid,.metodo-wrap,.instrutores-grid{grid-template-columns:1fr !important;gap:32px}
+  .historia-visual{min-height:auto;padding:30px}
+  .historia-title{font-size:2rem}
+  .historia-visual::after{font-size:10rem}
+  .linha-tempo{grid-template-columns:1fr;gap:10px}
+  .linha-tempo div{display:flex;align-items:center;gap:16px}
+  .linha-tempo div b{font-size:1rem;margin:0;min-width:72px}
+  .instrutor-media{aspect-ratio:16/10}
+  .instrutor-card:hover{transform:translateY(-3px)}
+  .metodo-card{grid-template-columns:1fr}
+  .feature.big-row{grid-column:span 1;padding:30px 24px}
+  .feature.big-row::after{width:160px;height:160px;top:-40px;right:-40px}
+  .contato-band{flex-direction:column;align-items:flex-start;padding:32px 28px;gap:22px}
+  .contato-band .band-text h3{font-size:1.55rem}
+  .contato-band .cta-band{align-self:stretch;justify-content:center;text-align:center}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .footer-grid .foot-brand{grid-column:span 1}
+  .foot-bottom{flex-direction:column;gap:10px;text-align:center}
+  .whatsapp-float{width:56px;height:56px;right:18px;bottom:18px}
+  .whatsapp-float svg{width:26px;height:26px}
+  .whatsapp-label{display:none}
+  .regras-grid{grid-template-columns:1fr !important;gap:16px}
+  .regra-ficha{padding:26px 22px 24px}
+  .regra-num{font-size:2.6rem}
+}
+@media (max-width:480px){
+  :root{--pad:32px}
+  .container{padding:0 20px}
+  .logo-top{font-size:11px}
+  .logo-mid{font-size:19px}
+  .hero-tag{font-size:11px;padding:7px 12px 7px 8px;letter-spacing:.16em}
+  h2.font-display{font-size:1.85rem}
+  .section-lead{font-size:1rem;margin-bottom:32px}
+  .instrutor-nome{font-size:1.5rem}
+  .instrutor-info{padding:24px 22px 26px}
+  .cta-btn{padding:14px 22px;font-size:14px;letter-spacing:.14em}
+  .whatsapp-float{width:52px;height:52px}
+}
+</style>
+</head>
+<body>
+
+<template id="tpl-nav-link">
+  <a data-link-ancora><span data-content></span></a>
+</template>
+
+<template id="tpl-hero-stat">
+  <div>
+    <b><span data-value></span><small data-suffix hidden></small></b>
+    <span data-label></span>
+  </div>
+</template>
+
+<template id="tpl-escola-paragrafo">
+  <p></p>
+</template>
+
+<template id="tpl-timeline-item">
+  <div>
+    <b></b>
+    <span></span>
+  </div>
+</template>
+
+<template id="tpl-acordeao-paragrafo">
+  <p></p>
+</template>
+
+<template id="tpl-diferencial-item">
+  <li>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <div><b></b><span></span></div>
+  </li>
+</template>
+
+<template id="tpl-feature-card">
+  <div class="feature">
+    <div class="feature-num"></div>
+    <div class="feature-icon" data-icon-wrap><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></div>
+    <h3></h3>
+    <p></p>
+  </div>
+</template>
+
+<template id="tpl-regra-ficha">
+  <article class="regra-ficha reveal">
+    <div class="regra-num" data-numero></div>
+    <div class="regra-texto" data-texto></div>
+  </article>
+</template>
+
+<template id="tpl-metaparagrafo">
+  <p></p>
+</template>
+
+<template id="tpl-instrutor-card">
+  <article class="instrutor-card reveal">
+    <div class="instrutor-media">
+      <div class="portrait">
+        <img alt="" />
+      </div>
+      <div class="instrutor-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <span data-tag></span>
+      </div>
+    </div>
+    <div class="instrutor-info">
+      <h3 class="instrutor-nome"></h3>
+      <div class="instrutor-tratamento"></div>
+      <div class="cref-badge" data-credencial-wrap>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span data-credencial-texto></span>
+      </div>
+      <div class="instrutor-bio" data-bio-wrap></div>
+      <div class="instrutor-meta" data-meta-wrap></div>
+    </div>
+  </article>
+</template>
+
+<template id="tpl-instrutor-biografia">
+  <p></p>
+</template>
+
+<template id="tpl-instrutor-meta">
+  <span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span></span>
+  </span>
+</template>
+
+<template id="tpl-footer-nav-link">
+  <li>
+    <a data-ancora>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span></span>
+    </a>
+  </li>
+</template>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="Krav-Maga Bukan Santos">
+      <span class="logo-badge" aria-hidden="true">
+        <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão oficial Bukan" />
+      </span>
+      <span class="logo-stack">
+        <span class="logo-top" data-content="nav.logo.top">Defesa Pessoal · Linhagem Oficial</span>
+        <span class="logo-mid"><span data-content="nav.logo.mid">KRAV-MAGA</span> <span class="red" data-content="nav.logo.destaque">BUKAN</span></span>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <div class="nav-links" data-slot="nav-links"></div>
+      <a class="cta-btn nav-cta" data-cta="whatsapp-aula" target="_blank" rel="noopener">
+        <span data-content="nav.ctaHeader.texto">Aula Experimental</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-label="Banner principal">
+  <div class="hero-stripe" aria-hidden="true"></div>
+  <div class="hero-stripe-2" aria-hidden="true"></div>
+  <div class="hero-tactical" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag" aria-hidden="true">
+        <span class="mini-badge">
+          <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão Bukan" />
+        </span>
+        <span data-content="hero.tag.texto">Unidade oficial Bukan em Santos — SP</span>
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+      <h1 class="font-display">
+        <span class="line"><span data-content="hero.titulo.linha1">Sua segurança</span></span>
+        <span class="line"><span><span class="word-accent" data-content="hero.titulo.linha2Destaque">começa aqui.</span></span></span>
+      </h1>
+      <p class="hero-sub" data-content-html="hero.subtituloHtml">
+        Método <strong>oficial Bukan</strong>, criado por <strong>Imi Lichtenfeld</strong> e preservado por <strong>Yaron Liechtenstein</strong>. Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <strong>foco na sua sobrevivência.</strong>
+      </p>
+      <div class="hero-actions">
+        <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
+          <span data-content="hero.ctas.primario.texto">Agende sua aula experimental</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="cta-btn ghost" data-ancora="hero.ctas.secundario.ancora" href="#metodo">
+          <span data-content="hero.ctas.secundario.texto">Conhecer o método</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats" aria-label="Números da escola" data-slot="hero-stats"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="escola">
+  <div class="container">
+    <div class="eyebrow reveal" data-content="escola.cabecalho.eyebrow">Origem & Autoridade</div>
+    <h2 class="font-display reveal delay-1">
+      <span data-content="escola.cabecalho.titulo">A escola e a linhagem </span><span class="text-accent" data-content="escola.cabecalho.tituloDestaque">Bukan</span>
+    </h2>
+    <p class="section-lead reveal delay-2" data-content="escola.cabecalho.lead">
+      Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições.
+    </p>
+    <div class="historia-grid">
+      <div class="historia-visual reveal" aria-hidden="true">
+        <div class="historia-crest">
+          <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão oficial da linhagem Bukan" />
+        </div>
+        <h3 class="historia-title">
+          <em data-content="escola.visual.tituloSuperior">Bukan · Rehovot · Israel</em>
+          <span data-content="escola.visual.tituloPrincipal">O Brasão da Linhagem Original</span>
+        </h3>
+        <div class="linha-tempo" data-slot="timeline"></div>
+        <blockquote class="historia-quote">
+          <span data-content="escola.visual.citacao.texto">"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo."</span>
+        </blockquote>
+      </div>
+      <div class="historia-body" data-slot="texto-corpo">
+        <p class="reveal">
+          O <span class="hl">Krav-Maga Bukan</span> foi fundado em <strong>1978, em Israel</strong>, por <strong>Imi Lichtenfeld</strong> — criador do Krav-Maga original das Forças de Defesa de Israel — e seu sucessor <strong>Yaron Liechtenstein</strong>, em Rehovot.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="instrutores">
+  <div class="container">
+    <div class="instrutores-head">
+      <div class="eyebrow reveal" data-content="instrutores.cabecalho.eyebrow">Quem vai treinar com você</div>
+      <h2 class="font-display reveal delay-1">
+        <span data-content="instrutores.cabecalho.titulo">Nossos </span><span class="text-accent" data-content="instrutores.cabecalho.tituloDestaque">instrutores</span>
+      </h2>
+      <p class="reveal delay-2" data-content="instrutores.cabecalho.lead">
+        Trajetórias reais, credenciais sólidas e uma missão: transformar o método oficial Bukan em capacidade prática de proteção para cada aluno.
+      </p>
+    </div>
+    <div class="instrutores-grid" data-slot="instrutores-grid" style="--col-instr: 2;"></div>
+  </div>
+</section>
+
+<section class="section section--alt" id="metodo">
+  <div class="container">
+    <div class="metodo-wrap">
+      <div class="metodo-intro reveal">
+        <div class="eyebrow" data-content="metodo.cabecalho.eyebrow">O que nos diferencia</div>
+        <h2 class="font-display">
+          <span data-content="metodo.cabecalho.titulo">O diferencial do </span><span class="text-accent" data-content="metodo.cabecalho.tituloDestaque">método</span>
+        </h2>
+        <p class="big" data-content-html="metodo.cabecalho.lead">
+          Não somos uma arte marcial esportiva. Somos um <strong>sistema de sobrevivência</strong> — e cada detalhe do treinamento é pensado para que você reaja da melhor forma quando segundos importam.
+        </p>
+        <ul class="metodo-list" data-slot="metodo-diferenciais"></ul>
+        <a class="cta-btn" data-cta="whatsapp-metodo" target="_blank" rel="noopener">
+          <span data-content="metodo.cta.texto">Quero experimentar</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="metodo-card" data-slot="metodo-cards"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="regras">
+  <div class="container">
+    <div class="regras-intro reveal">
+      <div class="eyebrow" data-content="regras.cabecalho.eyebrow">Filosofia oficial do método</div>
+      <h2 class="font-display">
+        <span data-content="regras.cabecalho.titulo">As </span><span class="text-accent" data-content="regras.cabecalho.tituloDestaque">15 Regras</span>
+      </h2>
+      <p class="big" data-content="regras.cabecalho.lead">
+        Os 15 princípios fundamentais do método Bukan, transmitidos por Imi Lichtenfeld e preservados pela linhagem oficial de Rehovot — Israel.
+      </p>
+    </div>
+    <div class="regras-grid" data-slot="regras-fichas"></div>
+    <div class="regras-cta reveal delay-3">
+      <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
+        <span data-content="regras.cta.texto">Quero treinar essas regras</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="container">
+    <div class="eyebrow reveal" data-content="nav.colunasRodape.encontreNosCta || 'Venha até nós'">Venha até nós</div>
+    <h2 class="font-display reveal delay-1">
+      Endereço &amp; <span class="text-accent">contato direto</span>
+    </h2>
+    <p class="section-lead reveal delay-2" data-content="site.contato.endereco.lead || 'Estamos localizados no coração de Santos, prontos para receber você em uma aula experimental sem compromisso.'">
+      Estamos localizados no coração de Santos, prontos para receber você em uma aula experimental sem compromisso.
+    </p>
+
+    <footer aria-label="Rodapé com informações de contato">
+      <div class="container" style="padding:0">
+        <div class="footer-grid">
+          <div class="foot-brand">
+            <a href="#top" class="logo">
+              <span class="logo-stack">
+                <span class="logo-top" data-content="nav.logo.top">Defesa Pessoal</span>
+                <span class="logo-mid"><span data-content="nav.logo.mid">KRAV-MAGA</span> <span class="red" data-content="nav.logo.destaque">BUKAN</span></span>
+              </span>
+            </a>
+            <p data-content="site.footer.sobre">
+              A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.
+            </p>
+            <div class="foot-social" aria-label="Redes sociais">
+              <a data-link-externo="site.contato.whatsapp.link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              </a>
+              <a data-link-externo="site.redesSociais.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a data-link-externo="site.redesSociais.facebook" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+              </a>
+              <a data-link-externo="site.redesSociais.youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+            <a class="foot-escola-mae" data-link-externo="site.escolaMae.url" target="_blank" rel="noopener" data-content-title="site.escolaMae.title" title="Visite o site oficial da linhagem Bukan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <span data-content="site.escolaMae.label">Escola Mãe — Bukan Oficial (Rehovot, Israel)</span>
+            </a>
+          </div>
+          <div class="foot-col">
+            <h4 data-content="nav.colunasRodape.navegacao">Navegação</h4>
+            <ul data-slot="footer-nav-links"></ul>
+          </div>
+          <div class="foot-col">
+            <h4 data-content="nav.colunasRodape.encontreNos">Encontre-nos</h4>
+            <address>
+              <div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <strong>Endereço</strong>
+                  <span>
+                    <span data-content="site.contato.endereco.rua">Rua Dr. Carvalho de Mendonça, 236</span><br>
+                    <span data-content="site.contato.endereco.complemento">Sala 11 — Vila Belmiro</span><br>
+                    <span data-content="site.contato.endereco.cidade">Santos — SP</span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <span><a data-link-externo="site.contato.whatsapp.link" target="_blank" rel="noopener" data-content="site.contato.whatsapp.numero">(13) 98848-6092</a></span>
+                </div>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <strong>E-mail</strong>
+                  <span data-content="site.contato.email">contato@kravmagabukansantos.com.br</span>
+                </div>
+              </div>
+            </address>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span data-content="site.footer.copy">© 2026 <strong>Krav-Maga Bukan Santos</strong>. Todos os direitos reservados.</span>
+          <span class="foot-lineage">
+            <span class="foot-shield">
+              <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão Bukan" />
+            </span>
+            <span data-content="site.footer.linhagem">Linhagem <strong style="color:var(--accent)">Bukan Oficial</strong> — Rehovot, Israel</span>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="contato-band reveal">
+      <div class="band-text">
+        <h3 data-content="metodo.contatoBand.titulo">Pronto para começar sua jornada?</h3>
+        <p data-content="metodo.contatoBand.texto">
+          Fale diretamente com um instrutor agora mesmo pelo WhatsApp. Sem burocracia, sem mensalidades escondidas.
+        </p>
+      </div>
+      <a class="cta-btn cta-band" data-cta="whatsapp-instrutor" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <span data-content="metodo.contatoBand.cta">Falar com Instrutor</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<a class="whatsapp-float" data-cta="whatsapp-aula" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <span class="whatsapp-label" data-content="nav.whatsappFlutuante.label">Agende sua aula →</span>
+</a>
+
+<script>
+(function(){
+  'use strict';
+
+  const FEATURE_ICONS = {
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    bolt: '<polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+    users: '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>',
+    class: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>'
+  };
+
+  const CONTENT_FILES = {
+    site:   'content/site.json',
+    nav:    'content/nav.json',
+    hero:   'content/hero.json',
+    escola: 'content/escola.json',
+    instrutores: 'content/instrutores.json',
+    metodo: 'content/metodo.json',
+    regras: 'content/regras.json'
+  };
+
+  const FALLBACK_CONTENT = {
+    site: {meta:{title:"Krav-Maga Bukan Santos | Defesa Pessoal Real",description:"Krav-Maga Bukan Santos em Santos/SP — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein.",themeColor:"#0B0B0B"},
+      escolaMae:{url:"https://kravmaga-bukan.com/pt/bukan",label:"Escola Mãe — Bukan Oficial (Rehovot, Israel)",title:"Visite o site oficial da linhagem Bukan"},
+      contato:{whatsapp:{numero:"(13) 98848-6092",link:"https://wa.me/5513988486092",mensagens:{aulaExperimental:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga.",conhecerMetodo:"?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",falarComInstrutor:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."}},
+        email:"contato@kravmagabukansantos.com.br",endereco:{rua:"Rua Dr. Carvalho de Mendonça, 236",complemento:"Sala 11 — Vila Belmiro",cidade:"Santos — SP"}},
+      redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/",youtube:"https://www.youtube.com/user/KaKautec"},
+      logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
+      assets:{instrutores:{kakau:{src:"Kakau_01.jpg",alt:"Profª. Kakau"},samuel:{src:"Samuka_01.jpeg",alt:"Profº. Samuel"}}},
+      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos."}},
+    nav:{logo:{top:"Defesa Pessoal · Linhagem Oficial",mid:"KRAV-MAGA",destaque:"BUKAN"},
+      navegacao:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
+      ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
+      colunasRodape:{navegacao:"Navegação",encontreNos:"Encontre-nos"},whatsappFlutuante:{label:"Agende sua aula →"}},
+    hero:{tag:{texto:"Unidade oficial Bukan em Santos — SP"},titulo:{linha1:"Sua segurança",linha2Destaque:"começa aqui."},
+      subtituloHtml:"Método oficial Bukan.",ctas:{primario:{texto:"Agende sua aula experimental"},secundario:{texto:"Conhecer o método",ancora:"#metodo"}},
+      stats:[{valor:"45+",rotulo:"Anos do Método Bukan"},{valor:"10",rotulo:"Faixas-Pretas Originais"},{valor:"100%",rotulo:"Foco em Sobrevivência"}]},
+    escola:{cabecalho:{eyebrow:"Origem & Autoridade",titulo:"A escola e a linhagem Bukan",tituloDestaque:"Bukan",lead:"Linhagem de sobrevivência."},
+      visual:{tituloSuperior:"Bukan · Rehovot · Israel",tituloPrincipal:"O Brasão da Linhagem Original",timeline:[{data:"1978",texto:"Criação do método por Imi L. e Yaron L."},{data:"10 FPs",texto:"Os 10 faixas-pretas fundadores"},{data:"Matriz",texto:"Academia em Rehovot, Israel"}],
+        citacao:{texto:"\"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo.\"",autor:"— Filosofia Bukan"}},
+      textoCorpo:["Fundado em 1978, em Israel, por Imi Lichtenfeld e Yaron Liechtenstein."],
+      acordeao:{tituloAbrir:"Leia a história completa",paragrafos:["História completa."]}},
+    instrutores:{cabecalho:{eyebrow:"Quem vai treinar com você",titulo:"Nossos instrutores",tituloDestaque:"instrutores",lead:"Trajetórias reais, credenciais sólidas."},
+      lista:[
+        {id:"kakau",tag:"Instrutora Chefe",patente:"faixa-preta",patenteTexto:"Faixa Preta",credencial:{tipo:"CREF 136558-G/SP",variante:"roxa"},nome:"Carolina Almeida",tratamento:"Profª. Kakau",bio:["Mais de 15 anos."],meta:["Especialista em Auto-Defesa Feminina","+ 15 anos de experiência"]},
+        {id:"samuel",tag:"Instrutor",patente:"faixa-verde",patenteTexto:"Faixa Verde",credencial:{tipo:"Credenciado Bukan",variante:"verde"},nome:"Samuel Arcanjo",tratamento:"Profº. Samuel",bio:["Mais de 12 anos."],meta:["Formações Internacionais","Foco em Defesa Real Urbana"]}
+      ]},
+    metodo:{cabecalho:{eyebrow:"O que nos diferencia",titulo:"O diferencial do método",tituloDestaque:"método",lead:"Sistema de sobrevivência."},
+      diferenciaisLista:[{titulo:"Aprendizado de dentro para fora",texto:"Mentalidade → Distância → Técnica."}],
+      cta:{texto:"Quero experimentar"},
+      cardsDestaque:[{numero:"01",icone:"shield",titulo:"Mentalidade primeiro",texto:"Antes de qualquer movimento.",largura:"normal"}],
+      contatoBand:{titulo:"Pronto para começar?",texto:"Fale diretamente com um instrutor.",cta:"Falar com Instrutor"}},
+    regras:{cabecalho:{eyebrow:"Filosofia oficial do método",titulo:"As 15 Regras",tituloDestaque:"15 Regras",lead:"Os 15 princípios fundamentais do método Bukan, transmitidos por Imi Lichtenfeld e preservados pela linhagem oficial de Rehovot — Israel."},
+      cta:{texto:"Quero treinar essas regras",tipo:"whatsapp-aula"},
+      lista:[
+        {numero:"01",texto:"MENOR CAMINHO, MÁXIMA VELOCIDADE, MÁXIMO PESO EM DIREÇÃO AO OPONENTE."},
+        {numero:"02",texto:"QUE NADA SEJA ESTRANHO AO NOSSO CORPO."},
+        {numero:"03",texto:"SEJAM SUAVES."},
+        {numero:"04",texto:"A FORÇA DOS GOLPES E CHUTES NO KRAV MAGA FICA NO CAMINHO DE VOLTA."},
+        {numero:"05",texto:"NUNCA DÊ AS COSTAS PARA O INIMIGO."},
+        {numero:"06",texto:"A DETERMINAÇÃO DE ENTRAR (LEHIKANES)."},
+        {numero:"07",texto:"FAÇA O QUE CONSEGUE, MAS FAÇA CERTO."},
+        {numero:"08",texto:"KRAV MAGA É ENSINADO EM HEBRAICO."},
+        {numero:"09",texto:"SEJA BOM O SUFICIENTE PARA NÃO PRECISAR MATAR."},
+        {numero:"10",texto:"VÁ PARA JUNTO DO INIMIGO."},
+        {numero:"11",texto:"USE A FORÇA DO OPONENTE CONTRA ELE MESMO."},
+        {numero:"12",texto:"APRENDAM A \"LER\" O INIMIGO."},
+        {numero:"13",texto:"DEFESA ESPECÍFICA CONTRA ATAQUE ESPECÍFICO."},
+        {numero:"14",texto:"SEMPRE MANTER A DISTÂNCIA DE UM PASSO DO INIMIGO."},
+        {numero:"15",texto:"MEDIOCRIDADE É O INIMIGO Nº 1 DO KRAV MAGA E DA HUMANIDADE TODA."}
+      ]}
+  };
+
+  let CONTENT = {};
+
+  function collectTxtPaths(obj, acc, prefix) {
+    acc = acc || { singles: [], arrays: [] };
+    prefix = prefix || '';
+    if (Array.isArray(obj)) {
+      obj.forEach((v, i) => collectTxtPaths(v, acc, prefix + '[' + i + ']'));
+    } else if (obj && typeof obj === 'object') {
+      Object.keys(obj).forEach(k => {
+        const v = obj[k];
+        const path = prefix ? prefix + '.' + k : k;
+        if (k.endsWith('_txt') && typeof v === 'string') {
+          acc.singles.push({ keyPath: path, src: v, outKey: k.slice(0, -4) });
+        } else if (k.endsWith('_txts') && Array.isArray(v)) {
+          v.forEach((src, i) => {
+            if (typeof src === 'string') {
+              acc.arrays.push({ keyPath: path, index: i, src: src, outKey: k.slice(0, -5) });
+            }
+          });
+          collectTxtPaths(v, acc, path);
+        } else {
+          collectTxtPaths(v, acc, path);
+        }
+      });
+    }
+    return acc;
+  }
+
+  function setByPath(obj, keyPath, value, outKeyOverride) {
+    const parts = [];
+    keyPath.split('.').forEach(seg => {
+      const arrayRe = /^([^\[]+)((?:\[\d+\])*)$/.exec(seg);
+      if (arrayRe) {
+        parts.push(arrayRe[1]);
+        const indices = (arrayRe[2].match(/\d+/g) || []).map(Number);
+        indices.forEach(i => parts.push(i));
+      } else parts.push(seg);
+    });
+    let cursor = obj;
+    for (let i = 0; i < parts.length - 1; i++) {
+      const p = parts[i];
+      if (cursor[p] == null) cursor[p] = typeof parts[i + 1] === 'number' ? [] : {};
+      cursor = cursor[p];
+    }
+    const lastKey = parts[parts.length - 1];
+    const finalKey = (outKeyOverride && typeof lastKey === 'string' && lastKey.endsWith('_txt') && lastKey.slice(0, -4) === outKeyOverride.slice(0, outKeyOverride.length))
+      ? (outKeyOverride != null ? outKeyOverride : lastKey)
+      : lastKey;
+    cursor[finalKey] = value;
+    return true;
+  }
+
+  function materializeContent(root) {
+    if (!root || typeof root !== 'object') return;
+    const touched = new WeakSet();
+    function walk(node, parent, key) {
+      if (node == null) return;
+      if (typeof node === 'object') {
+        if (touched.has(node)) return;
+        touched.add(node);
+        if (Array.isArray(node)) {
+          for (let i = 0; i < node.length; i++) walk(node[i], node, i);
+        } else {
+          const keys = Object.keys(node);
+          for (let i = 0; i < keys.length; i++) {
+            const k = keys[i];
+            if (k.endsWith('_txt')) {
+              const outK = k.slice(0, -4);
+              node[outK] = node[k];
+              delete node[k];
+            } else if (k.endsWith('_txts')) {
+              const outK = k.slice(0, -5);
+              node[outK] = node[k];
+              delete node[k];
+            }
+          }
+          keys.forEach(k => walk(node[k], node, k));
+        }
+      }
+    }
+    walk(root);
+  }
+
+  function setArrayNode(parentNode, outKey) {
+    if (!parentNode) return null;
+    if (!Array.isArray(parentNode[outKey])) parentNode[outKey] = [];
+    return parentNode[outKey];
+  }
+
+  function resolveSingleRef(s, contentRoot, resolvedMap) {
+    const value = resolvedMap[s.src] || (FALLBACK_TXT && FALLBACK_TXT[s.src]) || '';
+    let cursor = contentRoot;
+    const segs = [];
+    s.keyPath.split('.').forEach(seg => {
+      const re = /^([^\[]+)((?:\[\d+\])*)$/.exec(seg);
+      if (re) {
+        segs.push(re[1]);
+        (re[2].match(/\d+/g) || []).forEach(i => segs.push(Number(i)));
+      } else segs.push(seg);
+    });
+    for (let i = 0; i < segs.length - 1; i++) {
+      const seg = segs[i];
+      const nextSeg = segs[i + 1];
+      if (cursor[seg] == null) cursor[seg] = typeof nextSeg === 'number' ? [] : {};
+      cursor = cursor[seg];
+    }
+    const lastSeg = segs[segs.length - 1];
+    cursor[lastSeg] = value;
+    cursor[s.outKey] = value;
+    if (lastSeg !== s.outKey && typeof lastSeg === 'string' && lastSeg.endsWith('_txt')) delete cursor[lastSeg];
+  }
+
+  function materializeTxtArrays(arraysList, contentRoot, resolvedMap) {
+    const grouped = {};
+    arraysList.forEach(a => {
+      if (!grouped[a.keyPath]) grouped[a.keyPath] = [];
+      const bucket = grouped[a.keyPath];
+      bucket[a.index] = resolvedMap[a.src] || (FALLBACK_TXT && FALLBACK_TXT[a.src]) || '';
+    });
+    Object.keys(grouped).forEach(keyPath => {
+      const arr = grouped[keyPath];
+      let cursor = contentRoot;
+      const segs = [];
+      keyPath.split('.').forEach(seg => {
+        const re = /^([^\[]+)((?:\[\d+\])*)$/.exec(seg);
+        if (re) {
+          segs.push(re[1]);
+          (re[2].match(/\d+/g) || []).forEach(i => segs.push(Number(i)));
+        } else segs.push(seg);
+      });
+      for (let i = 0; i < segs.length - 1; i++) {
+        const seg = segs[i];
+        const nextSeg = segs[i + 1];
+        if (cursor[seg] == null) cursor[seg] = typeof nextSeg === 'number' ? [] : {};
+        cursor = cursor[seg];
+      }
+      const lastSeg = segs[segs.length - 1];
+      const outKey = typeof lastSeg === 'string' && lastSeg.endsWith('_txts') ? lastSeg.slice(0, -5) : lastSeg;
+      cursor[outKey] = arr.filter(x => x != null);
+      if (lastSeg !== outKey && typeof lastSeg === 'string') delete cursor[lastSeg];
+    });
+  }
+
+  function resolveTxtRefs() {
+    const file = window.location.protocol === 'file:';
+    const collected = collectTxtPaths(CONTENT);
+    if (!collected.singles.length && !collected.arrays.length) {
+      materializeContent(CONTENT);
+      return Promise.resolve();
+    }
+    const resolvedMap = {};
+    collected.singles.forEach(s => { resolvedMap[s.src] = true; });
+    collected.arrays.forEach(s => { resolvedMap[s.src] = true; });
+    const srcList = Object.keys(resolvedMap);
+    if (file) {
+      srcList.forEach(src => { resolvedMap[src] = (FALLBACK_TXT && FALLBACK_TXT[src]) || 'Conteúdo indisponível no modo arquivo local.'; });
+    }
+    const fetches = file ? Promise.resolve() : Promise.all(srcList.map(src => {
+      return fetch('content/' + src, {cache:'no-cache'})
+        .then(r => r.ok ? r.text() : Promise.reject(src))
+        .then(txt => { resolvedMap[src] = (txt || '').replace(/\r/g, '').trimEnd(); })
+        .catch(() => { resolvedMap[src] = (FALLBACK_TXT && FALLBACK_TXT[src]) || ''; });
+    }));
+    return fetches.then(() => {
+      collected.singles.forEach(s => resolveSingleRef(s, CONTENT, resolvedMap));
+      materializeTxtArrays(collected.arrays, CONTENT, resolvedMap);
+      materializeContent(CONTENT);
+    });
+  }
+
+  const FALLBACK_TXT = {
+    "site/meta-description.txt":"Krav-Maga Bukan Santos em Santos/SP — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",
+    "site/footer-sobre.txt":"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",
+    "hero/subtitulo.txt":"Método <strong>oficial Bukan</strong>, criado por <strong>Imi Lichtenfeld</strong> e preservado por <strong>Yaron Liechtenstein</strong>. Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <strong>foco na sua sobrevivência.</strong>",
+    "escola/cabecalho-lead.txt":"Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições.",
+    "escola/citacao-texto.txt":"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo.",
+    "escola/corpo/01-fundacao.txt":"O <span class=\"hl\">Krav-Maga Bukan</span> foi fundado em <strong>1978, em Israel</strong>, por <strong>Imi Lichtenfeld</strong> — criador do Krav-Maga original das Forças de Defesa de Israel — e seu sucessor <strong>Yaron Liechtenstein</strong>, em Rehovot.",
+    "escola/corpo/02-metodologia.txt":"A metodologia é baseada em <span class=\"hl\">10 faixas-pretas</span> que formaram a espinha dorsal do sistema, sempre submetidos à pressão real de treinamento. A matriz em Rehovot, até hoje, serve como referência global para a preservação da técnica.",
+    "escola/corpo/03-santos.txt":"Na <strong>Bukan Santos</strong>, seguimos a mesma essência: nenhum movimento ornamental, nenhuma coreografia — apenas o que funciona sob estresse.",
+    "escola/acordeao/01-imi-origem.txt":"<strong>Imi Lichtenfeld (Imre Lichtenfeld)</strong>, nascido em 1910 em Budapeste, desenvolveu as bases do Krav-Maga a partir de sua experiência em combates reais durante a Segunda Guerra Mundial e como instrutor-chefe de defesa pessoal do exército israelense nas décadas de 40 e 50.",
+    "escola/acordeao/02-1978-yaron.txt":"Em <strong>1978</strong>, Imi oficialmente estruturou e formalizou o sistema Bukan ao lado de seu pupilo <strong>Yaron Liechtenstein</strong>, que assumiu a responsabilidade de preservar a linhagem original. Os <strong>10 faixas-pretas fundadores</strong> — indivíduos de elite, instrutores de forças especiais e professores cuidadosamente selecionados — foram o pilar da matriz em Rehovot.",
+    "escola/acordeao/03-principios.txt":"Diferente de vertentes comerciais, o método <strong>Bukan</strong> preserva rigorosamente os princípios originais: <strong>simplicidade, velocidade, agressividade controlada e foco em situações reais</strong>. Não há competições, não há pontos de esporte. Cada técnica é validada por sua eficácia em ambientes de pressão real.",
+    "escola/acordeao/04-matriz-rehovot.txt":"A academia matriz em <strong>Rehovot, Israel</strong>, até hoje certifica todos os instrutores credenciados no mundo — garantindo que o mesmo sistema ensinado a soldados e policiais seja transmitido a cada aluno, seja ele iniciante ou avançado.",
+    "instrutores/cabecalho-lead.txt":"Trajetórias reais, credenciais sólidas e uma missão: transformar o método oficial Bukan em capacidade prática de proteção para cada aluno.",
+    "instrutores/kakau/bio-01.txt":"Dedica-se ao Krav-Maga há mais de <strong>15 anos</strong>. Formada pela linhagem Bukan, já treinou com professores diretamente certificados pela matriz de Rehovot, participou de diversos seminários internacionais e comandou treinamentos para grupos de mulheres, policiais e civis.",
+    "instrutores/kakau/bio-02.txt":"Sua motivação é <strong>humanizar o ensino</strong> sem perder a rigidez técnica: cada aluno é único, e o método deve se adaptar às suas características — sempre dentro da essência do Bukan.",
+    "instrutores/kakau/meta-01.txt":"Especialista em Auto-Defesa Feminina",
+    "instrutores/kakau/meta-02.txt":"+ 15 anos de experiência",
+    "instrutores/samuel/bio-01.txt":"Há mais de <strong>12 anos</strong> no universo do Krav-Maga, Samuel acumula formações com grandes mestres brasileiros e internacionais da linhagem Bukan. Instrutor metódico, com foco em treinos de pressão progressiva e simulações realistas.",
+    "instrutores/samuel/bio-02.txt":"Sua inspiração vem de uma premissa simples: <strong>o treino deve ser mais duro que a rua</strong>. O aprendizado de dentro para fora — começando pela mentalidade e só depois pela técnica — é o pilar de suas aulas, sempre buscando extrair o melhor de cada aluno.",
+    "instrutores/samuel/meta-01.txt":"Formações Internacionais",
+    "instrutores/samuel/meta-02.txt":"Foco em Defesa Real Urbana",
+    "metodo/cabecalho-lead.txt":"Não somos uma arte marcial esportiva. Somos um <strong>sistema de sobrevivência</strong> — e cada detalhe do treinamento é pensado para que você reaja da melhor forma quando segundos importam.",
+    "metodo/diferencial-01-texto.txt":"Mentalidade → Distância → Técnica: a ordem correta para não travar sob pressão.",
+    "metodo/diferencial-02-texto.txt":"Sem movimentos bonitos que não funcionam. Apenas o que é testado e comprovado.",
+    "metodo/diferencial-03-texto.txt":"Treinamos o corpo e a mente para o caos — do técnico para o real.",
+    "metodo/diferencial-04-texto.txt":"Método oficial Bukan diretamente da matriz de Rehovot, Israel.",
+    "metodo/card-01-shield-texto.txt":"Antes de qualquer movimento, trabalhamos consciência situacional, controle emocional e tomada de decisão sob estresse.",
+    "metodo/card-02-target-texto.txt":"Aprenda a ler, criar e romper distâncias — uma das habilidades mais críticas para não ser surpreendido em situações reais.",
+    "metodo/card-03-bolt-texto.txt":"Do impacto do primeiro golpe à finalização segura: todas as técnicas são testadas em drills dinâmicos, com contato progressivo e simulações com múltiplos agressores, armas improvisadas e ambientes restritos. <strong>Nada de regras de ringue</strong>: aqui o objetivo é sair da situação com segurança — dentro da lei e da proporcionalidade.",
+    "metodo/card-04-users-texto.txt":"Homens, mulheres, jovens e adultos de qualquer condição física — adaptação individual sem perder a essência do método.",
+    "metodo/card-05-class-texto.txt":"Turmas com número limitado de alunos para atenção individual. Sua evolução é acompanhada de perto pelos instrutores.",
+    "metodo/contatoband-texto.txt":"Fale diretamente com um instrutor agora mesmo pelo WhatsApp. Sem burocracia, sem mensalidades escondidas.",
+    "regras/cabecalho-lead.txt":"Os 15 princípios fundamentais do método Bukan, transmitidos por Imi Lichtenfeld e preservados pela linhagem oficial de Rehovot — Israel.",
+    "regras/regra-01.txt":"MENOR CAMINHO, MÁXIMA VELOCIDADE, MÁXIMO PESO EM DIREÇÃO AO OPONENTE.",
+    "regras/regra-02.txt":"QUE NADA SEJA ESTRANHO AO NOSSO CORPO.",
+    "regras/regra-03.txt":"SEJAM SUAVES.",
+    "regras/regra-04.txt":"A FORÇA DOS GOLPES E CHUTES NO KRAV MAGA FICA NO CAMINHO DE VOLTA.",
+    "regras/regra-05.txt":"NUNCA DÊ AS COSTAS PARA O INIMIGO.",
+    "regras/regra-06.txt":"A DETERMINAÇÃO DE ENTRAR (LEHIKANES).",
+    "regras/regra-07.txt":"FAÇA O QUE CONSEGUE, MAS FAÇA CERTO.",
+    "regras/regra-08.txt":"KRAV MAGA É ENSINADO EM HEBRAICO.",
+    "regras/regra-09.txt":"SEJA BOM O SUFICIENTE PARA NÃO PRECISAR MATAR.",
+    "regras/regra-10.txt":"VÁ PARA JUNTO DO INIMIGO.",
+    "regras/regra-11.txt":"USE A FORÇA DO OPONENTE CONTRA ELE MESMO.",
+    "regras/regra-12.txt":"APRENDAM A \"LER\" O INIMIGO.",
+    "regras/regra-13.txt":"DEFESA ESPECÍFICA CONTRA ATAQUE ESPECÍFICO.",
+    "regras/regra-14.txt":"SEMPRE MANTER A DISTÂNCIA DE UM PASSO DO INIMIGO.",
+    "regras/regra-15.txt":"MEDIOCRIDADE É O INIMIGO Nº 1 DO KRAV MAGA E DA HUMANIDADE TODA."
+  };
+
+  function getByPath(obj, path) {
+    if (!obj || !path) return undefined;
+    return path.split('.').reduce((acc, key) => (acc == null ? undefined : acc[key]), obj);
+  }
+
+  function getValue(key) {
+    const v = getByPath(CONTENT, key);
+    if (v !== undefined && v !== null && v !== '') return v;
+    const fb = getByPath(FALLBACK_CONTENT, key);
+    return (fb !== undefined && fb !== null && fb !== '') ? fb : null;
+  }
+
+  function getWhatsappLink(tipo) {
+    const base = getValue('site.contato.whatsapp.link') || FALLBACK_CONTENT.site.contato.whatsapp.link;
+    const msgs = getValue('site.contato.whatsapp.mensagens') || {};
+    let query = '';
+    if (tipo === 'whatsapp-aula') query = msgs.aulaExperimental || '';
+    else if (tipo === 'whatsapp-metodo') query = msgs.conhecerMetodo || '';
+    else if (tipo === 'whatsapp-instrutor') query = msgs.falarComInstrutor || '';
+    return base + (query || '');
+  }
+
+  function populateStatic() {
+    document.querySelectorAll('[data-content]').forEach(el => {
+      const v = getValue(el.getAttribute('data-content'));
+      if (v !== null) el.textContent = v;
+    });
+    document.querySelectorAll('[data-content-html]').forEach(el => {
+      const v = getValue(el.getAttribute('data-content-html'));
+      if (v !== null) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-content-src]').forEach(el => {
+      const v = getValue(el.getAttribute('data-content-src'));
+      if (v !== null) el.setAttribute('src', v);
+    });
+    document.querySelectorAll('[data-content-alt]').forEach(el => {
+      const v = getValue(el.getAttribute('data-content-alt'));
+      if (v !== null) el.setAttribute('alt', v);
+    });
+    document.querySelectorAll('[data-content-title]').forEach(el => {
+      const v = getValue(el.getAttribute('data-content-title'));
+      if (v !== null) el.setAttribute('title', v);
+    });
+    document.querySelectorAll('[data-ancora]').forEach(el => {
+      const v = getValue(el.getAttribute('data-ancora'));
+      if (v) el.setAttribute('href', v);
+    });
+    document.querySelectorAll('[data-link-externo]').forEach(el => {
+      const v = getValue(el.getAttribute('data-link-externo'));
+      if (v && v !== '#') el.setAttribute('href', v);
+      else if (v === '#') el.setAttribute('href', '#');
+    });
+    document.querySelectorAll('[data-cta]').forEach(el => {
+      const tipo = el.getAttribute('data-cta');
+      el.setAttribute('href', getWhatsappLink(tipo));
+    });
+  }
+
+  function cloneTemplate(tplId) {
+    const tpl = document.getElementById(tplId);
+    return tpl ? tpl.content.firstElementChild.cloneNode(true) : null;
+  }
+
+  function parseValor(valor) {
+    if (!valor) return {numero: '', suffix: ''};
+    const match = valor.match(/^([\d.,]+)([^\d]*)$/);
+    if (!match) return {numero: valor, suffix: ''};
+    return {numero: match[1], suffix: match[2] || ''};
+  }
+
+  function renderHeroStats() {
+    const slot = document.querySelector('[data-slot="hero-stats"]');
+    const data = getValue('hero.stats') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    slot.style.gridTemplateColumns = 'repeat(' + Math.min(3, Math.max(1, data.length)) + ', minmax(0, 1fr))';
+    data.forEach(item => {
+      const node = cloneTemplate('tpl-hero-stat');
+      const {numero, suffix} = parseValor(item.valor);
+      node.querySelector('[data-value]').textContent = numero;
+      if (suffix) {
+        const sufNode = node.querySelector('[data-suffix]');
+        sufNode.textContent = suffix;
+        sufNode.hidden = false;
+      }
+      node.querySelector('[data-label]').textContent = item.rotulo;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderNavLinks() {
+    const slot = document.querySelector('[data-slot="nav-links"]');
+    const data = getValue('nav.navegacao') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    data.forEach(item => {
+      const node = cloneTemplate('tpl-nav-link');
+      node.setAttribute('href', item.ancora);
+      node.querySelector('[data-content]').textContent = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderFooterNav() {
+    const slot = document.querySelector('[data-slot="footer-nav-links"]');
+    const data = getValue('nav.navegacaoRodape') || getValue('nav.navegacao') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    data.forEach(item => {
+      const node = cloneTemplate('tpl-footer-nav-link');
+      node.querySelector('[data-ancora]').setAttribute('href', item.ancora);
+      node.querySelector('span:last-child').textContent = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderTimeline() {
+    const slot = document.querySelector('[data-slot="timeline"]');
+    const data = getValue('escola.visual.timeline') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    const cols = Math.min(3, Math.max(1, data.length));
+    slot.style.gridTemplateColumns = 'repeat(' + cols + ', minmax(0, 1fr))';
+    data.forEach(item => {
+      const node = cloneTemplate('tpl-timeline-item');
+      node.querySelector('b').textContent = item.data;
+      node.querySelector('span').textContent = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderTextoCorpo() {
+    const slot = document.querySelector('[data-slot="texto-corpo"]');
+    const data = getValue('escola.textoCorpo') || [];
+    const acordeao = getValue('escola.acordeao');
+    if (!slot) return;
+    const existingDetail = slot.querySelector('.history-detail');
+    slot.innerHTML = '';
+    data.forEach((html, i) => {
+      const p = document.createElement('p');
+      p.className = 'reveal' + (i > 0 ? ' delay-' + Math.min(i, 4) : '');
+      p.innerHTML = html;
+      slot.appendChild(p);
+    });
+    if (acordeao && acordeao.paragrafos && acordeao.paragrafos.length) {
+      const d = document.createElement('details');
+      d.className = 'history-detail reveal delay-' + Math.min(data.length + 1, 4);
+      d.innerHTML = `
+        <summary>
+          <span class="sum-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>${acordeao.tituloAbrir || 'Leia mais'}</span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="detail-body"></div>`;
+      const body = d.querySelector('.detail-body');
+      acordeao.paragrafos.forEach(html => {
+        const p = document.createElement('p');
+        p.innerHTML = html;
+        body.appendChild(p);
+      });
+      slot.appendChild(d);
+    } else if (existingDetail) {
+      slot.appendChild(existingDetail);
+    }
+  }
+
+  function renderDiferenciais() {
+    const slot = document.querySelector('[data-slot="metodo-diferenciais"]');
+    const data = getValue('metodo.diferenciaisLista') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    data.forEach(item => {
+      const node = cloneTemplate('tpl-diferencial-item');
+      node.querySelector('b').textContent = item.titulo;
+      node.querySelector('div span').textContent = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderMetodoCards() {
+    const slot = document.querySelector('[data-slot="metodo-cards"]');
+    const data = getValue('metodo.cardsDestaque') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    const cols = data.some(c => c.largura === 'larga') ? '1fr 1fr' : '1fr 1fr';
+    slot.style.gridTemplateColumns = cols;
+    data.forEach((item, idx) => {
+      const node = cloneTemplate('tpl-feature-card');
+      if (item.largura === 'larga') node.classList.add('big-row');
+      node.classList.add('delay-' + ((idx % 4) + 1));
+      node.querySelector('.feature-num').textContent = item.numero;
+      const svg = node.querySelector('[data-icon-wrap] svg');
+      const paths = FEATURE_ICONS[item.icone] || FEATURE_ICONS.shield;
+      svg.innerHTML = paths;
+      node.querySelector('h3').textContent = item.titulo;
+      node.querySelector('p').innerHTML = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderRegras() {
+    const slot = document.querySelector('[data-slot="regras-fichas"]');
+    const data = getValue('regras.lista') || [];
+    if (!slot) return;
+    slot.innerHTML = '';
+    const count = Math.max(1, data.length);
+    let cols = 3;
+    if (count <= 2) cols = count;
+    else if (count <= 4) cols = 2;
+    slot.style.setProperty('--col-regras', cols);
+    slot.style.setProperty('grid-template-columns', 'repeat(' + cols + ', minmax(0,1fr))');
+    data.forEach((item, idx) => {
+      const node = cloneTemplate('tpl-regra-ficha');
+      node.classList.add('delay-' + Math.min((idx % 4) + 1, 4));
+      const num = node.querySelector('[data-numero]');
+      num.textContent = item.numero;
+      node.querySelector('[data-texto]').textContent = item.texto;
+      slot.appendChild(node);
+    });
+  }
+
+  function renderInstrutores() {
+    const slot = document.querySelector('[data-slot="instrutores-grid"]');
+    const data = getValue('instrutores.lista') || [];
+    const assets = getValue('site.assets.instrutores') || FALLBACK_CONTENT.site.assets.instrutores;
+    if (!slot) return;
+    slot.innerHTML = '';
+    const count = Math.max(1, data.length);
+    slot.style.setProperty('--col-instr', count);
+    if (count === 1) slot.style.gridTemplateColumns = 'minmax(0, 1fr)';
+    else slot.style.gridTemplateColumns = '';
+    data.forEach((p, idx) => {
+      const node = cloneTemplate('tpl-instrutor-card');
+      if (idx > 0) node.classList.add('delay-' + Math.min(idx + 1, 4));
+      const img = node.querySelector('.portrait img');
+      const asset = assets[p.id] || {src:'', alt:''};
+      img.src = asset.src;
+      img.alt = asset.alt || (p.nome + ' em treinamento');
+      node.querySelector('[data-tag]').textContent = p.tag;
+      node.querySelector('.instrutor-nome').textContent = p.nome;
+      node.querySelector('.instrutor-tratamento').textContent = p.tratamento;
+      const cred = node.querySelector('[data-credencial-wrap]');
+      if (p.credencial && p.credencial.variante === 'verde') {
+        cred.classList.add('variante-verde');
+        cred.querySelector('svg').setAttribute('viewBox','0 0 24 24');
+        cred.querySelector('svg').innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
+      }
+      node.querySelector('[data-credencial-texto]').textContent = p.credencial.tipo;
+      const bioWrap = node.querySelector('[data-bio-wrap]');
+      bioWrap.innerHTML = '';
+      (p.bio || []).forEach(bt => {
+        const bp = document.createElement('p');
+        bp.innerHTML = bt;
+        bioWrap.appendChild(bp);
+      });
+      const metaWrap = node.querySelector('[data-meta-wrap]');
+      metaWrap.innerHTML = '';
+      (p.meta || []).forEach(mt => {
+        const m = cloneTemplate('tpl-instrutor-meta');
+        m.querySelector('span:last-child').textContent = mt;
+        metaWrap.appendChild(m);
+      });
+      slot.appendChild(node);
+    });
+  }
+
+  function applyLangAndMeta() {
+    const lang = getValue('site.meta.lang');
+    if (lang) document.documentElement.setAttribute('lang', lang);
+  }
+
+  function bindStaticBehavior() {
+    const header = document.getElementById('siteHeader');
+    const menuBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+      const sections = document.querySelectorAll('section[id]');
+      const y = window.scrollY + 120;
+      sections.forEach(sec => {
+        const top = sec.offsetTop, bot = top + sec.offsetHeight;
+        const id = sec.id;
+        const link = document.querySelector('.nav a[href="#'+id+'"]');
+        if(link) link.classList.toggle('active', y >= top && y < bot);
+      });
+    }, {passive:true});
+    menuBtn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('.nav a');
+      if (a) {
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+    const revealers = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      revealers.forEach(el => io.observe(el));
+    } else {
+      revealers.forEach(el => el.classList.add('in-view'));
+    }
+  }
+
+  function bootRenders() {
+    applyLangAndMeta();
+    populateStatic();
+    renderNavLinks();
+    renderHeroStats();
+    renderTimeline();
+    renderTextoCorpo();
+    renderInstrutores();
+    renderDiferenciais();
+    renderMetodoCards();
+    renderRegras();
+    renderFooterNav();
+    bindStaticBehavior();
+  }
+
+  function init() {
+    const isFile = window.location.protocol === 'file:';
+    if (isFile) {
+      CONTENT = JSON.parse(JSON.stringify(FALLBACK_CONTENT));
+      resolveTxtRefs().then(bootRenders).catch(bootRenders);
+      return;
+    }
+    const loaders = Object.keys(CONTENT_FILES).map(key => {
+      return fetch(CONTENT_FILES[key], {cache:'no-cache'})
+        .then(r => r.ok ? r.json() : Promise.reject(key))
+        .then(json => CONTENT[key] = json)
+        .catch(() => { CONTENT[key] = FALLBACK_CONTENT[key] || {}; });
+    });
+    Promise.all(loaders)
+      .then(resolveTxtRefs)
+      .then(bootRenders)
+      .catch(() => {
+        CONTENT = JSON.parse(JSON.stringify(FALLBACK_CONTENT));
+        resolveTxtRefs().then(bootRenders).catch(bootRenders);
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

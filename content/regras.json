@@ -1,0 +1,30 @@
+{
+  "_comment": "Subunidade As 15 Regras do Método Bukan (transmitidas por Imi Lichtenfeld, linhagem oficial Rehovot). Adicione ou remova regras alterando o array 'lista' abaixo — o grid de fichas auto-ajusta as colunas. Textos longos em /content/regras/*.txt",
+  "cabecalho": {
+    "eyebrow": "Filosofia oficial do método",
+    "titulo": "As 15 Regras",
+    "tituloDestaque": "15 Regras",
+    "lead_txt": "regras/cabecalho-lead.txt"
+  },
+  "cta": {
+    "texto": "Quero treinar essas regras",
+    "tipo": "whatsapp-aula"
+  },
+  "lista": [
+    { "numero": "01", "texto_txt": "regras/regra-01.txt" },
+    { "numero": "02", "texto_txt": "regras/regra-02.txt" },
+    { "numero": "03", "texto_txt": "regras/regra-03.txt" },
+    { "numero": "04", "texto_txt": "regras/regra-04.txt" },
+    { "numero": "05", "texto_txt": "regras/regra-05.txt" },
+    { "numero": "06", "texto_txt": "regras/regra-06.txt" },
+    { "numero": "07", "texto_txt": "regras/regra-07.txt" },
+    { "numero": "08", "texto_txt": "regras/regra-08.txt" },
+    { "numero": "09", "texto_txt": "regras/regra-09.txt" },
+    { "numero": "10", "texto_txt": "regras/regra-10.txt" },
+    { "numero": "11", "texto_txt": "regras/regra-11.txt" },
+    { "numero": "12", "texto_txt": "regras/regra-12.txt" },
+    { "numero": "13", "texto_txt": "regras/regra-13.txt" },
+    { "numero": "14", "texto_txt": "regras/regra-14.txt" },
+    { "numero": "15", "texto_txt": "regras/regra-15.txt" }
+  ]
+}

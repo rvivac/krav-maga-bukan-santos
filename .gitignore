@@ -1,0 +1,49 @@
+# --- Editor & IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Trae workspace state ---
+.trae/
+
+# --- OS generated ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- Python caches (python -m http.server, venvs) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.Python
+
+# --- Node (se futuramente usar npm/npx) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+dist/
+build/
+
+# --- Env / secrets (nunca commitar) ---
+.env
+.env.*
+!.env.example
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Screenshots / temporarios gerados por tools ---
+screenshots/
+*.tmp
+*.bak
