@@ -54,6 +54,7 @@
   "footer": {
     "copy_txt": "site/footer-copy.txt",
     "linhagem_txt": "site/footer-linhagem.txt",
-    "sobre_txt": "site/footer-sobre.txt"
+    "sobre_txt": "site/footer-sobre.txt",
+    "creditoDesign_txt": "site/footer-credito-design.txt"
   }
 }

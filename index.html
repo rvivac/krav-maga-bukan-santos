@@ -510,6 +510,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   padding-top:24px;color:var(--text-4);font-size:.82rem;letter-spacing:.05em;
   text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:500;
 }
+.foot-bottom + .foot-bottom{padding-top:14px;margin-top:18px;border-top:1px solid var(--line-soft)}
+.foot-credit .foot-design{color:var(--text-3);font-weight:600}
+.foot-credit .foot-design span{color:var(--gold);font-weight:700;text-shadow:0 0 10px var(--gold-glow)}
 .foot-bottom span strong{color:var(--gold);font-weight:700;text-shadow:0 0 10px var(--gold-glow)}
 .foot-shield{display:inline-flex;align-items:center;justify-content:center;width:22px;height:24px;margin-right:8px;vertical-align:middle;filter:drop-shadow(0 0 5px var(--accent-glow))}
 .foot-shield img{width:100%;height:100%;object-fit:contain;display:block}
@@ -1116,6 +1119,10 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
             <span data-content="site.footer.linhagem">Linhagem <strong style="color:var(--accent)">Bukan Oficial</strong> — Rehovot, Israel</span>
           </span>
         </div>
+        <div class="foot-bottom foot-credit">
+          <span>&nbsp;</span>
+          <span class="foot-design">Design &amp; Desenvolvimento · <span data-content="site.footer.creditoDesign">2026 Rvivac Guild LTDA</span></span>
+        </div>
       </div>
     </footer>
 
@@ -1171,7 +1178,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/",googleReviews:"https://maps.app.goo.gl/2DuTmLF9cavCRFN18"},
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
       assets:{instrutores:{kakau:{src:"Kakau_01.jpg",alt:"Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"},samuel:{src:"Samuka_01.jpeg",alt:"Profº. Samuel Arcanjo em posição de treino de Krav-Maga"}}},
-      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real."}},
+      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA"}},
     nav:{logo:{top:"Defesa Pessoal · Linhagem Oficial",mid:"KRAV-MAGA",destaque:"BUKAN"},
       navegacao:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
@@ -1400,6 +1407,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "site/footer-linhagem.txt":"Linhagem Bukan Oficial — Rehovot, Israel",
     "site/google-reviews-url.txt":"https://maps.app.goo.gl/2DuTmLF9cavCRFN18",
     "site/footer-sobre.txt":"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",
+    "site/footer-credito-design.txt":"2026 Rvivac Guild LTDA",
     "hero/tag.txt":"Unidade oficial Bukan em Santos — SP",
     "hero/titulo-linha1.txt":"Sua segurança",
     "hero/titulo-linha2destaque.txt":"começa aqui.",
