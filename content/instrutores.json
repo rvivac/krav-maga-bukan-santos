@@ -2,7 +2,7 @@
   "_comment": "Cards dos instrutores. Atualize nomes, patentes e paths dos TXTs de biografia. Textos longos em /content/instrutores/{id}/*.txt",
   "cabecalho": {
     "eyebrow": "Quem vai treinar com você",
-    "titulo": "Nossos instrutores",
+    "titulo": "Nossos",
     "tituloDestaque": "instrutores",
     "lead_txt": "instrutores/cabecalho-lead.txt"
   },

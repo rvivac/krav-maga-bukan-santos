@@ -2,7 +2,7 @@
   "_comment": "Subunidade As 15 Regras do Método Bukan (transmitidas por Imi Lichtenfeld, linhagem oficial Rehovot). Adicione ou remova regras alterando o array 'lista' abaixo — o grid de fichas auto-ajusta as colunas. Textos longos em /content/regras/*.txt",
   "cabecalho": {
     "eyebrow": "Filosofia oficial do método",
-    "titulo": "As 15 Regras",
+    "titulo": "As",
     "tituloDestaque": "15 Regras",
     "lead_txt": "regras/cabecalho-lead.txt"
   },
