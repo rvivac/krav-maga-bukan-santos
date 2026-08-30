@@ -7,12 +7,12 @@
   },
   "navegacao": [
     {
-      "ancora": "#escola",
-      "texto": "A Escola"
-    },
-    {
       "ancora": "#instrutores",
       "texto": "Instrutores"
+    },
+    {
+      "ancora": "#escola",
+      "texto": "A Escola"
     },
     {
       "ancora": "#metodo",
@@ -33,12 +33,12 @@
   },
   "navegacaoRodape": [
     {
-      "ancora": "#escola",
-      "texto": "A Escola"
-    },
-    {
       "ancora": "#instrutores",
       "texto": "Instrutores"
+    },
+    {
+      "ancora": "#escola",
+      "texto": "A Escola"
     },
     {
       "ancora": "#metodo",
