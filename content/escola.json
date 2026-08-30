@@ -1,36 +1,23 @@
 {
   "_comment": "Seção A Escola & História. Textos longos estão em /content/escola/*.txt — parágrafos separados por linha em branco no mesmo arquivo.",
   "cabecalho": {
-    "eyebrow": "Origem & Autoridade",
-    "titulo": "A escola e a linhagem",
-    "tituloDestaque": "Bukan",
+    "eyebrow_txt": "escola/cabecalho-eyebrow.txt",
+    "titulo_txt": "escola/cabecalho-titulo.txt",
+    "tituloDestaque_txt": "escola/cabecalho-titulodestaque.txt",
     "lead_txt": "escola/cabecalho-lead.txt"
   },
   "visual": {
-    "tituloSuperior": "Bukan · Rehovot · Israel",
-    "tituloPrincipal": "O Brasão da Linhagem Original",
-    "timeline": [
-      {
-        "data": "1978",
-        "texto": "Criação do método por Imi L. e Yaron L."
-      },
-      {
-        "data": "10 FPs",
-        "texto": "Os 10 faixas-pretas fundadores da linhagem"
-      },
-      {
-        "data": "Matriz",
-        "texto": "Academia Bukan em Rehovot, Israel"
-      }
-    ],
+    "tituloSuperior_txt": "escola/visual-superior.txt",
+    "tituloPrincipal_txt": "escola/visual-principal.txt",
+    "timeline_txt": "escola/timeline.txt",
     "citacao": {
       "texto_txt": "escola/citacao-texto.txt",
-      "autor": "— Filosofia Bukan"
+      "autor_txt": "escola/citacao-autor.txt"
     }
   },
   "textoCorpo_txt": "escola/corpo.txt",
   "acordeao": {
-    "tituloAbrir": "Leia a história completa",
+    "tituloAbrir_txt": "escola/acordeao-titulo.txt",
     "paragrafos_txt": "escola/acordeao.txt"
   }
 }

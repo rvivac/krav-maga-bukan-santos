@@ -1,19 +1,19 @@
 {
   "_comment": "Configurações gerais do site. Atualize aqui para mudar contatos, links e informações básicas sem alterar o HTML. Textos longos estão em /content/site/*.txt",
   "meta": {
-    "title": "Krav-Maga Bukan Santos | Defesa Pessoal Real",
+    "title_txt": "site/meta-title.txt",
     "description_txt": "site/meta-description.txt",
     "lang": "pt-BR",
     "themeColor": "#0B0B0B"
   },
   "escolaMae": {
     "url": "https://kravmaga-bukan.com/pt/bukan",
-    "label": "Escola Mãe — Bukan Oficial (Rehovot, Israel)",
-    "title": "Visite o site oficial da linhagem Bukan"
+    "label_txt": "site/escolamae-label.txt",
+    "title_txt": "site/escolamae-title.txt"
   },
   "contato": {
     "whatsapp": {
-      "numero": "(13) 98848-6092",
+      "numero_txt": "site/contato/whatsapp-numero.txt",
       "link": "https://wa.me/5513988486092",
       "textoBase": "https://wa.me/5513988486092",
       "mensagens": {
@@ -22,11 +22,11 @@
         "falarComInstrutor": "?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."
       }
     },
-    "email": "contato@kravmagabukansantos.com.br",
+    "email_txt": "site/contato/email.txt",
     "endereco": {
-      "rua": "Rua Dr. Carvalho de Mendonça, 236",
-      "complemento": "Sala 11 — Vila Belmiro",
-      "cidade": "Santos — SP"
+      "rua_txt": "site/contato/endereco-rua.txt",
+      "complemento_txt": "site/contato/endereco-complemento.txt",
+      "cidade_txt": "site/contato/endereco-cidade.txt"
     }
   },
   "redesSociais": {
@@ -50,8 +50,8 @@
     }
   },
   "footer": {
-    "copy": "© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",
-    "linhagem": "Linhagem Bukan Oficial — Rehovot, Israel",
+    "copy_txt": "site/footer-copy.txt",
+    "linhagem_txt": "site/footer-linhagem.txt",
     "sobre_txt": "site/footer-sobre.txt"
   }
 }

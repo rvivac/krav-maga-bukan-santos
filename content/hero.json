@@ -1,35 +1,22 @@
 {
   "_comment": "Conteúdo da primeira dobra (Hero). Atualize aqui textos, estatísticas e CTAs do topo. Textos longos estão em /content/hero/*.txt",
   "tag": {
-    "texto": "Unidade oficial Bukan em Santos — SP"
+    "texto_txt": "hero/tag.txt"
   },
   "titulo": {
-    "linha1": "Sua segurança",
-    "linha2Destaque": "começa aqui."
+    "linha1_txt": "hero/titulo-linha1.txt",
+    "linha2Destaque_txt": "hero/titulo-linha2destaque.txt"
   },
   "subtituloHtml_txt": "hero/subtitulo.txt",
   "ctas": {
     "primario": {
-      "texto": "Agende sua aula experimental",
+      "texto_txt": "hero/cta-primario.txt",
       "tipo": "whatsapp-aula"
     },
     "secundario": {
-      "texto": "Conhecer o método",
+      "texto_txt": "hero/cta-secundario.txt",
       "ancora": "#metodo"
     }
   },
-  "stats": [
-    {
-      "valor": "45+",
-      "rotulo": "Anos do Método Bukan"
-    },
-    {
-      "valor": "10",
-      "rotulo": "Faixas-Pretas Originais"
-    },
-    {
-      "valor": "100%",
-      "rotulo": "Foco em Sobrevivência"
-    }
-  ]
+  "stats_txt": "hero/stats.txt"
 }

@@ -1,73 +1,73 @@
 {
   "_comment": "Seção O Método. Atualize diferenciais e cards de destaque. Textos longos em /content/metodo/*.txt",
   "cabecalho": {
-    "eyebrow": "O que nos diferencia",
-    "titulo": "O diferencial do",
-    "tituloDestaque": "método",
+    "eyebrow_txt": "metodo/cabecalho-eyebrow.txt",
+    "titulo_txt": "metodo/cabecalho-titulo.txt",
+    "tituloDestaque_txt": "metodo/cabecalho-titulodestaque.txt",
     "lead_txt": "metodo/cabecalho-lead.txt"
   },
   "diferenciaisLista": [
     {
-      "titulo": "Aprendizado de dentro para fora",
+      "titulo_txt": "metodo/diferencial-01-titulo.txt",
       "texto_txt": "metodo/diferencial-01-texto.txt"
     },
     {
-      "titulo": "Técnicas validadas em contexto real",
+      "titulo_txt": "metodo/diferencial-02-titulo.txt",
       "texto_txt": "metodo/diferencial-02-texto.txt"
     },
     {
-      "titulo": "Pressão progressiva & simulações",
+      "titulo_txt": "metodo/diferencial-03-titulo.txt",
       "texto_txt": "metodo/diferencial-03-texto.txt"
     },
     {
-      "titulo": "Linhagem preservada, sem diluições",
+      "titulo_txt": "metodo/diferencial-04-titulo.txt",
       "texto_txt": "metodo/diferencial-04-texto.txt"
     }
   ],
   "cta": {
-    "texto": "Quero experimentar",
+    "texto_txt": "metodo/cta.txt",
     "tipo": "whatsapp-metodo"
   },
   "cardsDestaque": [
     {
       "numero": "01",
       "icone": "shield",
-      "titulo": "Mentalidade primeiro",
+      "titulo_txt": "metodo/card-01-titulo.txt",
       "texto_txt": "metodo/card-01-shield-texto.txt",
       "largura": "normal"
     },
     {
       "numero": "02",
       "icone": "target",
-      "titulo": "Gerenciamento de distância",
+      "titulo_txt": "metodo/card-02-titulo.txt",
       "texto_txt": "metodo/card-02-target-texto.txt",
       "largura": "normal"
     },
     {
       "numero": "03",
       "icone": "bolt",
-      "titulo": "Eficácia real para sobrevivência urbana",
+      "titulo_txt": "metodo/card-03-titulo.txt",
       "texto_txt": "metodo/card-03-bolt-texto.txt",
       "largura": "larga"
     },
     {
       "numero": "04",
       "icone": "users",
-      "titulo": "Para todos os perfis",
+      "titulo_txt": "metodo/card-04-titulo.txt",
       "texto_txt": "metodo/card-04-users-texto.txt",
       "largura": "normal"
     },
     {
       "numero": "05",
       "icone": "class",
-      "titulo": "Turmas humanas",
+      "titulo_txt": "metodo/card-05-titulo.txt",
       "texto_txt": "metodo/card-05-class-texto.txt",
       "largura": "normal"
     }
   ],
   "contatoBand": {
-    "titulo": "Pronto para começar sua jornada?",
+    "titulo_txt": "metodo/contatoband-titulo.txt",
     "texto_txt": "metodo/contatoband-texto.txt",
-    "cta": "Falar com Instrutor"
+    "cta_txt": "metodo/contatoband-cta.txt"
   }
 }

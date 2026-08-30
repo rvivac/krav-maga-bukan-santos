@@ -1,38 +1,38 @@
 {
   "_comment": "Cards dos instrutores. Atualize nomes, patentes e paths dos TXTs de biografia. Textos longos em /content/instrutores/{id}/*.txt",
   "cabecalho": {
-    "eyebrow": "Quem vai treinar com você",
-    "titulo": "Nossos",
-    "tituloDestaque": "instrutores",
+    "eyebrow_txt": "instrutores/cabecalho-eyebrow.txt",
+    "titulo_txt": "instrutores/cabecalho-titulo.txt",
+    "tituloDestaque_txt": "instrutores/cabecalho-titulodestaque.txt",
     "lead_txt": "instrutores/cabecalho-lead.txt"
   },
   "lista": [
     {
       "id": "kakau",
-      "tag": "Instrutora Chefe",
+      "tag_txt": "instrutores/kakau/tag.txt",
       "patente": "faixa-preta",
-      "patenteTexto": "Faixa Preta",
+      "patenteTexto_txt": "instrutores/kakau/patente.txt",
       "credencial": {
-        "tipo": "CREF 136558-G/SP",
+        "tipo_txt": "instrutores/kakau/credencial.txt",
         "variante": "roxa"
       },
-      "nome": "Carolina Almeida",
-      "tratamento": "Profª. Kakau",
+      "nome_txt": "instrutores/kakau/nome.txt",
+      "tratamento_txt": "instrutores/kakau/tratamento.txt",
       "resumo_txt": "instrutores/kakau/resumo-01.txt",
       "bio_txt": "instrutores/kakau/bio.txt",
       "meta_txt": "instrutores/kakau/meta.txt"
     },
     {
       "id": "samuel",
-      "tag": "Instrutor",
+      "tag_txt": "instrutores/samuel/tag.txt",
       "patente": "faixa-verde",
-      "patenteTexto": "Faixa Verde",
+      "patenteTexto_txt": "instrutores/samuel/patente.txt",
       "credencial": {
-        "tipo": "Credenciado Bukan",
+        "tipo_txt": "instrutores/samuel/credencial.txt",
         "variante": "verde"
       },
-      "nome": "Samuel Arcanjo",
-      "tratamento": "Profº. Samuel",
+      "nome_txt": "instrutores/samuel/nome.txt",
+      "tratamento_txt": "instrutores/samuel/tratamento.txt",
       "resumo_txt": "instrutores/samuel/resumo-01.txt",
       "bio_txt": "instrutores/samuel/bio.txt",
       "meta_txt": "instrutores/samuel/meta.txt"
