@@ -51,6 +51,12 @@
       }
     }
   },
+  "horarios": {
+    "titulo_txt": "site/horarios-titulo.txt",
+    "cta_txt": "site/horarios-cta.txt",
+    "icone_txt": "site/horarios-icon.txt",
+    "turmas_txt": "site/horarios-turmas.txt"
+  },
   "footer": {
     "copy_txt": "site/footer-copy.txt",
     "linhagem_txt": "site/footer-linhagem.txt",

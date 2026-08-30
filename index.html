@@ -543,6 +543,129 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .whatsapp-float:hover .whatsapp-label{opacity:1;transform:translateY(-50%) translateX(0)}
 @keyframes wapulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.02)}}
 @keyframes waving{0%{transform:scale(.8);opacity:.7}80%,100%{transform:scale(1.6);opacity:0}}
+@keyframes htpulse{0%,100%{transform:translateY(0) scale(1) rotate(-3deg)}50%{transform:translateY(-5px) scale(1.03) rotate(3deg)}}
+@keyframes htwaving{0%{transform:scale(.8);opacity:.6}80%,100%{transform:scale(1.7);opacity:0}}
+.horarios-float{
+  position:fixed;right:26px;bottom:102px;z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 100%);color:#1a1400;
+  box-shadow:0 10px 30px -6px var(--gold-glow),0 2px 8px rgba(0,0,0,.35);
+  border:2px solid rgba(255,255,255,.22);animation:htpulse 2.8s ease-in-out infinite;
+  transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;
+}
+.horarios-float:hover{transform:scale(1.08);animation-play-state:paused;box-shadow:0 16px 44px -6px var(--gold-glow)}
+.horarios-float img{width:36px;height:36px;object-fit:contain;z-index:2;position:relative;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.horarios-float::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(243,204,31,.35);
+  animation:htwaving 2.8s ease-out infinite;z-index:-1;
+}
+.horarios-label{
+  position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(10px);
+  background:var(--bg-3);color:var(--text-1);border:1px solid var(--line);
+  padding:10px 16px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.08em;white-space:nowrap;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow-lg);
+}
+.horarios-label::after{
+  content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);
+  width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line);
+}
+.horarios-float:hover .horarios-label{opacity:1;transform:translateY(-50%) translateX(0)}
+
+.horarios-modal-overlay{
+  position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;
+  background:rgba(4,4,5,.72);backdrop-filter:blur(8px);padding:24px;
+}
+.horarios-modal-overlay.open{display:flex;animation:fadeIn .25s ease both}
+.horarios-modal{
+  position:relative;width:min(640px,100%);max-height:min(82vh,780px);overflow:hidden;
+  background:linear-gradient(180deg,rgba(22,26,31,.96) 0%,rgba(10,11,13,.98) 100%);
+  border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(243,204,31,.08);
+  display:flex;flex-direction:column;cursor:pointer;
+}
+.horarios-modal::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.horarios-modal-head{
+  padding:24px 28px 18px;border-bottom:1px solid var(--line-accent);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;
+  background:linear-gradient(180deg,rgba(243,204,31,.06),transparent);
+}
+.horarios-modal-head h2{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;letter-spacing:.04em;
+  display:flex;align-items:center;gap:12px;margin:0;
+}
+.horarios-modal-head h2 span:first-of-type{color:var(--text-1)}
+.horarios-modal-head h2 .text-accent{color:var(--gold);font-weight:700;text-shadow:0 0 14px var(--gold-glow)}
+.horarios-modal-head svg{width:28px;height:28px;color:var(--gold);filter:drop-shadow(0 0 10px var(--gold-glow))}
+.horarios-modal-fechar{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--text-2);
+  background:var(--bg-3);border:1px solid var(--line);transition:all .2s ease;cursor:pointer;
+}
+.horarios-modal-fechar:hover{color:var(--gold);border-color:var(--gold);background:rgba(243,204,31,.08)}
+.horarios-modal-fechar svg{width:22px;height:22px}
+.horarios-modal-body{
+  padding:22px 24px 24px;overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;cursor:pointer;
+}
+.horarios-modal-body::-webkit-scrollbar{width:10px}
+.horarios-modal-body::-webkit-scrollbar-thumb{background:rgba(243,204,31,.3);border-radius:10px}
+.horarios-dia{margin-bottom:18px;cursor:pointer}
+.horarios-dia:last-child{margin-bottom:0}
+.horarios-dia-tit{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;padding:8px 14px;
+  border-radius:10px;background:rgba(243,204,31,.08);border:1px solid rgba(243,204,31,.2);
+  display:flex;align-items:center;gap:10px;cursor:pointer;
+}
+.horarios-dia-tit::before{
+  content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold-glow);
+}
+.horarios-dia-grid{display:grid;gap:10px;cursor:pointer}
+.horarios-turma{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:12px;
+  background:rgba(158,132,214,.06);border:1px solid var(--line-accent);
+  transition:all .25s ease;cursor:pointer;
+}
+.horarios-turma:hover{background:rgba(243,204,31,.08);border-color:rgba(243,204,31,.32);transform:translateX(3px)}
+.horarios-turma-hora{
+  font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:700;
+  color:var(--text-1);background:var(--bg-3);
+  padding:6px 12px;border-radius:8px;border:1px solid var(--line);
+  min-width:120px;text-align:center;cursor:pointer;
+}
+.horarios-turma-info{display:flex;flex-direction:column;gap:3px;min-width:0;cursor:pointer}
+.horarios-turma-turma{
+  font-size:.96rem;font-weight:600;color:var(--text-1);line-height:1.3;cursor:pointer;
+}
+.horarios-turma-prof{
+  font-size:.8rem;color:var(--text-3);letter-spacing:.02em;cursor:pointer;
+}
+.horarios-turma-wa{
+  color:var(--whatsapp);cursor:pointer;
+}
+.horarios-turma-wa svg{width:22px;height:22px;filter:drop-shadow(0 0 8px rgba(37,211,102,.35))}
+.horarios-modal-foot{
+  padding:14px 24px 20px;border-top:1px solid var(--line-accent);
+  text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.92rem;letter-spacing:.08em;
+  text-transform:uppercase;font-weight:600;color:var(--text-3);cursor:pointer;
+  background:linear-gradient(0deg,rgba(37,211,102,.06),transparent);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.horarios-modal-foot svg{width:20px;height:20px;color:var(--whatsapp);filter:drop-shadow(0 0 10px rgba(37,211,102,.45))}
+.horarios-modal-foot strong{color:var(--whatsapp);font-weight:800}
+
+@media (max-width:560px){
+  .horarios-float{right:16px;bottom:88px;width:56px;height:56px}
+  .horarios-float img{width:32px;height:32px}
+  .whatsapp-float{width:56px;height:56px}
+  .horarios-modal{max-height:86vh;border-radius:18px}
+  .horarios-modal-head{padding:18px 18px 14px}
+  .horarios-modal-head h2{font-size:1.3rem}
+  .horarios-modal-body{padding:16px 14px 18px}
+  .horarios-turma{grid-template-columns:auto 1fr;gap:10px;padding:12px}
+  .horarios-turma-wa{display:none}
+  .horarios-turma-hora{min-width:100px;font-size:.85rem;padding:5px 10px}
+}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal.in-view{opacity:1;transform:translateY(0)}
 .reveal.delay-1{transition-delay:.08s}.reveal.delay-2{transition-delay:.16s}.reveal.delay-3{transition-delay:.24s}.reveal.delay-4{transition-delay:.32s}
@@ -1143,6 +1266,33 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 
 </main>
 
+<div class="horarios-float" id="horariosFloat" aria-label="Horários das aulas" title="Ver horários das turmas">
+  <img id="horariosIcon" data-content-src="site.horarios.icone" data-content-alt="site.logo.alt" alt="Relógio em kimono" src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=adorable%20round%20silver%20metal%20alarm%20clock%20character%20wearing%20white%20brazilian%20jiu%20jitsu%20kimono%20gi%20with%20solid%20yellow%20belt%2C%20two%20bells%20on%20top%2C%20metallic%20robot%20hands%20and%20feet%2C%203d%20render%20soft%20studio%20lighting%2C%20transparent%20background%2C%20square&image_size=square_hd" />
+  <span class="horarios-label">Horários das turmas →</span>
+</div>
+
+<div class="horarios-modal-overlay" id="horariosOverlay" aria-hidden="true" role="dialog" aria-label="Horários das turmas — Bukan Santos">
+  <div class="horarios-modal" id="horariosModal" role="document">
+    <div class="horarios-modal-head">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
+        <span data-content="site.horarios.titulo">Horários das</span>
+        <span class="text-accent">turmas</span>
+      </h2>
+      <button class="horarios-modal-fechar" aria-label="Fechar horários" id="horariosFechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="horarios-modal-body" id="horariosBody">
+      <!-- populado via JS -->
+    </div>
+    <div class="horarios-modal-foot">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      <span data-content="site.horarios.cta">Clique em qualquer ponto para <strong>falar no WhatsApp</strong> sobre estes horários</span>
+    </div>
+  </div>
+</div>
+
 <a class="whatsapp-float" data-cta="whatsapp-aula" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
   <span class="whatsapp-label" data-content="nav.whatsappFlutuante.label">Agende sua aula →</span>
@@ -1178,7 +1328,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/",googleReviews:"https://maps.app.goo.gl/2DuTmLF9cavCRFN18"},
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
       assets:{instrutores:{kakau:{src:"Kakau_01.jpg",alt:"Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"},samuel:{src:"Samuka_01.jpeg",alt:"Profº. Samuel Arcanjo em posição de treino de Krav-Maga"}}},
-      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA"}},
+      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA"},
+      horarios:{titulo:"Horários das turmas",cta:"Clique em qualquer ponto para falar no WhatsApp sobre estes horários",icone:"https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=adorable%20round%20silver%20metal%20alarm%20clock%20character%20wearing%20white%20brazilian%20jiu%20jitsu%20kimono%20gi%20with%20solid%20yellow%20belt%2C%20two%20bells%20on%20top%2C%20metallic%20robot%20hands%20and%20feet%2C%203d%20render%20soft%20studio%20lighting%2C%20transparent%20background%2C%20square&image_size=square_hd",turmas:"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"}},
     nav:{logo:{top:"Defesa Pessoal · Linhagem Oficial",mid:"KRAV-MAGA",destaque:"BUKAN"},
       navegacao:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
@@ -1492,7 +1643,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "regras/regra-12.txt":"APRENDAM A \"LER\" O INIMIGO.",
     "regras/regra-13.txt":"DEFESA ESPECÍFICA CONTRA ATAQUE ESPECÍFICO.",
     "regras/regra-14.txt":"SEMPRE MANTER A DISTÂNCIA DE UM PASSO DO INIMIGO.",
-    "regras/regra-15.txt":"MEDIOCRIDADE É O INIMIGO Nº 1 DO KRAV MAGA E DA HUMANIDADE TODA."
+    "regras/regra-15.txt":"MEDIOCRIDADE É O INIMIGO Nº 1 DO KRAV MAGA E DA HUMANIDADE TODA.",
+    "site/horarios-titulo.txt":"Horários das turmas",
+    "site/horarios-cta.txt":"Clique em qualquer ponto para falar no WhatsApp sobre estes horários",
+    "site/horarios-icon.txt":"https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=adorable%20round%20silver%20metal%20alarm%20clock%20character%20wearing%20white%20brazilian%20jiu%20jitsu%20kimono%20gi%20with%20solid%20yellow%20belt%2C%20two%20bells%20on%20top%2C%20metallic%20robot%20hands%20and%20feet%2C%203d%20render%20soft%20studio%20lighting%2C%20transparent%20background%2C%20square&image_size=square_hd",
+    "site/horarios-turmas.txt":"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"
   };
 
   function getByPath(obj, path) {
@@ -1865,6 +2020,90 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     }
   }
 
+  function renderHorarios() {
+    const body = document.getElementById('horariosBody');
+    if (!body) return;
+    const raw = getValue('site.horarios.turmas') || '';
+    const arr = parseArrayTxt(raw, ['dia', 'hora', 'turma', 'professor']);
+    const waSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>';
+    const groups = new Map();
+    const ordem = ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'];
+    arr.forEach(t => {
+      if (!t.dia || !t.hora) return;
+      if (!groups.has(t.dia)) groups.set(t.dia, []);
+      groups.get(t.dia).push(t);
+    });
+    body.innerHTML = '';
+    const diasOrdenados = [...groups.keys()].sort((a,b) => (ordem.indexOf(a) === -1 ? 99 : ordem.indexOf(a)) - (ordem.indexOf(b) === -1 ? 99 : ordem.indexOf(b)));
+    diasOrdenados.forEach(dia => {
+      const turmas = groups.get(dia);
+      const diaNode = document.createElement('div');
+      diaNode.className = 'horarios-dia';
+      const tit = document.createElement('div');
+      tit.className = 'horarios-dia-tit';
+      tit.textContent = dia;
+      diaNode.appendChild(tit);
+      const grid = document.createElement('div');
+      grid.className = 'horarios-dia-grid';
+      turmas.forEach(t => {
+        const row = document.createElement('div');
+        row.className = 'horarios-turma';
+        row.innerHTML =
+          '<div class="horarios-turma-hora">'+(t.hora||'')+'</div>'+
+          '<div class="horarios-turma-info">'+
+            '<div class="horarios-turma-turma">'+(t.turma||'')+'</div>'+
+            '<div class="horarios-turma-prof">'+(t.professor||'')+'</div>'+
+          '</div>'+
+          '<div class="horarios-turma-wa">'+waSvg+'</div>';
+        grid.appendChild(row);
+      });
+      diaNode.appendChild(grid);
+      body.appendChild(diaNode);
+    });
+  }
+
+  function abrirHorariosModal() {
+    const ov = document.getElementById('horariosOverlay');
+    if (ov) { ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); }
+  }
+  function fecharHorariosModal() {
+    const ov = document.getElementById('horariosOverlay');
+    if (ov) { ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
+  }
+  function abrirWhatsappHorarios() {
+    const url = getWhatsappLink('whatsapp-instrutor');
+    try { window.open(url, '_blank', 'noopener'); } catch(e) { window.location.href = url; }
+  }
+  function bindHorariosBehavior() {
+    const fbtn = document.getElementById('horariosFloat');
+    const fechar = document.getElementById('horariosFechar');
+    const overlay = document.getElementById('horariosOverlay');
+    const modal = document.getElementById('horariosModal');
+    if (fbtn) fbtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); abrirHorariosModal(); });
+    if (fechar) fechar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fecharHorariosModal(); });
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) { fecharHorariosModal(); return; }
+        e.preventDefault();
+        fecharHorariosModal();
+        setTimeout(abrirWhatsappHorarios, 80);
+      });
+    }
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        fecharHorariosModal();
+        setTimeout(abrirWhatsappHorarios, 80);
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('horariosOverlay')?.classList.contains('open')) {
+        fecharHorariosModal();
+      }
+    });
+  }
+
   function bootRenders() {
     applyLangAndMeta();
     populateStatic();
@@ -1877,7 +2116,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     renderMetodoCards();
     renderRegras();
     renderFooterNav();
+    renderHorarios();
     bindStaticBehavior();
+    bindHorariosBehavior();
   }
 
   function init() {
