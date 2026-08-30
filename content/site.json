@@ -32,7 +32,8 @@
   },
   "redesSociais": {
     "instagram": "https://www.instagram.com/kravmagabukansantos/",
-    "facebook":  "https://www.facebook.com/kravmagabukansantos/"
+    "facebook":  "https://www.facebook.com/kravmagabukansantos/",
+    "googleReviews_txt": "site/google-reviews-url.txt"
   },
   "logo": {
       "src": "logo_Bukan.png",
