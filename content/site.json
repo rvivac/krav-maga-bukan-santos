@@ -26,7 +26,8 @@
     "endereco": {
       "rua_txt": "site/contato/endereco-rua.txt",
       "complemento_txt": "site/contato/endereco-complemento.txt",
-      "cidade_txt": "site/contato/endereco-cidade.txt"
+      "cidade_txt": "site/contato/endereco-cidade.txt",
+      "maps_url_txt": "site/contato/maps-url.txt"
     }
   },
   "redesSociais": {

@@ -499,6 +499,12 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .foot-col address div span{font-size:.88rem;line-height:1.55;color:var(--text-3)}
 .foot-col address div span a{color:inherit;text-decoration:underline;text-decoration-color:var(--line-accent);transition:all .2s ease}
 .foot-col address div span a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+.addr-link{display:flex;gap:10px;align-items:flex-start;color:inherit;text-decoration:none;padding:2px;border-radius:4px;transition:background .2s ease,transform .2s ease,color .2s ease;min-height:48px;min-width:48px}
+.addr-link:hover{background:rgba(243,204,31,.08);transform:translateX(2px)}
+.addr-link:hover strong{color:var(--gold-bright)}
+.addr-link svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;margin-top:4px;filter:drop-shadow(0 0 6px var(--gold-glow))}
+.addr-link strong{display:block;color:var(--gold);font-weight:700;font-size:.9rem;margin-bottom:2px;letter-spacing:.02em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.addr-link span{font-size:.88rem;line-height:1.55;color:var(--text-3)}
 .foot-bottom{
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
   padding-top:24px;color:var(--text-4);font-size:.82rem;letter-spacing:.05em;
@@ -907,7 +913,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <span class="mini-badge">
           <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão Bukan" />
         </span>
-        <span data-content="hero.tag.texto">Unidade oficial Bukan em Teresópolis — RJ</span>
+        <span data-content="hero.tag.texto">Unidade oficial Bukan em Santos — SP</span>
         <span class="dot" aria-hidden="true"></span>
       </div>
       <h1 class="font-display">
@@ -1043,7 +1049,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
               </span>
             </a>
             <p data-content="site.footer.sobre">
-              A escola oficial do método Bukan em Teresópolis — RJ. Treinamento sério, credenciado e comprometido com a sua segurança real.
+              A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.
             </p>
             <div class="foot-social" aria-label="Redes sociais">
               <a data-link-externo="site.contato.whatsapp.link" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -1069,15 +1075,17 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
             <h4 data-content="nav.colunasRodape.encontreNos">Encontre-nos</h4>
             <address>
               <div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>Endereço</strong>
-                  <span>
-                    <span data-content="site.contato.endereco.rua">[Rua completa, número]</span><br>
-                    <span data-content="site.contato.endereco.complemento">[Complemento — Bairro]</span><br>
-                    <span data-content="site.contato.endereco.cidade">Teresópolis — RJ</span>
-                  </span>
-                </div>
+                <a class="addr-link" data-link-externo="site.contato.endereco.maps_url" target="_blank" rel="noopener" data-link-title="site.contato.endereco.maps_url" title="Abrir localização no Google Maps">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <div>
+                    <strong>Endereço</strong>
+                    <span>
+                      <span data-content="site.contato.endereco.rua">R. Carvalho de Mendonça, 236</span><br>
+                      <span data-content="site.contato.endereco.complemento">Sl 11 — Vila Belmiro</span><br>
+                      <span data-content="site.contato.endereco.cidade">Santos — SP · 11070-101</span>
+                    </span>
+                  </div>
+                </a>
               </div>
               <div>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1153,19 +1161,19 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   };
 
   const FALLBACK_CONTENT = {
-    site: {meta:{title:"Krav-Maga Bukan Santos | Defesa Pessoal Real",description:"Krav-Maga Bukan Santos em Teresópolis/RJ — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",themeColor:"#0B0B0B"},
+    site: {meta:{title:"Krav-Maga Bukan Santos | Defesa Pessoal Real",description:"Krav-Maga Bukan Santos em Santos/SP — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",themeColor:"#0B0B0B"},
       escolaMae:{url:"https://kravmaga-bukan.com/pt/bukan",label:"Escola Mãe — Bukan Oficial (Rehovot, Israel)",title:"Visite o site oficial da linhagem Bukan"},
       contato:{whatsapp:{numero:"(13) 98848-6092",link:"https://wa.me/5513988486092",mensagens:{aulaExperimental:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga.",conhecerMetodo:"?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",falarComInstrutor:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."}},
-        email:"contato@kravmagabukansantos.com.br",endereco:{rua:"[Rua completa, número]",complemento:"[Complemento — Bairro]",cidade:"Teresópolis — RJ"}},
+        email:"contato@kravmagabukansantos.com.br",endereco:{rua:"R. Carvalho de Mendonça, 236",complemento:"Sl 11 — Vila Belmiro",cidade:"Santos — SP · 11070-101",maps_url:"https://maps.app.goo.gl/nG1xVpYo97rPzwjm8"}},
       redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/"},
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
       assets:{instrutores:{kakau:{src:"Kakau_01.jpg",alt:"Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"},samuel:{src:"Samuka_01.jpeg",alt:"Profº. Samuel Arcanjo em posição de treino de Krav-Maga"}}},
-      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Teresópolis — RJ. Treinamento sério, credenciado e comprometido com a sua segurança real."}},
+      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real."}},
     nav:{logo:{top:"Defesa Pessoal · Linhagem Oficial",mid:"KRAV-MAGA",destaque:"BUKAN"},
       navegacao:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       colunasRodape:{navegacao:"Navegação",encontreNos:"Encontre-nos"},whatsappFlutuante:{label:"Agende sua aula →"}},
-    hero:{tag:{texto:"Unidade oficial Bukan em Teresópolis — RJ"},titulo:{linha1:"Sua segurança",linha2Destaque:"começa aqui."},
+    hero:{tag:{texto:"Unidade oficial Bukan em Santos — SP"},titulo:{linha1:"Sua segurança",linha2Destaque:"começa aqui."},
       subtituloHtml:"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <span class=\"hl\">foco na sua sobrevivência.</span>",ctas:{primario:{texto:"Agende sua aula experimental"},secundario:{texto:"Conhecer o método",ancora:"#metodo"}},
       stats:"45+\nAnos do Método Bukan\n\n6\nFaixas do Método Bukan\n\n100%\nFoco em Sobrevivência"},
     escola:{cabecalho:{eyebrow:"Origem & Autoridade",titulo:"A escola e a linhagem",tituloDestaque:"Bukan",lead:"Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições."},
@@ -1376,18 +1384,19 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 
   const FALLBACK_TXT = {
     "site/meta-title.txt":"Krav-Maga Bukan Santos | Defesa Pessoal Real",
-    "site/meta-description.txt":"Krav-Maga Bukan Santos em Teresópolis/RJ — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",
+    "site/meta-description.txt":"Krav-Maga Bukan Santos em Santos/SP — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",
     "site/escolamae-label.txt":"Escola Mãe — Bukan Oficial (Rehovot, Israel)",
     "site/escolamae-title.txt":"Visite o site oficial da linhagem Bukan",
     "site/contato/whatsapp-numero.txt":"(13) 98848-6092",
     "site/contato/email.txt":"contato@kravmagabukansantos.com.br",
-    "site/contato/endereco-rua.txt":"[Rua completa, número]",
-    "site/contato/endereco-complemento.txt":"[Complemento — Bairro]",
-    "site/contato/endereco-cidade.txt":"Teresópolis — RJ",
+    "site/contato/endereco-rua.txt":"R. Carvalho de Mendonça, 236",
+    "site/contato/endereco-complemento.txt":"Sl 11 — Vila Belmiro",
+    "site/contato/endereco-cidade.txt":"Santos — SP · 11070-101",
+    "site/contato/maps-url.txt":"https://maps.app.goo.gl/nG1xVpYo97rPzwjm8",
     "site/footer-copy.txt":"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",
     "site/footer-linhagem.txt":"Linhagem Bukan Oficial — Rehovot, Israel",
-    "site/footer-sobre.txt":"A escola oficial do método Bukan em Teresópolis — RJ. Treinamento sério, credenciado e comprometido com a sua segurança real.",
-    "hero/tag.txt":"Unidade oficial Bukan em Teresópolis — RJ",
+    "site/footer-sobre.txt":"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",
+    "hero/tag.txt":"Unidade oficial Bukan em Santos — SP",
     "hero/titulo-linha1.txt":"Sua segurança",
     "hero/titulo-linha2destaque.txt":"começa aqui.",
     "hero/subtitulo.txt":"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <span class=\"hl\">foco na sua sobrevivência.</span>",
