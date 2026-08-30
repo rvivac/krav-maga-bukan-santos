@@ -216,7 +216,7 @@ h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bo
   filter:drop-shadow(0 0 30px rgba(243,204,31,.2));
 }
 .hero-sub{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--text-2);line-height:1.7;max-width:580px;margin-bottom:42px;animation:fadeUp 1s .25s ease both}
-.hero-sub strong{color:var(--gold);font-weight:700}
+.hero-sub .hl{display:inline-block;color:var(--gold);font-weight:700;white-space:nowrap;padding:0 .14em;margin:0 .02em;border-radius:2px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 1s .4s ease both}
 .hero-stats{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
@@ -915,7 +915,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <span class="line"><span class="word-accent" data-content="hero.titulo.linha2Destaque">começa aqui.</span></span>
       </h1>
       <p class="hero-sub" data-content-html="hero.subtituloHtml">
-        Método <strong>oficial Bukan</strong>, criado por <strong>Imi Lichtenfeld</strong> e preservado por <strong>Yaron Liechtenstein</strong>. Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <strong>foco na sua sobrevivência.</strong>
+        Método <span class="hl">oficial Bukan,</span> criado por <span class="hl">Imi Lichtenfeld</span> e preservado por <span class="hl">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <span class="hl">foco na sua sobrevivência.</span>
       </p>
       <div class="hero-actions">
         <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
@@ -1166,7 +1166,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#escola",texto:"A Escola"},{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       colunasRodape:{navegacao:"Navegação",encontreNos:"Encontre-nos"},whatsappFlutuante:{label:"Agende sua aula →"}},
     hero:{tag:{texto:"Unidade oficial Bukan em Teresópolis — RJ"},titulo:{linha1:"Sua segurança",linha2Destaque:"começa aqui."},
-      subtituloHtml:"Método <strong>oficial Bukan</strong>, criado por <strong>Imi Lichtenfeld</strong> e preservado por <strong>Yaron Liechtenstein</strong>. Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <strong>foco na sua sobrevivência.</strong>",ctas:{primario:{texto:"Agende sua aula experimental"},secundario:{texto:"Conhecer o método",ancora:"#metodo"}},
+      subtituloHtml:"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <span class=\"hl\">foco na sua sobrevivência.</span>",ctas:{primario:{texto:"Agende sua aula experimental"},secundario:{texto:"Conhecer o método",ancora:"#metodo"}},
       stats:"45+\nAnos do Método Bukan\n\n6\nFaixas do Método Bukan\n\n100%\nFoco em Sobrevivência"},
     escola:{cabecalho:{eyebrow:"Origem & Autoridade",titulo:"A escola e a linhagem",tituloDestaque:"Bukan",lead:"Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições."},
       visual:{tituloSuperior:"Bukan · Rehovot · Israel",tituloPrincipal:"O Brasão da Linhagem Original",timeline:"1978\nCriação do método por Imi L. e Yaron L.\n\n6 Fxs\nAs 6 faixas do método Bukan\n\nMatriz\nBukan Castle, Teresópolis",
@@ -1390,7 +1390,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "hero/tag.txt":"Unidade oficial Bukan em Teresópolis — RJ",
     "hero/titulo-linha1.txt":"Sua segurança",
     "hero/titulo-linha2destaque.txt":"começa aqui.",
-    "hero/subtitulo.txt":"Método <strong>oficial Bukan</strong>, criado por <strong>Imi Lichtenfeld</strong> e preservado por <strong>Yaron Liechtenstein</strong>. Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <strong>foco na sua sobrevivência.</strong>",
+    "hero/subtitulo.txt":"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados e <span class=\"hl\">foco na sua sobrevivência.</span>",
     "hero/cta-primario.txt":"Agende sua aula experimental",
     "hero/cta-secundario.txt":"Conhecer o método",
     "hero/stats.txt":"45+\nAnos do Método Bukan\n\n6\nFaixas do Método Bukan\n\n100%\nFoco em Sobrevivência",
