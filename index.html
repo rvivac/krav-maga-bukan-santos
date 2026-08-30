@@ -548,16 +548,16 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 @keyframes htwaving{0%{transform:scale(.8);opacity:.6}80%,100%{transform:scale(1.7);opacity:0}}
 .horarios-float{
   position:fixed;right:26px;bottom:102px;z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 100%);color:#1a1400;
+  background:linear-gradient(180deg,#F9E06B 0%,var(--gold) 100%);
   box-shadow:0 10px 30px -6px var(--gold-glow),0 2px 8px rgba(0,0,0,.35);
-  border:2px solid rgba(255,255,255,.22);animation:htpulse 2.8s ease-in-out infinite;
+  border:2px solid rgba(255,255,255,.25);animation:htpulse 2.6s ease-in-out infinite;
   transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;
 }
 .horarios-float:hover{transform:scale(1.08);animation-play-state:paused;box-shadow:0 16px 44px -6px var(--gold-glow)}
-.horarios-float img{width:36px;height:36px;object-fit:contain;z-index:2;position:relative;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.horarios-float img{width:34px;height:34px;z-index:2;position:relative;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
 .horarios-float::before{
-  content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(243,204,31,.35);
-  animation:htwaving 2.8s ease-out infinite;z-index:-1;
+  content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(243,204,31,.4);
+  animation:htwaving 2.6s ease-out infinite;z-index:-1;
 }
 .horarios-label{
   position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(10px);
@@ -570,95 +570,191 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line);
 }
 .horarios-float:hover .horarios-label{opacity:1;transform:translateY(-50%) translateX(0)}
-
 .horarios-modal-overlay{
   position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;
   background:rgba(4,4,5,.72);backdrop-filter:blur(8px);padding:24px;
 }
 .horarios-modal-overlay.open{display:flex;animation:fadeIn .25s ease both}
 .horarios-modal{
-  position:relative;width:min(640px,100%);max-height:min(82vh,780px);overflow:hidden;
+  position:relative;width:min(640px,100%);max-height:min(85vh,820px);overflow:hidden;
   background:linear-gradient(180deg,rgba(22,26,31,.96) 0%,rgba(10,11,13,.98) 100%);
-  border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(243,204,31,.08);
-  display:flex;flex-direction:column;cursor:pointer;
+  border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);
+  display:flex;flex-direction:column;
 }
 .horarios-modal::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--accent) 70%,transparent);
 }
 .horarios-modal-head{
-  padding:24px 28px 18px;border-bottom:1px solid var(--line-accent);
-  display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;
-  background:linear-gradient(180deg,rgba(243,204,31,.06),transparent);
+  padding:22px 28px 16px;border-bottom:1px solid var(--line-accent);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  background:linear-gradient(180deg,rgba(243,204,31,.07),transparent);
 }
+.horarios-modal-head-text{display:flex;flex-direction:column;gap:4px;min-width:0}
 .horarios-modal-head h2{
-  font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;letter-spacing:.04em;
-  display:flex;align-items:center;gap:12px;margin:0;
+  font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;letter-spacing:.04em;
+  text-transform:uppercase;margin:0;color:var(--text-1);display:flex;align-items:center;gap:10px;
 }
-.horarios-modal-head h2 span:first-of-type{color:var(--text-1)}
-.horarios-modal-head h2 .text-accent{color:var(--gold);font-weight:700;text-shadow:0 0 14px var(--gold-glow)}
-.horarios-modal-head svg{width:28px;height:28px;color:var(--gold);filter:drop-shadow(0 0 10px var(--gold-glow))}
+.horarios-modal-head h2 b{color:var(--gold);text-shadow:0 0 12px var(--gold-glow)}
+.horarios-modal-head p{margin:2px 0 0;font-size:.92rem;color:var(--text-2)}
 .horarios-modal-fechar{
-  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--text-2);
-  background:var(--bg-3);border:1px solid var(--line);transition:all .2s ease;cursor:pointer;
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text-2);
+  cursor:pointer;transition:all .2s ease;
 }
-.horarios-modal-fechar:hover{color:var(--gold);border-color:var(--gold);background:rgba(243,204,31,.08)}
-.horarios-modal-fechar svg{width:22px;height:22px}
-.horarios-modal-body{
-  padding:22px 24px 24px;overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;cursor:pointer;
+.horarios-modal-fechar:hover{background:rgba(243,204,31,.1);border-color:rgba(243,204,31,.35);color:var(--gold)}
+.horarios-modal-body{padding:20px 28px 28px;overflow-y:auto;flex:1}
+.horarios-modal-body::-webkit-scrollbar{width:8px}
+.horarios-modal-body::-webkit-scrollbar-thumb{background:rgba(243,204,31,.35);border-radius:999px}
+.horarios-turmas{display:flex;flex-direction:column;gap:14px}
+.horarios-dia{
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);padding:12px 0 4px;margin-top:4px;
+  border-bottom:1px solid rgba(243,204,31,.15);
 }
-.horarios-modal-body::-webkit-scrollbar{width:10px}
-.horarios-modal-body::-webkit-scrollbar-thumb{background:rgba(243,204,31,.3);border-radius:10px}
-.horarios-dia{margin-bottom:18px;cursor:pointer}
-.horarios-dia:last-child{margin-bottom:0}
-.horarios-dia-tit{
-  font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:8px;padding:8px 14px;
-  border-radius:10px;background:rgba(243,204,31,.08);border:1px solid rgba(243,204,31,.2);
-  display:flex;align-items:center;gap:10px;cursor:pointer;
-}
-.horarios-dia-tit::before{
-  content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold-glow);
-}
-.horarios-dia-grid{display:grid;gap:10px;cursor:pointer}
+.horarios-dia:first-child{margin-top:0;padding-top:4px}
+.horarios-dia-grid{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 .horarios-turma{
-  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
-  padding:14px 16px;border-radius:12px;
-  background:rgba(158,132,214,.06);border:1px solid var(--line-accent);
-  transition:all .25s ease;cursor:pointer;
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+  padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line);text-decoration:none;color:inherit;
+  transition:all .22s ease;position:relative;overflow:hidden;
 }
-.horarios-turma:hover{background:rgba(243,204,31,.08);border-color:rgba(243,204,31,.32);transform:translateX(3px)}
+.horarios-turma:hover{background:rgba(243,204,31,.07);border-color:rgba(243,204,31,.35);transform:translateX(3px)}
 .horarios-turma-hora{
-  font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:700;
-  color:var(--text-1);background:var(--bg-3);
-  padding:6px 12px;border-radius:8px;border:1px solid var(--line);
-  min-width:120px;text-align:center;cursor:pointer;
+  background:linear-gradient(180deg,var(--gold),#D9B318);color:#0e0e10;
+  padding:6px 12px;border-radius:10px;font-weight:800;font-size:.92rem;
+  font-family:'JetBrains Mono',monospace;white-space:nowrap;min-width:110px;text-align:center;
 }
-.horarios-turma-info{display:flex;flex-direction:column;gap:3px;min-width:0;cursor:pointer}
-.horarios-turma-turma{
-  font-size:.96rem;font-weight:600;color:var(--text-1);line-height:1.3;cursor:pointer;
-}
-.horarios-turma-prof{
-  font-size:.8rem;color:var(--text-3);letter-spacing:.02em;cursor:pointer;
-}
-.horarios-turma-wa{
-  color:var(--whatsapp);cursor:pointer;
-}
-.horarios-turma-wa svg{width:22px;height:22px;filter:drop-shadow(0 0 8px rgba(37,211,102,.35))}
+.horarios-turma-info{display:flex;flex-direction:column;gap:3px;min-width:0}
+.horarios-turma-turma{font-size:1rem;color:var(--text-1);font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.02em}
+.horarios-turma-prof{font-size:.85rem;color:var(--text-3)}
+.horarios-turma-wa{color:var(--whatsapp);font-size:1.3rem;flex-shrink:0}
 .horarios-modal-foot{
   padding:14px 24px 20px;border-top:1px solid var(--line-accent);
   text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.92rem;letter-spacing:.08em;
   text-transform:uppercase;font-weight:600;color:var(--text-3);cursor:pointer;
-  background:linear-gradient(0deg,rgba(37,211,102,.06),transparent);
+  background:linear-gradient(0deg,rgba(37,211,102,.05),transparent);
   display:flex;align-items:center;justify-content:center;gap:10px;
 }
-.horarios-modal-foot svg{width:20px;height:20px;color:var(--whatsapp);filter:drop-shadow(0 0 10px rgba(37,211,102,.45))}
 .horarios-modal-foot strong{color:var(--whatsapp);font-weight:800}
+@keyframes faqpulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.02)}}
+@keyframes faqwaving{0%{transform:scale(.8);opacity:.65}80%,100%{transform:scale(1.6);opacity:0}}
+.faq-float{
+  position:fixed;right:26px;bottom:184px;z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(180deg,var(--accent-2) 0%,var(--accent) 100%);color:var(--gold);
+  box-shadow:0 10px 30px -6px var(--accent-glow),0 2px 8px rgba(0,0,0,.35);
+  border:2px solid rgba(255,255,255,.18);animation:faqpulse 2.6s ease-in-out infinite;
+  transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;font-family:'Barlow Condensed',sans-serif;
+}
+.faq-float:hover{transform:scale(1.08);animation-play-state:paused;box-shadow:0 16px 44px -6px var(--accent-glow)}
+.faq-float .q-mark{font-size:36px;font-weight:900;line-height:1;color:var(--gold);text-shadow:0 0 14px var(--gold-glow);z-index:2;position:relative}
+.faq-float::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(158,132,214,.35);
+  animation:faqwaving 2.6s ease-out infinite;z-index:-1;
+}
+.faq-label{
+  position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(10px);
+  background:var(--bg-3);color:var(--text-1);border:1px solid var(--line);
+  padding:10px 16px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.08em;white-space:nowrap;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow-lg);
+}
+.faq-label::after{
+  content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);
+  width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line);
+}
+.faq-float:hover .faq-label{opacity:1;transform:translateY(-50%) translateX(0)}
+
+.faq-modal-overlay{
+  position:fixed;inset:0;z-index:85;display:none;align-items:center;justify-content:center;
+  background:rgba(4,4,5,.72);backdrop-filter:blur(8px);padding:24px;
+}
+.faq-modal-overlay.open{display:flex;animation:fadeIn .25s ease both}
+.faq-modal{
+  position:relative;width:min(720px,100%);max-height:min(85vh,820px);overflow:hidden;
+  background:linear-gradient(180deg,rgba(22,26,31,.96) 0%,rgba(10,11,13,.98) 100%);
+  border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(158,132,214,.1);
+  display:flex;flex-direction:column;
+}
+.faq-modal::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--accent) 30%,var(--gold) 70%,transparent);
+}
+.faq-modal-head{
+  padding:24px 28px 18px;border-bottom:1px solid var(--line-accent);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  background:linear-gradient(180deg,rgba(158,132,214,.08),transparent);
+}
+.faq-modal-head-text{display:flex;flex-direction:column;gap:6px;min-width:0}
+.faq-modal-head h2{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;letter-spacing:.04em;
+  display:flex;align-items:center;gap:12px;margin:0;color:var(--text-1);
+}
+.faq-modal-head h2 .q-icon{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(158,132,214,.14);border:1px solid rgba(158,132,214,.35);color:var(--gold);
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-shadow:0 0 12px var(--gold-glow);
+}
+.faq-modal-head-intro{font-size:.95rem;color:var(--text-2);line-height:1.55;margin:0}
+.faq-modal-fechar{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--text-2);
+  background:var(--bg-3);border:1px solid var(--line);transition:all .2s ease;cursor:pointer;flex-shrink:0;
+}
+.faq-modal-fechar:hover{color:var(--gold);border-color:var(--gold);background:rgba(243,204,31,.08)}
+.faq-modal-fechar svg{width:22px;height:22px}
+.faq-modal-body{padding:18px 24px 24px;overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.faq-modal-body::-webkit-scrollbar{width:10px}
+.faq-modal-body::-webkit-scrollbar-thumb{background:rgba(158,132,214,.35);border-radius:10px}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  border:1px solid var(--line-accent);border-radius:14px;background:rgba(158,132,214,.04);
+  transition:all .25s ease;overflow:hidden;
+}
+.faq-item[open]{background:rgba(243,204,31,.05);border-color:rgba(243,204,31,.28)}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;
+  font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:700;color:var(--text-1);letter-spacing:.02em;line-height:1.4;
+  transition:color .2s ease;min-height:48px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--gold)}
+.faq-num{
+  flex-shrink:0;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(243,204,31,.1);border:1px solid rgba(243,204,31,.25);color:var(--gold);
+  font-family:'JetBrains Mono',monospace;font-weight:800;font-size:.9rem;
+}
+.faq-chevron{
+  margin-left:auto;flex-shrink:0;width:22px;height:22px;color:var(--accent-2);transition:transform .3s ease;
+}
+.faq-item[open] .faq-chevron{transform:rotate(180deg);color:var(--gold)}
+.faq-pergunta{flex:1;min-width:0}
+.faq-resposta{
+  padding:4px 18px 18px 66px;font-size:.95rem;color:var(--text-2);line-height:1.65;
+  border-top:1px solid rgba(243,204,31,.1);margin-top:2px;padding-top:14px;
+}
+.faq-modal-foot{
+  padding:14px 24px 20px;border-top:1px solid var(--line-accent);
+  text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.92rem;letter-spacing:.08em;
+  text-transform:uppercase;font-weight:600;color:var(--text-3);
+  background:linear-gradient(0deg,rgba(37,211,102,.05),transparent);
+  display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+}
+.faq-modal-foot svg{width:20px;height:20px;color:var(--whatsapp);filter:drop-shadow(0 0 10px rgba(37,211,102,.45))}
+.faq-modal-foot strong{color:var(--whatsapp);font-weight:800}
 
 @media (max-width:560px){
+  .faq-float{right:16px;bottom:168px;width:56px;height:56px}
+  .faq-float .q-mark{font-size:32px}
   .horarios-float{right:16px;bottom:88px;width:56px;height:56px}
   .horarios-float img{width:32px;height:32px}
   .whatsapp-float{width:56px;height:56px}
+  .faq-modal{max-height:88vh;border-radius:18px}
+  .faq-modal-head{padding:18px 18px 14px}
+  .faq-modal-head h2{font-size:1.3rem}
+  .faq-modal-body{padding:14px 14px 18px}
+  .faq-item summary{padding:14px 14px;font-size:.98rem;gap:10px}
+  .faq-num{width:30px;height:30px;font-size:.82rem}
+  .faq-resposta{padding:4px 14px 16px 54px;font-size:.92rem}
   .horarios-modal{max-height:86vh;border-radius:18px}
   .horarios-modal-head{padding:18px 18px 14px}
   .horarios-modal-head h2{font-size:1.3rem}
@@ -1267,6 +1363,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 
 </main>
 
+<div class="faq-float" id="faqFloat" aria-label="Perguntas frequentes sobre a aula experimental" title="Dúvidas sobre a primeira aula">
+  <span class="q-mark">?</span>
+  <span class="faq-label">Dúvidas da 1ª aula →</span>
+</div>
+
 <div class="horarios-float" id="horariosFloat" aria-label="Horários das aulas" title="Ver horários das turmas">
   <img id="horariosIcon" data-content-src="site.horarios.icone" data-content-alt="site.logo.alt" alt="Relógio em kimono" src="assets/icons/clock-analogico.svg" />
   <span class="horarios-label">Horários das turmas →</span>
@@ -1290,6 +1391,32 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     <div class="horarios-modal-foot">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
       <span data-content="site.horarios.cta">Clique em qualquer ponto para <strong>falar no WhatsApp</strong> sobre estes horários</span>
+    </div>
+  </div>
+</div>
+
+<div class="faq-modal-overlay" id="faqOverlay" aria-hidden="true" role="dialog" aria-label="Perguntas frequentes — primeira aula experimental Bukan Santos">
+  <div class="faq-modal" id="faqModal" role="document">
+    <div class="faq-modal-head">
+      <div class="faq-modal-head-text">
+        <h2>
+          <span class="q-icon">?</span>
+          <span data-content="site.faq.titulo">Perguntas frequentes sobre a aula experimental</span>
+        </h2>
+        <p class="faq-modal-head-intro" data-content="site.faq.introducao">O que esperar da sua primeira aula experimental:</p>
+      </div>
+      <button class="faq-modal-fechar" aria-label="Fechar perguntas frequentes" id="faqFechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="faq-modal-body">
+      <div class="faq-list" id="faqList" data-slot="faq-list">
+        <!-- populado via JS -->
+      </div>
+    </div>
+    <div class="faq-modal-foot" data-cta="whatsapp-aula">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      <span>Ainda tem dúvida? <strong>Fale conosco no WhatsApp</strong></span>
     </div>
   </div>
 </div>
@@ -1330,7 +1457,18 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
       assets:{instrutores:{kakau:{src:"Kakau_01.jpg",alt:"Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"},samuel:{src:"Samuka_01.jpeg",alt:"Profº. Samuel Arcanjo em posição de treino de Krav-Maga"}}},
       footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",linhagem:"Linhagem Bukan Oficial — Rehovot, Israel",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA"},
-      horarios:{titulo:"Horários das turmas",cta:"Clique em qualquer ponto para falar no WhatsApp sobre estes horários",icone:"assets/icons/clock-analogico.svg",turmas:"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"}},
+      horarios:{titulo:"Horários das turmas",cta:"Clique em qualquer ponto para falar no WhatsApp sobre estes horários",icone:"assets/icons/clock-analogico.svg",turmas:"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"},
+      faq:{titulo:"Perguntas frequentes sobre a aula experimental",introducao:"O que esperar da sua primeira aula experimental:",
+        itens:[
+          {perguntaResposta:"Preciso ter preparo físico?\nNão. O método se adapta ao seu corpo."},
+          {perguntaResposta:"Vou me machucar?\nNão. O treino é controlado, focado em reflexo e sobrevivência."},
+          {perguntaResposta:"O que devo vestir?\nRoupa de ginástica leve e descalço. Ao se matricular, deverá usar o quimono da escola."},
+          {perguntaResposta:"Qual é a duração da aula experimental e como ela é estruturada?\nA aula dura em média 60 minutos, divididos entre aquecimento adaptado, movimentação e encerramento com orientações sobre a metodologia."},
+          {perguntaResposta:"Preciso levar algum equipamento de proteção ou hidratação?\nNão para a aula experimental. Recomenda-se apenas trazer uma garrafa de água para hidratação pessoal."},
+          {perguntaResposta:"Qual é o perfil dos alunos e a faixa etária predominante nas turmas?\nAs turmas são heterogêneas, integrando diferentes idades e níveis de condicionamento físico, com foco na progressão individual de cada praticante."},
+          {perguntaResposta:"Como funciona a dinâmica de contato físico durante o treino?\nO contato é progressivo e controlado pelo instrutor. Iniciantes treinam de forma educativa, priorizando a mecânica correta dos movimentos e a segurança antes de qualquer aplicação de intensidade real."},
+          {perguntaResposta:"Quais são os valores dos planos, taxa de matrícula e política de contrato?\nOs valores variam conforme a modalidade do plano escolhido (mensal, semestral ou anual) e são apresentados detalhadamente ao término da aula experimental, junto às condições contratuais."}
+        ]}},
     nav:{logo:{top:"Defesa Pessoal · Linhagem Oficial",mid:"KRAV-MAGA",destaque:"BUKAN"},
       navegacao:[{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#escola",texto:"A Escola"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
       ctaHeader:{texto:"Aula Experimental"},navegacaoRodape:[{ancora:"#instrutores",texto:"Instrutores"},{ancora:"#escola",texto:"A Escola"},{ancora:"#metodo",texto:"O Método"},{ancora:"#contato",texto:"Contato"}],
@@ -1648,7 +1786,17 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "site/horarios-titulo.txt":"Horários das turmas",
     "site/horarios-cta.txt":"Clique em qualquer ponto para falar no WhatsApp sobre estes horários",
     "site/horarios-icon.txt":"assets/icons/clock-analogico.svg",
-    "site/horarios-turmas.txt":"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"
+    "site/horarios-turmas.txt":"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real",
+    "faq/titulo.txt":"Perguntas frequentes sobre a aula experimental",
+    "faq/introducao.txt":"O que esperar da sua primeira aula experimental:",
+    "faq/item-01.txt":"Preciso ter preparo físico?\nNão. O método se adapta ao seu corpo.",
+    "faq/item-02.txt":"Vou me machucar?\nNão. O treino é controlado, focado em reflexo e sobrevivência.",
+    "faq/item-03.txt":"O que devo vestir?\nRoupa de ginástica leve e descalço. Ao se matricular, deverá usar o quimono da escola.",
+    "faq/item-04.txt":"Qual é a duração da aula experimental e como ela é estruturada?\nA aula dura em média 60 minutos, divididos entre aquecimento adaptado, movimentação e encerramento com orientações sobre a metodologia.",
+    "faq/item-05.txt":"Preciso levar algum equipamento de proteção ou hidratação?\nNão para a aula experimental. Recomenda-se apenas trazer uma garrafa de água para hidratação pessoal.",
+    "faq/item-06.txt":"Qual é o perfil dos alunos e a faixa etária predominante nas turmas?\nAs turmas são heterogêneas, integrando diferentes idades e níveis de condicionamento físico, com foco na progressão individual de cada praticante.",
+    "faq/item-07.txt":"Como funciona a dinâmica de contato físico durante o treino?\nO contato é progressivo e controlado pelo instrutor. Iniciantes treinam de forma educativa, priorizando a mecânica correta dos movimentos e a segurança antes de qualquer aplicação de intensidade real.",
+    "faq/item-08.txt":"Quais são os valores dos planos, taxa de matrícula e política de contrato?\nOs valores variam conforme a modalidade do plano escolhido (mensal, semestral ou anual) e são apresentados detalhadamente ao término da aula experimental, junto às condições contratuais."
   };
 
   function getByPath(obj, path) {
@@ -2134,6 +2282,81 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     });
   }
 
+  function renderFaq() {
+    const list = document.getElementById('faqList');
+    if (!list) return;
+    const itens = getValue('site.faq.itens') || [];
+    const chevronSvg = '<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+    list.innerHTML = '';
+    itens.forEach((it, idx) => {
+      const raw = (it && it.perguntaResposta) ? it.perguntaResposta : (typeof it === 'string' ? it : '');
+      const parts = splitLinhas(raw, 2);
+      const pergunta = (parts[0] || '').trim();
+      const resposta = (parts.slice(1).join('\n') || '').trim();
+      if (!pergunta) return;
+      const det = document.createElement('details');
+      det.className = 'faq-item';
+      const num = String(idx + 1).padStart(2, '0');
+      det.innerHTML =
+        '<summary>' +
+          '<span class="faq-num">' + num + '</span>' +
+          '<span class="faq-pergunta">' + pergunta + '</span>' +
+          chevronSvg +
+        '</summary>' +
+        '<div class="faq-resposta">' + resposta + '</div>';
+      list.appendChild(det);
+    });
+  }
+  function abrirFaqModal() {
+    const ov = document.getElementById('faqOverlay');
+    if (ov) { ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); }
+  }
+  function fecharFaqModal() {
+    const ov = document.getElementById('faqOverlay');
+    if (ov) { ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
+  }
+  function bindFaqBehavior() {
+    const fbtn = document.getElementById('faqFloat');
+    const fechar = document.getElementById('faqFechar');
+    const overlay = document.getElementById('faqOverlay');
+    const foot = document.querySelector('.faq-modal-foot');
+    if (fbtn) fbtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); abrirFaqModal(); });
+    if (fechar) fechar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fecharFaqModal(); });
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) { fecharFaqModal(); return; }
+        const cta = e.target.closest && e.target.closest('[data-cta]');
+        if (cta) {
+          e.preventDefault(); e.stopPropagation();
+          const tipo = cta.getAttribute('data-cta') || 'whatsapp-aula';
+          const link = getWhatsappLink(tipo);
+          fecharFaqModal();
+          setTimeout(() => abrirUrlExterna(link), 80);
+          return;
+        }
+        const summary = e.target.closest && e.target.closest('.faq-item summary');
+        const insideItem = e.target.closest && e.target.closest('.faq-item');
+        if (!summary && !insideItem) {
+          const btnFechar = e.target.closest && e.target.closest('#faqFechar, .faq-modal-fechar');
+          if (btnFechar) return;
+        }
+      }, true);
+    }
+    if (foot) {
+      foot.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const link = getWhatsappLink('whatsapp-aula');
+        fecharFaqModal();
+        setTimeout(() => abrirUrlExterna(link), 60);
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('faqOverlay')?.classList.contains('open')) {
+        fecharFaqModal();
+      }
+    });
+  }
+
   function bootRenders() {
     applyLangAndMeta();
     populateStatic();
@@ -2147,8 +2370,10 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     renderRegras();
     renderFooterNav();
     renderHorarios();
+    renderFaq();
     bindStaticBehavior();
     bindHorariosBehavior();
+    bindFaqBehavior();
   }
 
   function init() {

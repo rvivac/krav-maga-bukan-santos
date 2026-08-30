@@ -57,6 +57,20 @@
     "icone_txt": "site/horarios-icon.txt",
     "turmas_txt": "site/horarios-turmas.txt"
   },
+  "faq": {
+    "titulo_txt": "faq/titulo.txt",
+    "introducao_txt": "faq/introducao.txt",
+    "itens": [
+      {"perguntaResposta_txt": "faq/item-01.txt"},
+      {"perguntaResposta_txt": "faq/item-02.txt"},
+      {"perguntaResposta_txt": "faq/item-03.txt"},
+      {"perguntaResposta_txt": "faq/item-04.txt"},
+      {"perguntaResposta_txt": "faq/item-05.txt"},
+      {"perguntaResposta_txt": "faq/item-06.txt"},
+      {"perguntaResposta_txt": "faq/item-07.txt"},
+      {"perguntaResposta_txt": "faq/item-08.txt"}
+    ]
+  },
   "footer": {
     "copy_txt": "site/footer-copy.txt",
     "linhagem_txt": "site/footer-linhagem.txt",
