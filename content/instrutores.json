@@ -22,6 +22,7 @@
       "bio_txt": "instrutores/kakau/bio.txt",
       "meta_txt": "instrutores/kakau/meta.txt"
     },
+    
     {
       "id": "samuel",
       "tag_txt": "instrutores/samuel/tag.txt",
@@ -36,6 +37,36 @@
       "resumo_txt": "instrutores/samuel/resumo-01.txt",
       "bio_txt": "instrutores/samuel/bio.txt",
       "meta_txt": "instrutores/samuel/meta.txt"
+    },
+    {
+      "id": "lucas",
+      "tag_txt": "instrutores/lucas/tag.txt",
+      "patente": "faixa-verde",
+      "patenteTexto_txt": "instrutores/lucas/patente.txt",
+      "credencial": {
+        "tipo_txt": "instrutores/lucas/credencial.txt",
+        "variante": "verde"
+      },
+      "nome_txt": "instrutores/lucas/nome.txt",
+      "tratamento_txt": "instrutores/lucas/tratamento.txt",
+      "resumo_txt": "instrutores/lucas/resumo-01.txt",
+      "bio_txt": "instrutores/lucas/bio.txt",
+      "meta_txt": "instrutores/lucas/meta.txt"
+    },
+    {
+      "id": "luma",
+      "tag_txt": "instrutores/luma/tag.txt",
+      "patente": "faixa-verde",
+      "patenteTexto_txt": "instrutores/luma/patente.txt",
+      "credencial": {
+        "tipo_txt": "instrutores/luma/credencial.txt",
+        "variante": "verde"
+      },
+      "nome_txt": "instrutores/luma/nome.txt",
+      "tratamento_txt": "instrutores/luma/tratamento.txt",
+      "resumo_txt": "instrutores/luma/resumo-01.txt",
+      "bio_txt": "instrutores/luma/bio.txt",
+      "meta_txt": "instrutores/luma/meta.txt"
     }
   ]
 }

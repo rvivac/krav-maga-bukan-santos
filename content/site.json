@@ -49,6 +49,14 @@
       "samuel": {
         "src": "Samuka_01.jpeg",
         "alt": "Profº. Samuel Arcanjo em posição de treino de Krav-Maga"
+      },
+      "lucas": {
+        "src": "Lucas_01.jpg",
+        "alt": "Profº. Lucas Freixo em treinamento de Krav-Maga"
+      },
+      "luma": {
+        "src": "Luma_01.jpg",
+        "alt": "Profª. Luma Serrão em treinamento de Krav-Maga"
       }
     }
   },
