@@ -1,5 +1,5 @@
 {
-  "_comment": "Seção A Escola & História. Textos longos estão em /content/escola/*.txt, /content/escola/corpo/*.txt e /content/escola/acordeao/*.txt",
+  "_comment": "Seção A Escola & História. Textos longos estão em /content/escola/*.txt — parágrafos separados por linha em branco no mesmo arquivo.",
   "cabecalho": {
     "eyebrow": "Origem & Autoridade",
     "titulo": "A escola e a linhagem",
@@ -28,18 +28,9 @@
       "autor": "— Filosofia Bukan"
     }
   },
-  "textoCorpo_txts": [
-    "escola/corpo/01-fundacao.txt",
-    "escola/corpo/02-metodologia.txt",
-    "escola/corpo/03-santos.txt"
-  ],
+  "textoCorpo_txt": "escola/corpo.txt",
   "acordeao": {
     "tituloAbrir": "Leia a história completa",
-    "paragrafos_txts": [
-      "escola/acordeao/01-imi-origem.txt",
-      "escola/acordeao/02-1978-yaron.txt",
-      "escola/acordeao/03-principios.txt",
-      "escola/acordeao/04-matriz-rehovot.txt"
-    ]
+    "paragrafos_txt": "escola/acordeao.txt"
   }
 }
