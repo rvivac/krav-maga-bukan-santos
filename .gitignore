@@ -47,3 +47,8 @@ logs/
 screenshots/
 *.tmp
 *.bak
+
+# --- Runtime caches locais (não versionar, workflow regenera) ---
+.cache/
+scripts/_vendor/
+

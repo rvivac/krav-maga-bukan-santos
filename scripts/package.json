@@ -1,0 +1,13 @@
+{
+  "name": "bukan-santos-scripts",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Scripts de manutenção do site Bukan Santos (crawler de horários automático)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "zod": "^4.5.4"
+  }
+}
