@@ -19,7 +19,8 @@
       "mensagens": {
         "aulaExperimental": "?text=Ol%C3%A1!%20Tenho%20interesse%20em%20agendar%20uma%20aula%20experimental%20de%20Krav-Maga.",
         "conhecerMetodo": "?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",
-        "falarComInstrutor": "?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."
+        "falarComInstrutor": "?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga.",
+        "falarComKakau": "?text=Ol%C3%A1%20Prof%C2%AA%20Kakau!%20Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20as%20turmas%20da%20Bukan%20Santos.%20Poderia%20me%20ajudar%3F"
       }
     },
     "email_txt": "site/contato/email.txt",
@@ -76,5 +77,12 @@
     "linhagem_txt": "site/footer-linhagem.txt",
     "sobre_txt": "site/footer-sobre.txt",
     "creditoDesign_txt": "site/footer-credito-design.txt"
+  },
+  "kakauGatilho": {
+    "microcopy_txt": "site/kakau-gatilho-microcopy.txt",
+    "label_txt": "site/kakau-gatilho-label.txt",
+    "cta_txt": "site/kakau-gatilho-cta.txt",
+    "avatarSrc": "Kakau_01.jpg",
+    "avatarAlt": "Profª. Kakau (Carolina Almeida), instrutora chefe Bukan Santos"
   }
 }
