@@ -363,6 +363,22 @@ details.history-detail[open] .chev{transform:rotate(180deg)}
 .cref-badge svg{width:12px;height:12px;color:var(--gold)}
 .cref-badge.variante-verde{background:rgba(15,169,88,.1);border-color:rgba(15,169,88,.28)}
 .cref-badge.variante-verde svg{stroke:#4ADE80}
+.instrutor-resumo{color:var(--text-2);line-height:1.75;font-size:.98rem;margin-bottom:16px}
+.instrutor-detalhe{display:none;margin-bottom:18px;overflow:hidden}
+.instrutor-detalhe[aria-open="true"]{display:block;animation:slideDownBio .4s ease-out}
+.instrutor-detalhe > .instrutor-bio{margin-bottom:0}
+@keyframes slideDownBio{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.instrutor-toggle{
+  width:100%;min-height:48px;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 16px;border-radius:10px;border:1px solid var(--line-accent);
+  background:var(--bg-3);color:var(--gold);font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s ease;user-select:none;margin-bottom:20px;
+}
+.instrutor-toggle:hover{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.38);transform:translateY(-1px)}
+.instrutor-toggle:active{transform:translateY(0)}
+.instrutor-toggle svg{width:18px;height:18px;transition:transform .35s cubic-bezier(.4,0,.2,1);flex-shrink:0}
+.instrutor-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .instrutor-bio{color:var(--text-3);line-height:1.8;font-size:.97rem;flex:1;margin-bottom:20px}
 .instrutor-bio p + p{margin-top:12px}
 .instrutor-meta{display:flex;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line-accent)}
@@ -822,7 +838,14 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         <span data-credencial-texto></span>
       </div>
-      <div class="instrutor-bio" data-bio-wrap></div>
+      <div class="instrutor-resumo" data-resumo></div>
+      <div class="instrutor-detalhe" data-detalhe hidden>
+        <div class="instrutor-bio" data-bio-wrap></div>
+      </div>
+      <button class="instrutor-toggle" data-toggle-detalhe type="button" aria-expanded="false" aria-controls="instrutor-detalhe">
+        <span data-toggle-label>Ler biografia completa</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
       <div class="instrutor-meta" data-meta-wrap></div>
     </div>
   </article>
@@ -1152,8 +1175,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       acordeao:{tituloAbrir:"Leia a história completa",paragrafos:["História completa."]}},
     instrutores:{cabecalho:{eyebrow:"Quem vai treinar com você",titulo:"Nossos",tituloDestaque:"instrutores",lead:"Trajetórias reais, credenciais sólidas."},
       lista:[
-        {id:"kakau",tag:"Instrutora Chefe",patente:"faixa-preta",patenteTexto:"Faixa Preta",credencial:{tipo:"CREF 136558-G/SP",variante:"roxa"},nome:"Carolina Almeida",tratamento:"Profª. Kakau",bio:["Nascida em 1987, Carolina de Almeida (ou Kakau, como é chamada) é professora de Krav-Maga da Escola Bukan.\n\nSua trajetória na arte marcial teve início em 2011, meses após sofrer uma tentativa de violência urbana. Buscou, então, alternativas para aprender a se defender, e acabou descobrindo no Krav-Maga não apenas um caminho bastante eficaz, como também o que viria a se tornar sua grande paixão.","Kakau formou-se na Escola Bukan instrutora para adultos e crianças. Além de todas as graduações que obteve com Yaron Liechtenstein, realizou com ele diversos treinamentos especiais, como técnicas de chute, técnicas de soco, técnicas do Zen, defesas de armas, faca e bastão, entre outros.\n\nConcluiu também sua graduação em Educação Física (bacharelado e licenciatura) na Universidade Santa Cecília – formação que aprimorou sua didática e agregou a seu currículo um conhecimento mais profundo sobre o corpo humano, permitindo, assim, que transmita a seus alunos uma compreensão mais clara sobre os movimentos da arte marcial.\n\nKakau é faixa preta e também formada em Coaching Esportivo e Atividades Lúdicas. Atualmente, dá aulas de Krav-Maga em seu próprio espaço."],meta:["Especialista em Auto-Defesa Feminina","+ 15 anos de experiência"]},
-        {id:"samuel",tag:"Instrutor",patente:"faixa-verde",patenteTexto:"Faixa Verde",credencial:{tipo:"Credenciado Bukan",variante:"verde"},nome:"Samuel Arcanjo",tratamento:"Profº. Samuel",bio:["Mais de 12 anos."],meta:["Formações Internacionais","Foco em Defesa Real Urbana"]}
+        {id:"kakau",tag:"Instrutora Chefe",patente:"faixa-preta",patenteTexto:"Faixa Preta",credencial:{tipo:"CREF 136558-G/SP",variante:"roxa"},nome:"Carolina Almeida",tratamento:"Profª. Kakau",resumo:"Professora de Krav-Maga da Escola Bukan, Kakau é faixa preta com mais de 15 anos de experiência. Especialista em auto-defesa feminina, formou-se instrutora para adultos e crianças por Yaron Liechtenstein, com graduação também em Educação Física.",bio:["Nascida em 1987, Carolina de Almeida (ou Kakau, como é chamada) é professora de Krav-Maga da Escola Bukan.\n\nSua trajetória na arte marcial teve início em 2011, meses após sofrer uma tentativa de violência urbana. Buscou, então, alternativas para aprender a se defender, e acabou descobrindo no Krav-Maga não apenas um caminho bastante eficaz, como também o que viria a se tornar sua grande paixão.","Kakau formou-se na Escola Bukan instrutora para adultos e crianças. Além de todas as graduações que obteve com Yaron Liechtenstein, realizou com ele diversos treinamentos especiais, como técnicas de chute, técnicas de soco, técnicas do Zen, defesas de armas, faca e bastão, entre outros.\n\nConcluiu também sua graduação em Educação Física (bacharelado e licenciatura) na Universidade Santa Cecília – formação que aprimorou sua didática e agregou a seu currículo um conhecimento mais profundo sobre o corpo humano, permitindo, assim, que transmita a seus alunos uma compreensão mais clara sobre os movimentos da arte marcial.\n\nKakau é faixa preta e também formada em Coaching Esportivo e Atividades Lúdicas. Atualmente, dá aulas de Krav-Maga em seu próprio espaço."],meta:["Especialista em Auto-Defesa Feminina","+ 15 anos de experiência"]},
+        {id:"samuel",tag:"Instrutor",patente:"faixa-verde",patenteTexto:"Faixa Verde",credencial:{tipo:"Credenciado Bukan",variante:"verde"},nome:"Samuel Arcanjo",tratamento:"Profº. Samuel",resumo:"Instrutor formado pela Escola Bukan em novembro de 2022, treina desde 2019 na linhagem oficial. Sua história com o Krav-Maga começou após um assalto com tentativa de agressão — hoje transmite o método a alunos de todos os perfis, com foco em defesa real urbana.",bio:["Mais de 12 anos."],meta:["Formações Internacionais","Foco em Defesa Real Urbana"]}
       ]},
     metodo:{cabecalho:{eyebrow:"O que nos diferencia",titulo:"O diferencial do",tituloDestaque:"método",lead:"Sistema de sobrevivência."},
       diferenciaisLista:[{titulo:"Aprendizado de dentro para fora",texto:"Mentalidade → Distância → Técnica."}],
@@ -1365,10 +1388,12 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "escola/acordeao/03-principios.txt":"Diferente de vertentes comerciais, o método <strong>Bukan</strong> preserva rigorosamente os princípios originais: <strong>simplicidade, velocidade, agressividade controlada e foco em situações reais</strong>. Não há competições, não há pontos de esporte. Cada técnica é validada por sua eficácia em ambientes de pressão real.",
     "escola/acordeao/04-matriz-rehovot.txt":"A academia matriz em <strong>Rehovot, Israel</strong>, até hoje certifica todos os instrutores credenciados no mundo — garantindo que o mesmo sistema ensinado a soldados e policiais seja transmitido a cada aluno, seja ele iniciante ou avançado.",
     "instrutores/cabecalho-lead.txt":"Trajetórias reais, credenciais sólidas e uma missão: transformar o método oficial Bukan em capacidade prática de proteção para cada aluno.",
+    "instrutores/kakau/resumo-01.txt":"Professora de Krav-Maga da Escola Bukan, Kakau é faixa preta com mais de 15 anos de experiência. Especialista em auto-defesa feminina, formou-se instrutora para adultos e crianças por Yaron Liechtenstein, com graduação também em Educação Física.",
     "instrutores/kakau/bio-01.txt":"Nascida em 1987, Carolina de Almeida (ou Kakau, como é chamada) é professora de Krav-Maga da Escola Bukan.\n\nSua trajetória na arte marcial teve início em 2011, meses após sofrer uma tentativa de violência urbana. Buscou, então, alternativas para aprender a se defender, e acabou descobrindo no Krav-Maga não apenas um caminho bastante eficaz, como também o que viria a se tornar sua grande paixão.",
     "instrutores/kakau/bio-02.txt":"Kakau formou-se na Escola Bukan instrutora para adultos e crianças. Além de todas as graduações que obteve com Yaron Liechtenstein, realizou com ele diversos treinamentos especiais, como técnicas de chute, técnicas de soco, técnicas do Zen, defesas de armas, faca e bastão, entre outros.\n\nConcluiu também sua graduação em Educação Física (bacharelado e licenciatura) na Universidade Santa Cecília – formação que aprimorou sua didática e agregou a seu currículo um conhecimento mais profundo sobre o corpo humano, permitindo, assim, que transmita a seus alunos uma compreensão mais clara sobre os movimentos da arte marcial.\n\nKakau é faixa preta e também formada em Coaching Esportivo e Atividades Lúdicas. Atualmente, dá aulas de Krav-Maga em seu próprio espaço.",
     "instrutores/kakau/meta-01.txt":"Especialista em Auto-Defesa Feminina",
     "instrutores/kakau/meta-02.txt":"+ 15 anos de experiência",
+    "instrutores/samuel/resumo-01.txt":"Instrutor formado pela Escola Bukan em novembro de 2022, treina desde 2019 na linhagem oficial. Sua história com o Krav-Maga começou após um assalto com tentativa de agressão — hoje transmite o método a alunos de todos os perfis, com foco em defesa real urbana.",
     "instrutores/samuel/bio-01.txt":"Há mais de <strong>12 anos</strong> no universo do Krav-Maga, Samuel acumula formações com grandes mestres brasileiros e internacionais da linhagem Bukan. Instrutor metódico, com foco em treinos de pressão progressiva e simulações realistas.",
     "instrutores/samuel/bio-02.txt":"Sua inspiração vem de uma premissa simples: <strong>o treino deve ser mais duro que a rua</strong>. O aprendizado de dentro para fora — começando pela mentalidade e só depois pela técnica — é o pilar de suas aulas, sempre buscando extrair o melhor de cada aluno.",
     "instrutores/samuel/meta-01.txt":"Formações Internacionais",
@@ -1652,6 +1677,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         cred.querySelector('svg').innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
       }
       node.querySelector('[data-credencial-texto]').textContent = p.credencial.tipo;
+      const resumoEl = node.querySelector('[data-resumo]');
+      const resumoTxt = p.resumo || ((p.bio || []).join(' ').split('\n').slice(0,2).join(' '));
+      resumoEl.innerHTML = '';
+      String(resumoTxt).split(/\n{2,}/).filter(Boolean).slice(0,1).forEach(r => {
+        const rp = document.createElement('p');
+        rp.innerHTML = r.trim();
+        resumoEl.appendChild(rp);
+      });
+      const detalheEl = node.querySelector('[data-detalhe]');
       const bioWrap = node.querySelector('[data-bio-wrap]');
       bioWrap.innerHTML = '';
       (p.bio || []).forEach(bt => {
@@ -1660,6 +1694,24 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
           bp.innerHTML = paragrafo.trim();
           bioWrap.appendChild(bp);
         });
+      });
+      const toggleBtn = node.querySelector('[data-toggle-detalhe]');
+      const toggleLabel = toggleBtn.querySelector('[data-toggle-label]');
+      const temBio = bioWrap.children.length > 0;
+      if (!temBio) toggleBtn.style.display = 'none';
+      toggleBtn.addEventListener('click', () => {
+        const aberto = toggleBtn.getAttribute('aria-expanded') === 'true';
+        const novo = !aberto;
+        toggleBtn.setAttribute('aria-expanded', String(novo));
+        if (novo) {
+          detalheEl.setAttribute('aria-open', 'true');
+          detalheEl.hidden = false;
+          toggleLabel.textContent = 'Fechar biografia';
+        } else {
+          detalheEl.removeAttribute('aria-open');
+          detalheEl.hidden = true;
+          toggleLabel.textContent = 'Ler biografia completa';
+        }
       });
       const metaWrap = node.querySelector('[data-meta-wrap]');
       metaWrap.innerHTML = '';

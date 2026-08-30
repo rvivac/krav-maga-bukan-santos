@@ -18,6 +18,7 @@
       },
       "nome": "Carolina Almeida",
       "tratamento": "Profª. Kakau",
+      "resumo_txt": "instrutores/kakau/resumo-01.txt",
       "bio_txts": [
         "instrutores/kakau/bio-01.txt",
         "instrutores/kakau/bio-02.txt"
@@ -38,6 +39,7 @@
       },
       "nome": "Samuel Arcanjo",
       "tratamento": "Profº. Samuel",
+      "resumo_txt": "instrutores/samuel/resumo-01.txt",
       "bio_txts": [
         "instrutores/samuel/bio-01.txt",
         "instrutores/samuel/bio-02.txt"
