@@ -1323,7 +1323,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   const FALLBACK_CONTENT = {
     site: {meta:{title:"Krav-Maga Bukan Santos | Defesa Pessoal Real",description:"Krav-Maga Bukan Santos em Santos/SP — Método oficial fundado por Imi Lichtenfeld e Yaron Liechtenstein. Defesa pessoal real para sobrevivência urbana. Agende sua aula experimental.",themeColor:"#0B0B0B"},
       escolaMae:{url:"https://kravmaga-bukan.com/pt/bukan",label:"Escola Mãe — Bukan Oficial",title:"Visite o site oficial da linhagem Bukan"},
-      contato:{whatsapp:{numero:"(13) 98848-6092",link:"https://wa.me/5513988486092",mensagens:{aulaExperimental:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga.",conhecerMetodo:"?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",falarComInstrutor:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."}},
+      contato:{whatsapp:{numero:"(13) 98848-6092",link:"https://wa.me/5513988486092",mensagens:{aulaExperimental:"?text=Ol%C3%A1!%20Tenho%20interesse%20em%20agendar%20uma%20aula%20experimental%20de%20Krav-Maga.",conhecerMetodo:"?text=Ol%C3%A1!%20Quero%20entender%20melhor%20o%20m%C3%A9todo%20Bukan%20e%20agendar%20uma%20aula.",falarComInstrutor:"?text=Ol%C3%A1!%20Tenho%20interesse%20na%20aula%20experimental%20de%20Krav-Maga."}},
         email:"contato@kravmagabukansantos.com.br",endereco:{rua:"R. Carvalho de Mendonça, 236",complemento:"Sl 11 — Vila Belmiro",cidade:"Santos — SP · 11070-101",maps_url:"https://maps.app.goo.gl/nG1xVpYo97rPzwjm8"}},
       redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/",googleReviews:"https://maps.app.goo.gl/2DuTmLF9cavCRFN18"},
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
@@ -1662,6 +1662,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     return (fb !== undefined && fb !== null && fb !== '') ? fb : null;
   }
 
+  function getWhatsappHorarioLink(dia, hora) {
+    const base = getValue('site.contato.whatsapp.link') || FALLBACK_CONTENT.site.contato.whatsapp.link;
+    if (!dia || !hora) return getWhatsappLink('whatsapp-instrutor');
+    const diaLimpo = String(dia).trim().replace(/\s+/g, ' ');
+    const horaLimpa = String(hora).trim().replace(/\s+/g, '');
+    const tmpl = `Olá! Tenho interesse na aula experimental de Krav-Maga. Teria disponibilidade no horário de ${diaLimpo} às ${horaLimpa}?`;
+    return base + '?text=' + encodeURIComponent(tmpl);
+  }
+
   function getWhatsappLink(tipo) {
     const base = getValue('site.contato.whatsapp.link') || FALLBACK_CONTENT.site.contato.whatsapp.link;
     const msgs = getValue('site.contato.whatsapp.mensagens') || {};
@@ -1670,6 +1679,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     else if (tipo === 'whatsapp-metodo') query = msgs.conhecerMetodo || '';
     else if (tipo === 'whatsapp-instrutor') query = msgs.falarComInstrutor || '';
     return base + (query || '');
+  }
+
+  function abrirUrlExterna(url) {
+    try {
+      const w = window.open(url, '_blank', 'noopener,noreferrer');
+      if (!w) throw new Error('popup bloqueado');
+    } catch(e) {
+      try { window.location.assign(url); } catch(_) { window.location.href = url; }
+    }
   }
 
   function populateStatic() {
@@ -2046,8 +2064,16 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       const grid = document.createElement('div');
       grid.className = 'horarios-dia-grid';
       turmas.forEach(t => {
-        const row = document.createElement('div');
+        const row = document.createElement('a');
         row.className = 'horarios-turma';
+        row.href = getWhatsappHorarioLink(t.dia, t.hora);
+        row.target = '_blank';
+        row.rel = 'noopener noreferrer';
+        row.setAttribute('data-dia', t.dia || '');
+        row.setAttribute('data-hora', t.hora || '');
+        row.setAttribute('data-turma', t.turma || '');
+        row.setAttribute('data-professor', t.professor || '');
+        row.setAttribute('aria-label', `Agendar aula ${t.dia||''} ${t.hora||''} — ${t.turma||''} — ${t.professor||''}`);
         row.innerHTML =
           '<div class="horarios-turma-hora">'+(t.hora||'')+'</div>'+
           '<div class="horarios-turma-info">'+
@@ -2072,30 +2098,33 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   }
   function abrirWhatsappHorarios() {
     const url = getWhatsappLink('whatsapp-instrutor');
-    try { window.open(url, '_blank', 'noopener'); } catch(e) { window.location.href = url; }
+    abrirUrlExterna(url);
+  }
+  function abrirWhatsappHorariosComTarget(e) {
+    const card = e.target && e.target.closest ? e.target.closest('a.horarios-turma') : null;
+    if (card) {
+      const href = card.getAttribute('href') || '';
+      if (href && /^https:\/\/wa\.me\/\d+\?text=/.test(href)) {
+        fecharHorariosModal();
+        return;
+      }
+    }
+    e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+    fecharHorariosModal();
+    setTimeout(abrirWhatsappHorarios, 80);
   }
   function bindHorariosBehavior() {
     const fbtn = document.getElementById('horariosFloat');
     const fechar = document.getElementById('horariosFechar');
     const overlay = document.getElementById('horariosOverlay');
-    const modal = document.getElementById('horariosModal');
     if (fbtn) fbtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); abrirHorariosModal(); });
     if (fechar) fechar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fecharHorariosModal(); });
     if (overlay) {
       overlay.addEventListener('click', (e) => {
         if (e.target === overlay) { fecharHorariosModal(); return; }
-        e.preventDefault();
-        fecharHorariosModal();
-        setTimeout(abrirWhatsappHorarios, 80);
-      });
-    }
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        fecharHorariosModal();
-        setTimeout(abrirWhatsappHorarios, 80);
-      });
+        abrirWhatsappHorariosComTarget(e);
+      }, true);
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && document.getElementById('horariosOverlay')?.classList.contains('open')) {
