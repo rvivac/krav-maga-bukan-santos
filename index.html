@@ -798,6 +798,13 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line);
 }
 .faq-float:hover .faq-label{opacity:1;transform:translateY(-50%) translateX(0)}
+.dicas-float{position:fixed;right:26px;bottom:266px;z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#FFE352 0%,#D8AE14 100%);color:#181300;box-shadow:0 10px 30px -6px var(--gold-glow),0 2px 8px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.28);animation:faqpulse 2.8s ease-in-out infinite;transition:transform .25s ease,box-shadow .25s ease;cursor:pointer}
+.dicas-float:hover{transform:scale(1.08);animation-play-state:paused;box-shadow:0 16px 44px -6px var(--gold-glow)}.dicas-float svg{width:31px;height:31px;z-index:2;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22))}.dicas-float::before{content:'';position:absolute;inset:-6px;border-radius:50%;background:rgba(243,204,31,.34);animation:faqwaving 2.8s ease-out infinite;z-index:-1}
+.dicas-label{position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(10px);background:var(--bg-3);color:var(--text-1);border:1px solid var(--line);padding:10px 16px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.08em;white-space:nowrap;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow-lg)}.dicas-label::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px;height:12px;background:var(--bg-3);border-right:1px solid var(--line);border-top:1px solid var(--line)}.dicas-float:hover .dicas-label{opacity:1;transform:translateY(-50%) translateX(0)}
+.dicas-modal-overlay{position:fixed;inset:0;z-index:86;display:none;align-items:center;justify-content:center;background:rgba(4,4,5,.78);backdrop-filter:blur(8px);padding:24px}.dicas-modal-overlay.open{display:flex;animation:fadeIn .25s ease both}.dicas-modal{position:relative;width:min(860px,100%);max-height:min(88vh,820px);overflow:hidden;background:linear-gradient(180deg,rgba(22,26,31,.98),rgba(10,11,13,.99));border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.9),0 0 0 1px rgba(243,204,31,.1);display:flex;flex-direction:column}.dicas-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--accent) 70%,transparent)}
+.dicas-head{padding:22px 28px 18px;border-bottom:1px solid var(--line-accent);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:linear-gradient(180deg,rgba(243,204,31,.07),transparent)}.dicas-head h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;letter-spacing:.03em;color:var(--text-1);margin:0}.dicas-head p{color:var(--text-3);font-size:.9rem;margin-top:8px}.dicas-kicker{font-family:'Barlow Condensed',sans-serif;color:var(--gold);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px}.dicas-close{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;background:var(--bg-3);border:1px solid var(--line);color:var(--text-2);cursor:pointer}.dicas-close:hover{color:var(--gold);border-color:var(--gold)}.dicas-close svg{width:22px;height:22px}
+.dicas-body{padding:22px 28px 24px;overflow-y:auto;flex:1}.dicas-progress{display:flex;align-items:center;gap:16px;color:var(--text-3);font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}.dicas-progress-bar{height:5px;flex:1;background:var(--bg-4);border-radius:99px;overflow:hidden}.dicas-progress-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent-2));transition:width .3s ease}.dicas-slide h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.35rem,2.8vw,1.9rem);color:var(--text-1);margin-bottom:14px}.dicas-slide p,.dicas-slide li{color:var(--text-2);font-size:.96rem;line-height:1.65}.dicas-slide p{margin-bottom:14px}.dicas-slide ul,.dicas-slide ol{padding-left:22px;margin:8px 0 16px}.dicas-slide li{margin-bottom:7px}.dicas-slide strong{color:var(--gold)}.dicas-lead{font-size:1.05rem!important;color:var(--text-1)!important}.dicas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 18px}.dicas-card{padding:13px 14px;border:1px solid var(--line-accent);border-radius:12px;background:rgba(158,132,214,.05)}.dicas-card strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}.dicas-card span{color:var(--text-2);font-size:.88rem;line-height:1.45}.dicas-quote{border-left:3px solid var(--gold);padding:12px 15px;background:rgba(243,204,31,.06);color:var(--text-1);margin-top:14px}.dicas-nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.dicas-nav button{min-height:44px;padding:10px 18px;border-radius:9px;border:1px solid var(--line-accent);background:rgba(158,132,214,.08);color:var(--text-1);font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.dicas-nav button:hover{border-color:var(--gold);color:var(--gold)}.dicas-nav .next{background:var(--accent);border-color:var(--accent-2)}
+@media (max-width:560px){.dicas-float{right:16px;bottom:232px;width:56px;height:56px}.dicas-float svg{width:28px;height:28px}.dicas-modal{max-height:92vh;border-radius:18px}.dicas-head{padding:18px 18px 14px}.dicas-head h2{font-size:1.45rem}.dicas-body{padding:16px 16px 20px}.dicas-grid{grid-template-columns:1fr}.dicas-slide p,.dicas-slide li{font-size:.92rem}.dicas-nav button{flex:1;padding-inline:10px}}
 
 .faq-modal-overlay{
   position:fixed;inset:0;z-index:85;display:none;align-items:center;justify-content:center;
@@ -897,6 +904,19 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-turma-wa{display:none}
   .horarios-turma-hora{min-width:100px;font-size:.85rem;padding:5px 10px}
 }
+.quiz-modal-overlay{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;background:rgba(4,4,5,.78);backdrop-filter:blur(9px);padding:clamp(12px,3vw,28px)}
+.quiz-modal-overlay.open{display:flex;animation:fadeIn .25s ease both}
+.quiz-modal{position:relative;width:min(860px,100%);max-height:min(92vh,900px);overflow:hidden;background:linear-gradient(180deg,rgba(22,26,31,.98),rgba(10,11,13,.99));border:1px solid var(--line-accent);border-radius:22px;box-shadow:0 30px 90px -20px rgba(0,0,0,.9),0 0 0 1px rgba(158,132,214,.1);display:flex;flex-direction:column}
+.quiz-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 35%,var(--accent) 70%,transparent)}
+.quiz-modal-head{padding:24px 28px 18px;border-bottom:1px solid var(--line-accent);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:linear-gradient(180deg,rgba(243,204,31,.07),transparent)}
+.quiz-modal-head-text{min-width:0}.quiz-modal-kicker{font-family:'Barlow Condensed',sans-serif;color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.quiz-modal-head h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.45rem,3vw,2rem);line-height:1.05;letter-spacing:.03em;color:var(--text-1);margin:0}.quiz-modal-head p{font-size:.9rem;color:var(--text-3);margin-top:8px}
+.quiz-modal-fechar{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--text-2);background:var(--bg-3);border:1px solid var(--line);transition:all .2s ease;cursor:pointer;flex-shrink:0}.quiz-modal-fechar:hover{color:var(--gold);border-color:var(--gold);background:rgba(243,204,31,.08)}.quiz-modal-fechar svg{width:22px;height:22px}
+.quiz-modal-body{padding:22px 28px 24px;overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}.quiz-progress{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--text-3);font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}.quiz-progress-bar{height:5px;flex:1;background:var(--bg-4);border-radius:99px;overflow:hidden}.quiz-progress-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent-2));transition:width .3s ease}
+.quiz-topic{display:inline-block;color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:.86rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}.quiz-question{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.3rem,2.7vw,1.75rem);line-height:1.18;color:var(--text-1);margin-bottom:20px}.quiz-options{display:grid;gap:10px}
+.quiz-option{display:grid;grid-template-columns:38px 1fr;align-items:start;gap:13px;width:100%;padding:15px 16px;text-align:left;background:rgba(158,132,214,.045);border:1px solid var(--line-accent);border-radius:12px;color:var(--text-2);font-size:.96rem;line-height:1.5;transition:border-color .2s ease,background .2s ease,transform .2s ease}.quiz-option:hover:not(:disabled){border-color:var(--gold);background:rgba(243,204,31,.07);transform:translateX(3px)}.quiz-option:disabled{cursor:default}.quiz-option-letter{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:rgba(243,204,31,.1);border:1px solid rgba(243,204,31,.25);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800}.quiz-option.correct{border-color:rgba(37,211,102,.7);background:rgba(37,211,102,.1);color:var(--text-1)}.quiz-option.correct .quiz-option-letter{background:rgba(37,211,102,.18);border-color:rgba(37,211,102,.5);color:var(--whatsapp)}.quiz-option.incorrect{border-color:rgba(214,40,51,.65);background:rgba(214,40,51,.1)}.quiz-option.incorrect .quiz-option-letter{background:rgba(214,40,51,.18);border-color:rgba(214,40,51,.5);color:#ff9a9a}
+.quiz-feedback{display:none;margin-top:16px;padding:15px 16px;border-radius:12px;border:1px solid var(--line-accent);background:rgba(158,132,214,.06);color:var(--text-2);font-size:.94rem;line-height:1.6}.quiz-feedback.show{display:block;animation:fadeUp .25s ease both}.quiz-feedback strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}.quiz-feedback.ok{border-color:rgba(37,211,102,.45)}.quiz-feedback.ok strong{color:var(--whatsapp)}.quiz-feedback.err{border-color:rgba(214,40,51,.45)}.quiz-feedback.err strong{color:#ff9a9a}.quiz-tip{margin-top:14px;padding:13px 15px;border-left:3px solid var(--gold);background:rgba(243,204,31,.06);color:var(--text-2);font-size:.9rem;line-height:1.55}.quiz-tip strong{color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}.quiz-action{min-height:44px;padding:10px 18px;border-radius:9px;border:1px solid var(--line-accent);background:rgba(158,132,214,.08);color:var(--text-1);font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.quiz-action:hover{border-color:var(--gold);color:var(--gold)}.quiz-action.primary{background:var(--accent);border-color:var(--accent-2)}.quiz-result{text-align:center;padding:20px 0}.quiz-result h3{font-family:'Barlow Condensed',sans-serif;color:var(--gold);font-size:2rem;text-transform:uppercase;margin-bottom:10px}.quiz-result p{color:var(--text-2);margin-bottom:20px}
+@media (max-width:560px){.quiz-modal{max-height:94vh;border-radius:18px}.quiz-modal-head{padding:18px 18px 14px}.quiz-modal-body{padding:16px 16px 20px}.quiz-option{grid-template-columns:32px 1fr;padding:13px 12px;font-size:.91rem;gap:10px}.quiz-option-letter{width:28px;height:28px}.quiz-question{font-size:1.3rem}.quiz-actions{flex-direction:column}.quiz-action{width:100%}}
 @keyframes kakauslideIn{from{opacity:0;transform:translateX(-22px) translateY(10px)}to{opacity:1;transform:translateX(0) translateY(0)}}
 @keyframes kakaonlinepulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
 .kakau-float{
@@ -1610,6 +1630,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 
 </main>
 
+<button class="dicas-float" id="dicasFloat" type="button" aria-label="Abrir dicas de consciência situacional" title="Dicas de consciência situacional">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.5 14.5A6 6 0 1 1 15.5 14.5c-.9.7-1.5 1.6-1.5 2.5h-4c0-.9-.6-1.8-1.5-2.5Z"/><path d="M12 4v1"/><path d="m4.93 4.93.7.7"/><path d="M3 12h1"/><path d="m19.07 4.93-.7.7"/><path d="M21 12h-1"/></svg>
+  <span class="dicas-label">Dicas de consciência situacional →</span>
+</button>
+
 <div class="faq-float" id="faqFloat" aria-label="Perguntas frequentes sobre a aula experimental" title="Dúvidas sobre a primeira aula">
   <span class="q-mark">?</span>
   <span class="faq-label">Dúvidas da 1ª aula →</span>
@@ -1658,6 +1683,16 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 </div>
 <div class="horarios-modal-toast" id="horariosToast" role="status" aria-live="polite"></div>
 
+<div class="dicas-modal-overlay" id="dicasOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Dicas de consciência situacional">
+  <div class="dicas-modal" role="document">
+    <div class="dicas-head">
+      <div><div class="dicas-kicker">Presença antes da técnica</div><h2>Consciência Situacional</h2><p>Ferramentas práticas para ler o ambiente e decidir com mais segurança.</p></div>
+      <button class="dicas-close" id="dicasFechar" type="button" aria-label="Fechar dicas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="dicas-body" id="dicasBody"></div>
+  </div>
+</div>
+
 <div class="faq-modal-overlay" id="faqOverlay" aria-hidden="true" role="dialog" aria-label="Perguntas frequentes — primeira aula experimental Bukan Santos">
   <div class="faq-modal" id="faqModal" role="document">
     <div class="faq-modal-head">
@@ -1681,6 +1716,22 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
       <span>Ainda tem dúvida? <strong>Fale conosco no WhatsApp</strong></span>
     </div>
+  </div>
+</div>
+
+<div class="quiz-modal-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Quiz avançado de consciência situacional">
+  <div class="quiz-modal" id="quizModal" role="document">
+    <div class="quiz-modal-head">
+      <div class="quiz-modal-head-text">
+        <div class="quiz-modal-kicker">Acesso reservado · Nível 2</div>
+        <h2>Quiz Avançado: Consciência Situacional Urbana</h2>
+        <p>Leia o cenário, escolha a decisão tática mais segura e confira a análise.</p>
+      </div>
+      <button class="quiz-modal-fechar" type="button" aria-label="Fechar quiz" id="quizFechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="quiz-modal-body" id="quizBody"></div>
   </div>
 </div>
 
@@ -2776,6 +2827,182 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     });
   }
 
+  const DICAS_SLIDES = [
+    { title: 'O que é consciência situacional?', html: '<p class="dicas-lead"><strong>Consciência situacional</strong> é a habilidade de perceber o que está acontecendo ao seu redor, compreender o significado disso e projetar o que pode acontecer nos próximos segundos.</p><p>Ela é a base da defesa pessoal real, muito mais importante do que qualquer técnica física. A meta não é viver em paranoia: é estar presente, reconhecer mudanças e preservar opções.</p><div class="dicas-quote">Quanto mais você treina, mais natural fica e menos energia consome.</div>' },
+    { title: '1. Código de Cores de Jeff Cooper', html: '<p>Use estados mentais simples para calibrar sua atenção sem ficar em alerta máximo o tempo todo.</p><div class="dicas-grid"><div class="dicas-card"><strong>Branco</strong><span>Desatento, no piloto automático. Reserve para casa segura ou sono; evite em público.</span></div><div class="dicas-card"><strong>Amarelo</strong><span>Alerta relaxado. É o estado padrão em espaços públicos: cabeça erguida e visão ampla, sem paranoia.</span></div><div class="dicas-card"><strong>Laranja</strong><span>Alerta específico. Algo estranho chamou atenção: foque na possível ameaça e planeje uma saída.</span></div><div class="dicas-card"><strong>Vermelho</strong><span>Ação. A ameaça foi confirmada: execute o plano de fugir, desescalar ou se defender.</span></div></div><div class="dicas-quote"><strong>Meta diária:</strong> passar o maior tempo possível em Condição Amarela.</div>' },
+    { title: '2. Loop OODA', html: '<p>Ciclo de decisão rápida, usado por pilotos de caça e adaptado para a defesa pessoal:</p><ol><li><strong>Observe</strong> — colete informações com visão, audição e intuição.</li><li><strong>Oriente</strong> — interprete o significado: é normal ou é uma anomalia?</li><li><strong>Decida</strong> — escolha a melhor ação disponível.</li><li><strong>Aja</strong> — execute sem hesitar.</li></ol><p>Quem completa o ciclo mais rápido costuma vencer a situação, mesmo sem lutar.</p>' },
+    { title: '3. Técnicas práticas de rua', html: '<div class="dicas-grid"><div class="dicas-card"><strong>Baseline</strong><span>Pergunte: “O que é normal neste lugar neste horário?”. O que destoa vira anomalia.</span></div><div class="dicas-card"><strong>Scan sistemático</strong><span>Ao entrar, faça uma varredura da direita para a esquerda e identifique saídas, obstáculos, pessoas e mãos.</span></div><div class="dicas-card"><strong>Regra das mãos</strong><span>A maioria dos ataques começa com as mãos. Mãos escondidas ou em movimento estranho elevam o alerta.</span></div><div class="dicas-card"><strong>Distância</strong><span>Mantenha 1,5 a 2 metros. Se alguém aproximar demais, mova-se em ângulo e use objetos como barreira.</span></div></div><div class="dicas-quote"><strong>Evite a fixação de ameaça:</strong> mantenha visão periférica e consciência 360° mesmo quando algo chamar sua atenção.</div>' },
+    { title: '4. Hábitos diários para treinar', html: '<div class="dicas-grid"><div class="dicas-card"><strong>Scan de entrada</strong><span>Ao entrar em um local, identifique 2 saídas e 3 anomalias em 10 segundos. Cria automatismo.</span></div><div class="dicas-card"><strong>Baseline Walk</strong><span>Caminhe 2 minutos sem celular e liste o que é normal e o que destoa. Melhora padrões.</span></div><div class="dicas-card"><strong>Mãos + saídas</strong><span>Em qualquer lugar público, note as mãos das pessoas e as rotas de fuga. Reduz surpresa.</span></div><div class="dicas-card"><strong>Sem celular em transição</strong><span>Estacionamento, calçada à noite, ponto de ônibus e elevador: elimine a maior vulnerabilidade moderna.</span></div></div><div class="dicas-quote"><strong>Box Breathing:</strong> inspire 4s → segure 4s → expire 4s → segure 4s. Repita para controlar a frequência cardíaca sob estresse.</div>' },
+    { title: '5. Sinais e resumo para hoje', html: '<p>Eleve sua atenção quando perceber:</p><ul><li>pessoa se aproximando em ângulo ou fechando distância;</li><li>olhar fixo e mudança de direção quando você muda;</li><li>mãos escondidas ou mexendo no bolso/cintura;</li><li>grupo que se separa e tenta cercar;</li><li>pessoa que parece fora do contexto do local.</li></ul><p><strong>Aplicação imediata:</strong></p><ol><li>Saia de casa em <strong>Condição Amarela</strong>.</li><li>Faça scan de entrada em todo lugar novo.</li><li>Observe mãos e saídas.</li><li>Se algo parecer errado, eleve para Laranja e mude de posição ou rota.</li><li>Confie na intuição: seu subconsciente processa muito mais informação do que a mente consciente.</li></ol><div class="dicas-quote">Consciência situacional não é paranoia. É presença.</div>' }
+  ];
+  function carregarDicasConteudo() {
+    if (window.location.protocol === 'file:') return Promise.resolve();
+    return Promise.all(DICAS_SLIDES.map((slide, index) => {
+      const nome = String(index + 1).padStart(2, '0');
+      return fetch('content/dicas/slide-' + nome + '.txt', {cache:'no-cache'})
+        .then(response => response.ok ? response.text() : Promise.reject(response.status))
+        .then(text => {
+          const linhas = text.replace(/\r/g, '').split('\n');
+          slide.title = (linhas.shift() || slide.title).trim();
+          slide.html = linhas.join('\n').trim() || slide.html;
+        })
+        .catch(() => undefined);
+    }));
+  }
+  let dicasSlide = 0;
+  function renderDicasSlide() {
+    const body = document.getElementById('dicasBody');
+    if (!body) return;
+    const slide = DICAS_SLIDES[dicasSlide];
+    body.innerHTML = '<div class="dicas-progress"><span>Slide ' + (dicasSlide + 1) + ' de ' + DICAS_SLIDES.length + '</span><div class="dicas-progress-bar"><span style="width:' + ((dicasSlide + 1) / DICAS_SLIDES.length * 100) + '%"></span></div></div><article class="dicas-slide"><h3>' + slide.title + '</h3>' + slide.html + '</article><div class="dicas-nav"><button type="button" id="dicasAnterior"' + (dicasSlide === 0 ? ' disabled' : '') + '>← Anterior</button><button type="button" class="next" id="dicasProxima">' + (dicasSlide === DICAS_SLIDES.length - 1 ? 'Fechar' : 'Próxima →') + '</button></div>';
+    const anterior = document.getElementById('dicasAnterior');
+    if (anterior) anterior.addEventListener('click', () => { dicasSlide--; renderDicasSlide(); });
+    const proxima = document.getElementById('dicasProxima');
+    if (proxima) proxima.addEventListener('click', () => { if (dicasSlide === DICAS_SLIDES.length - 1) fecharDicasModal(); else { dicasSlide++; renderDicasSlide(); } });
+  }
+  function abrirDicasModal() {
+    dicasSlide = 0;
+    renderDicasSlide();
+    const overlay = document.getElementById('dicasOverlay');
+    if (overlay) { overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); }
+  }
+  function fecharDicasModal() {
+    const overlay = document.getElementById('dicasOverlay');
+    if (overlay) { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); }
+  }
+  function bindDicasBehavior() {
+    const button = document.getElementById('dicasFloat');
+    const fechar = document.getElementById('dicasFechar');
+    const overlay = document.getElementById('dicasOverlay');
+    carregarDicasConteudo();
+    if (button) button.addEventListener('click', abrirDicasModal);
+    if (fechar) fechar.addEventListener('click', fecharDicasModal);
+    if (overlay) overlay.addEventListener('click', e => { if (e.target === overlay) fecharDicasModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay?.classList.contains('open')) fecharDicasModal(); });
+  }
+
+  const QUIZ_QUESTIONS = [
+    {
+      topic: 'Lugares ermos',
+      question: 'Você precisa cruzar uma rua deserta para chegar ao seu destino. No meio do quarteirão, percebe um grupo de três pessoas paradas na calçada conversando em voz baixa. Elas param de falar e olham fixamente para você assim que você entra na rua. Qual é a melhor decisão tática?',
+      options: [
+        ['A', 'Continuar caminhando em ritmo normal, mas colocar a mão dentro do casaco para simular que está armado.', 'Simular estar armado pode escalar a situação para violência real caso eles também estejam ou se sintam ameaçados.'],
+        ['B', 'Dar meia-volta imediatamente de forma firme, retornar à avenida movimentada anterior e procurar uma rota alternativa ou um táxi/Uber.', 'O reconhecimento imediato do risco e a quebra de padrão eliminam a oportunidade do agressor antes que a distância seja reduzida.'],
+        ['C', 'Atravessar para a outra calçada da mesma rua deserta e apertar o passo, sem tirar os olhos do grupo.', 'Permanecer na mesma rua deserta apenas transfere você de calçada, mantendo-o no raio de ação do grupo sem pontos de fuga próximos.'],
+        ['D', 'Correr em disparada para tentar passar pelo grupo antes que eles reajam.', 'Correr em direção ao perigo em uma rua deserta pode encurralar você caso decidam fechar a sua passagem.']
+      ], correct: 1, tip: 'Quando o ambiente é deserto, a melhor distância é a que impede qualquer contato físico. Rompa o trajeto antes que eles se aproximem.'
+    },
+    {
+      topic: 'Descendo do transporte',
+      question: 'Ao descer do ônibus à noite, você percebe que um indivíduo que estava no fundo do coletivo desembarcou logo atrás e começou a caminhar no mesmo ritmo e na mesma direção, mantendo uma distância constante de 10 metros. Como validar se é uma ameaça e agir?',
+      options: [
+        ['A', 'Mudar de calçada e, se a pessoa mudar também, acelerar o passo em direção à sua casa para tentar trancar o portão a tempo.', 'Ir para casa revela onde você mora e pode resultar em uma emboscada na porta, onde estará encurralado procurando as chaves.'],
+        ['B', 'Parar bruscamente, virar-se de frente para a pessoa e confrontá-la verbalmente perguntando o que ela quer.', 'O confronto verbal direto em uma área isolada pode antecipar uma reação violenta sem que você tenha apoio por perto.'],
+        ['C', 'Atravessar a rua e caminhar em direção ao comércio mais próximo, como posto de gasolina, farmácia ou mercado, quebrando o trajeto residencial.', 'Mudar o trajeto em direção a um local iluminado e com público serve como teste e coloca você em uma zona segura.'],
+        ['D', 'Fingir que esqueceu algo e voltar correndo em direção ao ponto de ônibus na esperança de pegar o mesmo coletivo de volta.', 'O ônibus já partiu e você estará correndo em direção a um ponto fixo e isolado.']
+      ], correct: 2, tip: 'Nunca leve uma possível ameaça até a porta da sua casa. Procure "ilhas de segurança" comerciais.'
+    },
+    {
+      topic: 'Dentro do transporte',
+      question: 'Você está em um vagão de metrô semi-vazio e um passageiro claramente alterado, possivelmente sob efeito de substâncias, entra no vagão e começa a gritar palavras desconexas e a chutar os assentos, aproximando-se da sua fileira. Qual é a melhor conduta?',
+      options: [
+        ['A', 'Fixar o olhar nos olhos dele para demonstrar que você não tem medo e impor respeito.', 'O contato visual prolongado com indivíduos alterados é frequentemente interpretado como desafio ou provocação, escalando a agressividade.'],
+        ['B', 'Levantar-se calmamente sem fazer movimentos bruscos, desviar o olhar e deslocar-se para o próximo vagão ou mudar de setor no desembarque.', 'Evitar o confronto, quebrar o contato visual e aumentar a distância física de forma controlada é a conduta de menor risco.'],
+        ['C', 'Intervir verbalmente pedindo para o passageiro se acalmar em respeito aos outros usuários.', 'Tentar mediar a situação com uma pessoa em surto ou alterada, sem treinamento, expõe você a agressões físicas imprevisíveis.'],
+        ['D', 'Pegar o celular e começar a filmar a ação para ter provas caso precise acionar a segurança.', 'Apontar uma câmera para alguém alterado pode direcionar a fúria da pessoa diretamente contra você.']
+      ], correct: 1, tip: 'A segurança pessoal no transporte público prioriza o distanciamento em vez da moralização do comportamento alheio.'
+    },
+    {
+      topic: 'Numa estação',
+      question: 'Você está na plataforma de uma estação ferroviária aberta e percebe duas pessoas com comportamento suspeito se posicionando de forma a "enclausurar" você: uma a alguns metros à sua esquerda e outra à sua direita. O trem ainda vai demorar 5 minutos. O que fazer?',
+      options: [
+        ['A', 'Sentar-se no banco da plataforma e colocar a mochila no colo, esperando o trem chegar.', 'Sentar-se reduz sua mobilidade e capacidade de arrancada ou fuga caso decidam fechar o cerco.'],
+        ['B', 'Deslocar-se imediatamente para perto de um grupo maior de passageiros, da cabine de segurança ou da área das catracas onde há funcionários.', 'Romper a armadilha geográfica movendo-se para uma zona de alta visibilidade e perto de autoridades anula a estratégia dos suspeitos.'],
+        ['C', 'Ficar parado onde está, mas abrir espaço na sua frente para conseguir chutar o primeiro que se aproximar.', 'Aceitar o cerco geográfico reduz suas chances de defesa, pois você será atacado por dois ângulos simultaneamente.'],
+        ['D', 'Pular na linha do trem vazia para atravessar para a plataforma do lado oposto.', 'Pular nos trilhos gera risco de morte imediato por eletrocussão ou queda, sendo totalmente desproporcional.']
+      ], correct: 1, tip: 'Rompa o cerco espacial antes que ele se feche: visibilidade, público e funcionários são prioridades.'
+    }
+  ];
+
+  let quizState = { question: 0, score: 0, answered: false };
+  function quizEscape(text) {
+    return String(text).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+  function renderQuiz() {
+    const body = document.getElementById('quizBody');
+    if (!body) return;
+    const item = QUIZ_QUESTIONS[quizState.question];
+    const number = quizState.question + 1;
+    body.innerHTML = '<div class="quiz-progress"><span>Questão ' + number + ' de ' + QUIZ_QUESTIONS.length + '</span><div class="quiz-progress-bar"><span style="width:' + (number / QUIZ_QUESTIONS.length * 100) + '%"></span></div></div>' +
+      '<div class="quiz-topic">Tópico: ' + quizEscape(item.topic) + '</div>' +
+      '<h3 class="quiz-question">' + quizEscape(item.question) + '</h3>' +
+      '<div class="quiz-options">' + item.options.map((option, index) => '<button class="quiz-option" type="button" data-quiz-option="' + index + '"><span class="quiz-option-letter">' + option[0] + '</span><span>' + quizEscape(option[1]) + '</span></button>').join('') + '</div>' +
+      '<div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>' +
+      '<div class="quiz-tip"><strong>Dica tática</strong><br>' + quizEscape(item.tip) + '</div>' +
+      '<div class="quiz-actions"><button class="quiz-action primary" type="button" id="quizNext" hidden>' + (number === QUIZ_QUESTIONS.length ? 'Ver resultado' : 'Próxima pergunta') + '</button></div>';
+  }
+  function abrirQuizModal() {
+    quizState = { question: 0, score: 0, answered: false };
+    renderQuiz();
+    const overlay = document.getElementById('quizOverlay');
+    if (overlay) { overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); }
+  }
+  function fecharQuizModal() {
+    const overlay = document.getElementById('quizOverlay');
+    if (overlay) { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); }
+  }
+  function renderQuizResult() {
+    const body = document.getElementById('quizBody');
+    if (!body) return;
+    const percent = Math.round((quizState.score / QUIZ_QUESTIONS.length) * 100);
+    body.innerHTML = '<div class="quiz-result"><h3>Quiz concluído</h3><p>Você acertou <strong>' + quizState.score + ' de ' + QUIZ_QUESTIONS.length + '</strong> questões (' + percent + '%).</p><button class="quiz-action primary" type="button" id="quizRestart">Refazer quiz</button></div>';
+  }
+  function bindQuizBehavior() {
+    const overlay = document.getElementById('quizOverlay');
+    const fechar = document.getElementById('quizFechar');
+    if (!overlay) return;
+    if (fechar) fechar.addEventListener('click', fecharQuizModal);
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) { fecharQuizModal(); return; }
+      const option = e.target.closest('.quiz-option');
+      if (option && !quizState.answered) {
+        quizState.answered = true;
+        const selected = Number(option.dataset.quizOption);
+        const item = QUIZ_QUESTIONS[quizState.question];
+        const correct = selected === item.correct;
+        if (correct) quizState.score++;
+        overlay.querySelectorAll('.quiz-option').forEach((button, index) => {
+          button.disabled = true;
+          if (index === item.correct) button.classList.add('correct');
+          else if (index === selected) button.classList.add('incorrect');
+        });
+        const feedback = document.getElementById('quizFeedback');
+        feedback.className = 'quiz-feedback show ' + (correct ? 'ok' : 'err');
+        feedback.innerHTML = '<strong>' + (correct ? 'Correto.' : 'Incorreto.') + '</strong>' + quizEscape(item.options[selected][2]);
+        document.getElementById('quizNext').hidden = false;
+      }
+      const next = e.target.closest('#quizNext');
+      if (next) {
+        if (quizState.question === QUIZ_QUESTIONS.length - 1) renderQuizResult();
+        else { quizState.question++; quizState.answered = false; renderQuiz(); }
+      }
+      const restart = e.target.closest('#quizRestart');
+      if (restart) { quizState = { question: 0, score: 0, answered: false }; renderQuiz(); }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) fecharQuizModal();
+    });
+    let secret = '';
+    let secretTimer = null;
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey || e.altKey || e.metaKey || e.key.length !== 1) return;
+      secret = (secret + e.key.toLowerCase()).slice(-4);
+      clearTimeout(secretTimer);
+      secretTimer = setTimeout(() => { secret = ''; }, 1200);
+      if (secret === 'quiz') { secret = ''; abrirQuizModal(); }
+    });
+  }
+
   function bindKakauGatilhoBehavior() {
     const k = document.getElementById('kakauFloat');
     const fechar = document.getElementById('kakauFechar');
@@ -2823,6 +3050,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     bindStaticBehavior();
     bindHorariosBehavior();
     bindFaqBehavior();
+    bindDicasBehavior();
+    bindQuizBehavior();
     bindKakauGatilhoBehavior();
   }
 
