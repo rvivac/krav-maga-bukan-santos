@@ -86,7 +86,8 @@
   "footer": {
     "copy_txt": "site/footer-copy.txt",
     "sobre_txt": "site/footer-sobre.txt",
-    "creditoDesign_txt": "site/footer-credito-design.txt"
+    "creditoDesign_txt": "site/footer-credito-design.txt",
+    "versao_txt": "site/versao.txt"
   },
   "kakauGatilho": {
     "microcopy_txt": "site/kakau-gatilho-microcopy.txt",

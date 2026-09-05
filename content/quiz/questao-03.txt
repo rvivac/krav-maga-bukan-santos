@@ -1,0 +1,12 @@
+TOPICO=Dentro do transporte
+PERGUNTA=Você está em um vagão de metrô semi-vazio e um passageiro claramente alterado, possivelmente sob efeito de substâncias, entra no vagão e começa a gritar palavras desconexas e a chutar os assentos, aproximando-se da sua fileira. Qual é a melhor conduta?
+A=Fixar o olhar nos olhos dele para demonstrar que você não tem medo e impor respeito.
+A_EXPLICACAO=O contato visual prolongado com indivíduos alterados é frequentemente interpretado como desafio ou provocação, escalando a agressividade.
+B=Levantar-se calmamente sem fazer movimentos bruscos, desviar o olhar e deslocar-se para o próximo vagão ou mudar de setor no desembarque.
+B_EXPLICACAO=Evitar o confronto, quebrar o contato visual e aumentar a distância física de forma controlada é a conduta de menor risco.
+C=Intervir verbalmente pedindo para o passageiro se acalmar em respeito aos outros usuários.
+C_EXPLICACAO=Tentar mediar a situação com uma pessoa em surto ou alterada, sem treinamento, expõe você a agressões físicas imprevisíveis.
+D=Pegar o celular e começar a filmar a ação para ter provas caso precise acionar a segurança.
+D_EXPLICACAO=Apontar uma câmera para alguém alterado pode direcionar a fúria da pessoa diretamente contra você.
+CORRETA=B
+DICA=A segurança pessoal no transporte público prioriza o distanciamento em vez da moralização do comportamento alheio.

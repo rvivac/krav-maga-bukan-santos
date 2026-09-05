@@ -1,0 +1,12 @@
+TOPICO=Descendo do transporte
+PERGUNTA=Ao descer do ônibus à noite, você percebe que um indivíduo que estava no fundo do coletivo desembarcou logo atrás e começou a caminhar no mesmo ritmo e na mesma direção, mantendo uma distância constante de 10 metros. Como validar se é uma ameaça e agir?
+A=Mudar de calçada e, se a pessoa mudar também, acelerar o passo em direção à sua casa para tentar trancar o portão a tempo.
+A_EXPLICACAO=Ir para casa revela onde você mora e pode resultar em uma emboscada na porta, onde estará encurralado procurando as chaves.
+B=Parar bruscamente, virar-se de frente para a pessoa e confrontá-la verbalmente perguntando o que ela quer.
+B_EXPLICACAO=O confronto verbal direto em uma área isolada pode antecipar uma reação violenta sem que você tenha apoio por perto.
+C=Atravessar a rua e caminhar em direção ao comércio mais próximo, como posto de gasolina, farmácia ou mercado, quebrando o trajeto residencial.
+C_EXPLICACAO=Mudar o trajeto em direção a um local iluminado e com público serve como teste e coloca você em uma zona segura.
+D=Fingir que esqueceu algo e voltar correndo em direção ao ponto de ônibus na esperança de pegar o mesmo coletivo de volta.
+D_EXPLICACAO=O ônibus já partiu e você estará correndo em direção a um ponto fixo e isolado.
+CORRETA=C
+DICA=Nunca leve uma possível ameaça até a porta da sua casa. Procure "ilhas de segurança" comerciais.

@@ -1,0 +1,12 @@
+TOPICO=Lugares ermos
+PERGUNTA=Você precisa cruzar uma rua deserta para chegar ao seu destino. No meio do quarteirão, percebe um grupo de três pessoas paradas na calçada conversando em voz baixa. Elas param de falar e olham fixamente para você assim que você entra na rua. Qual é a melhor decisão tática?
+A=Continuar caminhando em ritmo normal, mas colocar a mão dentro do casaco para simular que está armado.
+A_EXPLICACAO=Simular estar armado pode escalar a situação para violência real caso eles também estejam ou se sintam ameaçados.
+B=Dar meia-volta imediatamente de forma firme, retornar à avenida movimentada anterior e procurar uma rota alternativa ou um táxi/Uber.
+B_EXPLICACAO=O reconhecimento imediato do risco e a quebra de padrão eliminam a oportunidade do agressor antes que a distância seja reduzida.
+C=Atravessar para a outra calçada da mesma rua deserta e apertar o passo, sem tirar os olhos do grupo.
+C_EXPLICACAO=Permanecer na mesma rua deserta apenas transfere você de calçada, mantendo-o no raio de ação do grupo sem pontos de fuga próximos.
+D=Correr em disparada para tentar passar pelo grupo antes que eles reajam.
+D_EXPLICACAO=Correr em direção ao perigo em uma rua deserta pode encurralar você caso decidam fechar a sua passagem.
+CORRETA=B
+DICA=Quando o ambiente é deserto, a melhor distância é a que impede qualquer contato físico. Rompa o trajeto antes que eles se aproximem.

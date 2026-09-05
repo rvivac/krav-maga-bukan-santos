@@ -1,0 +1,12 @@
+TOPICO=Numa estação
+PERGUNTA=Você está na plataforma de uma estação ferroviária aberta e percebe duas pessoas com comportamento suspeito se posicionando de forma a "enclausurar" você: uma a alguns metros à sua esquerda e outra à sua direita. O trem ainda vai demorar 5 minutos. O que fazer?
+A=Sentar-se no banco da plataforma e colocar a mochila no colo, esperando o trem chegar.
+A_EXPLICACAO=Sentar-se reduz sua mobilidade e capacidade de arrancada ou fuga caso decidam fechar o cerco.
+B=Deslocar-se imediatamente para perto de um grupo maior de passageiros, da cabine de segurança ou da área das catracas onde há funcionários.
+B_EXPLICACAO=Romper a armadilha geográfica movendo-se para uma zona de alta visibilidade e perto de autoridades anula a estratégia dos suspeitos.
+C=Ficar parado onde está, mas abrir espaço na sua frente para conseguir chutar o primeiro que se aproximar.
+C_EXPLICACAO=Aceitar o cerco geográfico reduz suas chances de defesa, pois você será atacado por dois ângulos simultaneamente.
+D=Pular na linha do trem vazia para atravessar para a plataforma do lado oposto.
+D_EXPLICACAO=Pular nos trilhos gera risco de morte imediato por eletrocussão ou queda, sendo totalmente desproporcional.
+CORRETA=B
+DICA=Rompa o cerco espacial antes que ele se feche: visibilidade, público e funcionários são prioridades.
