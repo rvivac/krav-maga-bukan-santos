@@ -6,8 +6,15 @@ import { extrairTurmas, serializarTXT, hashSHA256, DEFAULT_URL } from './crawler
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const TARGET_TXT = join(ROOT, 'content', 'site', 'horarios-turmas.txt');
+const TARGET_UPDATE_TXT = join(ROOT, 'content', 'site', 'horarios-ultima-atualizacao.txt');
 const CACHE_DIR = join(ROOT, '.cache');
 const HASH_FILE = join(CACHE_DIR, 'horarios.sha256');
+
+function fmtDataAtualizacao() {
+  const d = new Date();
+  const br = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(d).reduce((m,p)=>(m[p.type]=p.value,m),{});
+  return `${br.day}/${br.month}/${br.year} · ${br.hour}:${br.minute} (America/Sao_Paulo)`;
+}
 
 function log(...args) { console.log(`[sync-horarios ${new Date().toISOString()}]`, ...args); }
 function logWarn(...args) { console.warn(`[sync-horarios WARN ${new Date().toISOString()}]`, ...args); }
@@ -71,6 +78,10 @@ async function main() {
 
   writeFileSync(TARGET_TXT, novoConteudo, { encoding: 'utf8', flag: 'w' });
   log('Arquivo gravado:', TARGET_TXT);
+
+  const strAtualizacao = fmtDataAtualizacao();
+  writeFileSync(TARGET_UPDATE_TXT, strAtualizacao + '\n', { encoding: 'utf8', flag: 'w' });
+  log('Última atualização gravada:', TARGET_UPDATE_TXT, '→', strAtualizacao);
 
   try { mkdirSync(CACHE_DIR, { recursive:true }); } catch(_) {}
   writeFileSync(HASH_FILE, `${novoHash}\n${new Date().toISOString()}\n`, { encoding:'utf8', flag:'w' });
