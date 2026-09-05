@@ -584,50 +584,143 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--accent) 70%,transparent);
 }
 .horarios-modal-head{
-  padding:22px 28px 16px;border-bottom:1px solid var(--line-accent);
-  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  padding:20px 26px 16px;border-bottom:1px solid var(--line-accent);
+  display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
   background:linear-gradient(180deg,rgba(243,204,31,.07),transparent);
 }
-.horarios-modal-head-text{display:flex;flex-direction:column;gap:4px;min-width:0}
-.horarios-modal-head h2{
-  font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;letter-spacing:.04em;
-  text-transform:uppercase;margin:0;color:var(--text-1);display:flex;align-items:center;gap:10px;
+.horarios-modal-head-left{display:flex;align-items:center;gap:14px;min-width:0}
+.horarios-modal-head-ico{
+  width:56px;height:56px;flex-shrink:0;border-radius:16px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,rgba(243,204,31,.18),rgba(123,91,184,.12));
+  border:1px solid rgba(243,204,31,.3);
+  color:var(--gold);box-shadow:0 6px 20px -8px var(--gold-glow);
 }
-.horarios-modal-head h2 b{color:var(--gold);text-shadow:0 0 12px var(--gold-glow)}
-.horarios-modal-head p{margin:2px 0 0;font-size:.92rem;color:var(--text-2)}
+.horarios-modal-head-ico svg{width:32px;height:32px}
+.horarios-modal-head-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.horarios-modal-head h2{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;letter-spacing:.04em;
+  text-transform:uppercase;margin:0;color:var(--text-1);line-height:1;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+}
+.horarios-modal-head h2 .seg-p{color:var(--gold);text-shadow:0 0 12px var(--gold-glow)}
+.horarios-modal-head p{margin:2px 0 0;font-size:.88rem;color:var(--text-2);font-family:'Barlow Condensed',sans-serif;letter-spacing:.04em}
 .horarios-modal-fechar{
   width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;
   background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text-2);
   cursor:pointer;transition:all .2s ease;
 }
 .horarios-modal-fechar:hover{background:rgba(243,204,31,.1);border-color:rgba(243,204,31,.35);color:var(--gold)}
-.horarios-modal-body{padding:20px 28px 14px;overflow-y:auto;flex:1}
+.horarios-modal-body{padding:16px 26px 10px;overflow-y:auto;flex:1}
 .horarios-modal-body::-webkit-scrollbar{width:8px}
 .horarios-modal-body::-webkit-scrollbar-thumb{background:rgba(243,204,31,.35);border-radius:999px}
-.horarios-turmas{display:flex;flex-direction:column;gap:14px}
+.horarios-turmas{display:flex;flex-direction:column;gap:16px}
 .horarios-dia{
-  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--gold);padding:12px 0 4px;margin-top:4px;
-  border-bottom:1px solid rgba(243,204,31,.15);
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);padding:10px 0 4px;margin-top:4px;
+  border-bottom:1px solid rgba(243,204,31,.18);
+  display:flex;align-items:center;gap:8px;
 }
-.horarios-dia:first-child{margin-top:0;padding-top:4px}
-.horarios-dia-grid{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.horarios-dia::before{
+  content:'';display:inline-block;width:10px;height:10px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 10px var(--gold-glow);
+}
+.horarios-dia:first-child{margin-top:0;padding-top:2px}
+.horarios-dia-grid{display:flex;flex-direction:column;gap:12px;margin-top:10px}
 .horarios-turma{
-  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
-  padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);
-  border:1px solid var(--line);text-decoration:none;color:inherit;
-  transition:all .22s ease;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:stretch;
+  padding:14px 14px 14px 14px;border-radius:16px;background:rgba(255,255,255,.03);
+  border:1.5px solid var(--line);text-decoration:none;color:inherit;cursor:pointer;
+  transition:all .25s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;
 }
-.horarios-turma:hover{background:rgba(243,204,31,.07);border-color:rgba(243,204,31,.35);transform:translateX(3px)}
+.horarios-turma::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,transparent,var(--whatsapp) 50%,transparent);
+  opacity:0;transition:opacity .22s ease;
+}
+.horarios-turma:hover{
+  background:rgba(37,211,102,.07);
+  border-color:rgba(37,211,102,.55);
+  transform:translateX(3px) translateY(-1px);
+  box-shadow:0 12px 36px -14px rgba(37,211,102,.45),0 6px 20px -8px rgba(0,0,0,.5);
+}
+.horarios-turma:hover::before{opacity:1}
+.horarios-turma:active{transform:translateX(1px) translateY(0);box-shadow:0 4px 14px -6px rgba(37,211,102,.35)}
+.horarios-turma[data-disponivel="false"]{
+  cursor:not-allowed;opacity:.55;filter:grayscale(.5);
+}
+.horarios-turma[data-disponivel="false"]:hover{
+  background:rgba(255,90,90,.07);border-color:rgba(255,90,90,.4);
+  box-shadow:0 10px 30px -14px rgba(255,90,90,.3);
+  transform:translateX(0) translateY(0);
+}
+.horarios-turma[data-disponivel="false"]::before{background:linear-gradient(180deg,transparent,#FF5A5A 50%,transparent)}
+.horarios-turma-esq{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 .horarios-turma-hora{
   background:linear-gradient(180deg,var(--gold),#D9B318);color:#0e0e10;
-  padding:6px 12px;border-radius:10px;font-weight:800;font-size:.92rem;
-  font-family:'JetBrains Mono',monospace;white-space:nowrap;min-width:110px;text-align:center;
+  padding:7px 12px;border-radius:11px;font-weight:800;font-size:.92rem;
+  font-family:'JetBrains Mono',monospace;white-space:nowrap;min-width:114px;text-align:center;
+  box-shadow:0 4px 14px -6px var(--gold-glow);
+  align-self:start;
 }
-.horarios-turma-info{display:flex;flex-direction:column;gap:3px;min-width:0}
-.horarios-turma-turma{font-size:1rem;color:var(--text-1);font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.02em}
-.horarios-turma-prof{font-size:.85rem;color:var(--text-3)}
-.horarios-turma-wa{color:var(--whatsapp);font-size:1.3rem;flex-shrink:0}
+.horarios-turma-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:999px;
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.08em;font-weight:800;text-transform:uppercase;
+}
+.horarios-turma-tag.disponivel{
+  background:rgba(37,211,102,.12);color:var(--whatsapp);
+  border:1px solid rgba(37,211,102,.4);
+}
+.horarios-turma-tag.fechado{
+  background:rgba(255,90,90,.1);color:#FF8A8A;
+  border:1px solid rgba(255,90,90,.35);
+}
+.horarios-turma-info{display:flex;flex-direction:column;gap:4px;min-width:0;align-self:center}
+.horarios-turma-turma{
+  font-size:1.05rem;color:var(--text-1);font-weight:700;
+  font-family:'Barlow Condensed',sans-serif;letter-spacing:.02em;
+}
+.horarios-turma-prof{font-size:.85rem;color:var(--text-3);letter-spacing:.01em}
+.horarios-turma-cta{
+  margin-top:2px;font-size:.76rem;font-family:'Barlow Condensed',sans-serif;
+  color:var(--whatsapp);letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.horarios-turma-dir{
+  align-self:stretch;display:flex;align-items:center;justify-content:center;
+  padding-left:6px;border-left:1px dashed rgba(123,91,184,.2);
+}
+.horarios-turma-wa{
+  width:44px;height:44px;min-width:44px;min-height:44px;border-radius:14px;
+  display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(145deg,rgba(37,211,102,.22),rgba(37,211,102,.06));
+  border:1px solid rgba(37,211,102,.45);
+  color:var(--whatsapp);font-size:1.2rem;
+  box-shadow:0 6px 18px -8px rgba(37,211,102,.55);
+  transition:all .22s ease;
+}
+.horarios-turma:hover .horarios-turma-wa{
+  transform:scale(1.05);
+  background:linear-gradient(145deg,rgba(37,211,102,.38),rgba(37,211,102,.12));
+  box-shadow:0 10px 22px -8px rgba(37,211,102,.75);
+}
+.horarios-turma-wa svg{width:22px;height:22px}
+.horarios-modal-toast{
+  position:fixed;z-index:99999;left:50%;top:22px;transform:translateX(-50%) translateY(-120%);
+  padding:10px 16px;border-radius:12px;
+  font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.04em;font-weight:700;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(10,11,13,.95);backdrop-filter:blur(10px);
+  border:1px solid var(--line-accent);
+  box-shadow:0 18px 44px -14px rgba(0,0,0,.8);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .2s ease;
+  opacity:0;pointer-events:none;
+}
+.horarios-modal-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.horarios-modal-toast.ok{color:var(--whatsapp);border-color:rgba(37,211,102,.55)}
+.horarios-modal-toast.err{color:#FF9A9A;border-color:rgba(255,90,90,.5)}
+.horarios-modal-toast svg{width:18px;height:18px}
 .horarios-modal-disclaimer{
   padding:14px 24px 10px;border-top:1px dashed rgba(243,204,31,.18);
   display:flex;flex-direction:column;gap:6px;
@@ -648,35 +741,46 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .horarios-modal-disclaimer-row.last {margin-top:4px;padding-top:4px;border-top:1px solid rgba(123,91,184,.1)}
 .horarios-modal-foot{
   position:sticky;bottom:0;flex-shrink:0;
-  padding:16px 24px 20px;border-top:1px solid var(--line-accent);
-  text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.08em;
-  text-transform:uppercase;font-weight:700;color:var(--text-1);cursor:pointer;text-decoration:none;
+  padding:14px 24px 16px;border-top:1px solid var(--line-accent);
+  text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:600;color:var(--text-3);
   background:
-    linear-gradient(0deg,rgba(37,211,102,.18) 0%,rgba(22,26,31,.96) 100%),
+    linear-gradient(0deg,rgba(123,91,184,.06) 0%,rgba(22,26,31,.96) 100%),
     linear-gradient(180deg,rgba(22,26,31,.96) 0%,rgba(10,11,13,.98) 100%);
-  display:flex;align-items:center;justify-content:center;gap:14px;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
   border-radius:0 0 22px 22px;
-  transition:all .22s ease;
 }
-.horarios-modal-foot:hover{
-  background:
-    linear-gradient(0deg,rgba(37,211,102,.3) 0%,rgba(22,26,31,.96) 100%),
-    linear-gradient(180deg,rgba(22,26,31,.96) 0%,rgba(10,11,13,.98) 100%);
-  transform:translateY(-1px);
-  box-shadow:0 -12px 40px -10px rgba(37,211,102,.35);
+.horarios-modal-foot > svg.ico-f{
+  width:18px;height:18px;color:var(--gold);flex-shrink:0;
 }
-.horarios-modal-foot > svg:first-child{
-  width:26px;height:26px;color:var(--whatsapp);filter:drop-shadow(0 0 8px rgba(37,211,102,.45));
-}
-.horarios-modal-foot strong{color:var(--whatsapp);font-weight:800}
-.horarios-modal-foot .arr{
-  width:22px;height:22px;color:var(--whatsapp);transition:transform .2s ease;
-}
-.horarios-modal-foot:hover .arr{transform:translateX(3px)}
+.horarios-modal-foot .kp1{color:var(--text-2)}
+.horarios-modal-foot .kp2{color:var(--gold);font-weight:800}
+.horarios-modal-foot .kp3{color:var(--whatsapp);font-weight:800}
 @media (max-width:560px){
   .horarios-modal{max-height:92vh}
-  .horarios-modal-foot{padding:14px 16px 16px;font-size:.92rem;letter-spacing:.06em;gap:10px}
+  .horarios-modal-foot{padding:12px 16px 14px;font-size:.82rem;letter-spacing:.04em;gap:6px}
   .horarios-modal-disclaimer{padding:12px 16px 8px}
+  .horarios-modal-head{padding:16px 16px 12px;gap:10px}
+  .horarios-modal-head-ico{width:48px;height:48px;border-radius:14px}
+  .horarios-modal-head-ico svg{width:28px;height:28px}
+  .horarios-modal-head h2{font-size:1.3rem;gap:8px}
+  .horarios-modal-head p{font-size:.82rem}
+  .horarios-modal-body{padding:14px 16px 8px}
+  .horarios-turma{
+    grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:10px 12px;
+    padding:12px;border-radius:16px;
+  }
+  .horarios-turma-esq{grid-column:1;grid-row:1/3;justify-content:center}
+  .horarios-turma-info{grid-column:2;grid-row:1}
+  .horarios-turma-dir{grid-column:1/-1;grid-row:2;border-left:none;border-top:1px dashed rgba(123,91,184,.2);padding-left:0;padding-top:8px}
+  .horarios-turma-wa{
+    width:100%;height:48px;min-width:0;min-height:0;
+    flex-direction:row;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;
+  }
+  .horarios-turma-wa::after{content:"Agendar por WhatsApp";display:inline}
+  .horarios-turma-cta{display:none}
+  .horarios-turma-hora{min-width:104px;padding:6px 10px}
 }
 @keyframes faqpulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.02)}}
 @keyframes faqwaving{0%{transform:scale(.8);opacity:.65}80%,100%{transform:scale(1.6);opacity:0}}
@@ -1468,11 +1572,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 <div class="horarios-modal-overlay" id="horariosOverlay" aria-hidden="true" role="dialog" aria-label="Horários das turmas — Bukan Santos">
   <div class="horarios-modal" id="horariosModal" role="document">
     <div class="horarios-modal-head">
-      <h2>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
-        <span data-content="site.horarios.titulo">Horários das</span>
-        <span class="text-accent">turmas</span>
-      </h2>
+      <div class="horarios-modal-head-left">
+        <div class="horarios-modal-head-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h2l1.5-2L14 16"/><path d="M16 14h.01"/></svg>
+        </div>
+        <div class="horarios-modal-head-text">
+          <h2><span data-content="site.horarios.titulo">Horários das</span> <span class="seg-p">Turmas</span></h2>
+          <p>Escolha um horário abaixo para iniciar o contato no WhatsApp</p>
+        </div>
+      </div>
       <button class="horarios-modal-fechar" aria-label="Fechar horários" id="horariosFechar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
@@ -1494,13 +1602,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <span>Última atualização:&nbsp;<strong data-content="site.horarios.ultimaAtualizacao" style="color:var(--text-2);font-weight:600">05/09/2026 · 03:00 (America/Sao_Paulo)</strong></span>
       </div>
     </div>
-    <a class="horarios-modal-foot" data-cta="whatsapp-instrutor" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp sobre horários das turmas">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      <span data-content="site.horarios.cta">Falar no WhatsApp <strong>sobre horários</strong></span>
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-    </a>
+    <div class="horarios-modal-foot" role="note">
+      <svg class="ico-f" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <span class="kp1">Clique em um <span class="kp2">horário</span> para conversar no</span>
+      <span class="kp3">WhatsApp</span>
+      <svg class="ico-f" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+    </div>
   </div>
 </div>
+<div class="horarios-modal-toast" id="horariosToast" role="status" aria-live="polite"></div>
 
 <div class="faq-modal-overlay" id="faqOverlay" aria-hidden="true" role="dialog" aria-label="Perguntas frequentes — primeira aula experimental Bukan Santos">
   <div class="faq-modal" id="faqModal" role="document">
@@ -2337,12 +2447,27 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     }
   }
 
+  function horariosToast(mensagem, tipo='ok', tempo=2200) {
+    const toast = document.getElementById('horariosToast');
+    if (!toast) return;
+    const svgOk = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>';
+    const svgErr = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+    toast.className = 'horarios-modal-toast ' + (tipo==='err' ? 'err' : 'ok');
+    toast.innerHTML = (tipo==='err' ? svgErr : svgOk) + '<span>' + (mensagem || '') + '</span>';
+    requestAnimationFrame(() => {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), tempo);
+    });
+  }
   function renderHorarios() {
     const body = document.getElementById('horariosBody');
     if (!body) return;
     const raw = getValue('site.horarios.turmas') || '';
     const arr = parseArrayTxt(raw, ['dia', 'hora', 'turma', 'professor']);
     const waSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>';
+    const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>';
+    const setaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>';
+    const X_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
     const groups = new Map();
     const ordem = ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'];
     arr.forEach(t => {
@@ -2358,28 +2483,41 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       diaNode.className = 'horarios-dia';
       const tit = document.createElement('div');
       tit.className = 'horarios-dia-tit';
-      tit.textContent = dia;
+      tit.textContent = dia + ' · ' + turmas.length + ' ' + (turmas.length === 1 ? 'turma' : 'turmas');
       diaNode.appendChild(tit);
       const grid = document.createElement('div');
       grid.className = 'horarios-dia-grid';
       turmas.forEach(t => {
+        const disponivel = !!(t.dia && t.hora && t.turma && t.professor && t.hora.trim() && t.turma.trim() && t.professor.trim());
         const row = document.createElement('a');
         row.className = 'horarios-turma';
-        row.href = getWhatsappHorarioLink(t.dia, t.hora);
+        row.href = disponivel ? getWhatsappHorarioLink(t.dia, t.hora) : '#indisponivel';
         row.target = '_blank';
         row.rel = 'noopener noreferrer';
         row.setAttribute('data-dia', t.dia || '');
         row.setAttribute('data-hora', t.hora || '');
         row.setAttribute('data-turma', t.turma || '');
         row.setAttribute('data-professor', t.professor || '');
-        row.setAttribute('aria-label', `Agendar aula ${t.dia||''} ${t.hora||''} — ${t.turma||''} — ${t.professor||''}`);
+        row.setAttribute('data-disponivel', disponivel ? 'true' : 'false');
+        row.setAttribute('aria-label', (disponivel ? 'Agendar aula ' : 'Horário indisponível ') + `${t.dia||''} ${t.hora||''} — ${t.turma||''} — ${t.professor||''}`);
         row.innerHTML =
-          '<div class="horarios-turma-hora">'+(t.hora||'')+'</div>'+
-          '<div class="horarios-turma-info">'+
-            '<div class="horarios-turma-turma">'+(t.turma||'')+'</div>'+
-            '<div class="horarios-turma-prof">'+(t.professor||'')+'</div>'+
+          '<div class="horarios-turma-esq">'+
+            '<div class="horarios-turma-hora">'+(t.hora||'--:--')+'</div>'+
+            '<div class="horarios-turma-tag '+(disponivel?'disponivel':'fechado')+'">'+
+              (disponivel ? checkSvg : X_SVG)+
+              '<span>'+(disponivel?'Disponível':'Fechado')+'</span>'+
+            '</div>'+
           '</div>'+
-          '<div class="horarios-turma-wa">'+waSvg+'</div>';
+          '<div class="horarios-turma-info">'+
+            '<div class="horarios-turma-turma">'+(t.turma||'Turma')+'</div>'+
+            '<div class="horarios-turma-prof">'+(t.professor||'Professor(a) não informado(a)')+'</div>'+
+            '<div class="horarios-turma-cta">'+
+              (disponivel ? 'Escolher este horário '+setaSvg : 'Horário temporariamente indisponível')+
+            '</div>'+
+          '</div>'+
+          '<div class="horarios-turma-dir">'+
+            '<div class="horarios-turma-wa">'+waSvg+'</div>'+
+          '</div>';
         grid.appendChild(row);
       });
       diaNode.appendChild(grid);
@@ -2417,31 +2555,31 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     const fbtn = document.getElementById('horariosFloat');
     const fechar = document.getElementById('horariosFechar');
     const overlay = document.getElementById('horariosOverlay');
-    const foot = document.querySelector('.horarios-modal-foot');
     if (fbtn) fbtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); abrirHorariosModal(); });
     if (fechar) fechar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fecharHorariosModal(); });
     if (overlay) {
       overlay.addEventListener('click', (e) => {
         if (e.target === overlay) { fecharHorariosModal(); return; }
-        const cta = e.target.closest && e.target.closest('[data-cta]');
-        if (cta) {
-          const tipo = cta.getAttribute('data-cta') || 'whatsapp-instrutor';
-          const link = getWhatsappLink(tipo);
+        const card = e.target.closest && e.target.closest('a.horarios-turma');
+        if (card) {
+          const disp = card.getAttribute('data-disponivel');
+          const dia = (card.getAttribute('data-dia') || '').trim();
+          const hora = (card.getAttribute('data-hora') || '').trim();
+          const turma = (card.getAttribute('data-turma') || '').trim();
+          const prof = (card.getAttribute('data-professor') || '').trim();
+          if (disp !== 'true' || !dia || !hora || !turma || !prof) {
+            e.preventDefault(); e.stopPropagation();
+            horariosToast('Este horário está temporariamente indisponível. Por favor, escolha outra opção.', 'err', 3000);
+            return;
+          }
+          e.preventDefault(); e.stopPropagation();
+          horariosToast('Abrindo WhatsApp: '+dia+' '+hora+' '+turma+'…', 'ok', 1200);
+          const link = card.getAttribute('href') || getWhatsappHorarioLink(dia, hora);
           fecharHorariosModal();
-          setTimeout(() => abrirUrlExterna(link), 60);
+          setTimeout(() => { abrirUrlExterna(link); }, 500);
           return;
         }
-        const card = e.target.closest && e.target.closest('a.horarios-turma');
-        if (card) return;
       }, true);
-    }
-    if (foot) {
-      foot.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
-        const link = getWhatsappLink('whatsapp-instrutor');
-        fecharHorariosModal();
-        setTimeout(() => abrirUrlExterna(link), 50);
-      });
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && document.getElementById('horariosOverlay')?.classList.contains('open')) {
