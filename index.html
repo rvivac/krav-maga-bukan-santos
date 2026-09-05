@@ -2563,30 +2563,51 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   function abrirHorariosModal() {
     const ov = document.getElementById('horariosOverlay');
     if (ov) { ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); }
-    // attach scroll handler so day titles stick within their cells while scrolling
+    // enable dynamic day-label movement only on mobile; on desktop labels stay fixed
     const body = document.querySelector('.horarios-modal-body');
     if (body) {
-      // ensure we run once to sync positions
-      updateDayTitlePositions();
-      // store handler reference so it can be removed on close
-      body._horariosScrollHandler = updateDayTitlePositions;
-      body.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
-      window.addEventListener('resize', body._horariosScrollHandler);
-      // also respond when the page itself is scrolled so titles update while
-      // the user scrolls the page (keeps labels inside their cells)
-      window.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
+      const mq = window.matchMedia('(max-width:560px)');
+      const toggleHandlers = () => {
+        if (mq.matches) {
+          if (!body._horariosScrollHandler) {
+            body._horariosScrollHandler = updateDayTitlePositions;
+            body.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
+            window.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
+          }
+          updateDayTitlePositions();
+        } else {
+          if (body._horariosScrollHandler) {
+            body.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
+            window.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
+            delete body._horariosScrollHandler;
+            // reset transforms so label stays at its CSS position on desktop
+            body.querySelectorAll('.horarios-dia-tit').forEach(t => { t.style.transform = ''; });
+          }
+        }
+      };
+      body._horariosToggle = toggleHandlers;
+      // run once and listen to viewport changes
+      toggleHandlers();
+      try { mq.addEventListener('change', toggleHandlers); } catch (e) { mq.addListener && mq.addListener(toggleHandlers); }
+      window.addEventListener('resize', toggleHandlers);
     }
   }
   function fecharHorariosModal() {
     const ov = document.getElementById('horariosOverlay');
     if (ov) { ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
-    // detach scroll handler and reset title transforms
+    // detach any handlers and reset title transforms
     const body = document.querySelector('.horarios-modal-body');
-    if (body && body._horariosScrollHandler) {
-      body.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
-      window.removeEventListener('resize', body._horariosScrollHandler);
-      window.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
-      delete body._horariosScrollHandler;
+    if (body) {
+      if (body._horariosScrollHandler) {
+        body.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
+        window.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
+        delete body._horariosScrollHandler;
+      }
+      if (body._horariosToggle) {
+        try { window.matchMedia('(max-width:560px)').removeEventListener('change', body._horariosToggle); } catch (e) { try { window.matchMedia('(max-width:560px)').removeListener(body._horariosToggle); } catch (er) {} }
+        window.removeEventListener('resize', body._horariosToggle);
+        delete body._horariosToggle;
+      }
       body.querySelectorAll('.horarios-dia-tit').forEach(t => { t.style.transform = ''; });
     }
   }
