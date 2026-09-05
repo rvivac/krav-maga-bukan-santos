@@ -987,18 +987,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-turma-prof{font-size:.78rem}
   .horarios-turma-wa{display:none !important}
   .horarios-modal-foot{padding:10px 12px 12px;font-size:.82rem}
-  /* Vertical day label to save horizontal space */
-  .horarios-dia{display:flex;align-items:center;gap:12px;position:relative}
-  /* vertical label: use vertical writing mode and invert so last letter aligns to top */
+  /* Vertical day label: reserve space on the left and top-align the label */
+  .horarios-dia{display:flex;align-items:flex-start;gap:12px;position:relative;padding-left:56px}
   .horarios-dia-tit{
     writing-mode:vertical-rl;
     text-orientation:upright;
-    /* show upright vertical text (not rotated) */
     display:inline-block;
-    position:sticky; /* keeps the label visible in the modal */
-    top:50%; /* center vertically relative to viewport */
-    transform:translateY(-50%);
-    left:6px;
+    position:absolute; /* align start at top of the cell */
+    top:8px;
+    left:8px;
     z-index:3;
     font-size:.78rem;
     letter-spacing:.06em;
@@ -1011,8 +1008,6 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     overflow:hidden;
     text-overflow:ellipsis;
   }
-  /* ensure sticky label doesn't scroll past the cell container's bottom */
-  .horarios-dia{position:relative}
   .horarios-dia-grid{flex:1;min-width:0}
 
   /* better breaking for turma names */
