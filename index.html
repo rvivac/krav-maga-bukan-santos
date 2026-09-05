@@ -2606,19 +2606,21 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       const diaHeight = diaRect.height || dia.offsetHeight;
       const titleHeight = tit.offsetHeight || tit.getBoundingClientRect().height;
       const margin = 8; // visual top margin inside cell
-      const relTop = diaRect.top - containerRect.top; // distance from container viewport top to dia top
-      let y;
-      if (relTop > margin) {
-        // cell is fully below the container top — keep title at its natural top
-        y = 0;
-      } else if (relTop + diaHeight - titleHeight - margin < margin) {
-        // cell's bottom is above the sticky area — pin title to bottom boundary
-        y = Math.max(0, diaHeight - titleHeight - margin);
-      } else {
-        // sticking: move title down by the amount the cell has scrolled past top
-        y = Math.max(0, margin - relTop);
-      }
-      tit.style.transform = `translateY(${Math.round(y)}px)`;
+
+      // baseTop: where the title sits when not transformed (viewport coordinates)
+      const cssTop = parseFloat(getComputedStyle(tit).top) || 8;
+      const baseTop = diaRect.top + cssTop;
+
+      // desired top in viewport: should not be above container top + margin,
+      // and should be within the dia box (diaRect.top+margin .. diaRect.bottom - titleHeight - margin)
+      const minTop = diaRect.top + margin;
+      const maxTop = diaRect.top + diaHeight - titleHeight - margin;
+      // prefer sticking at container top + margin when the cell reaches the container viewport
+      const stickTop = Math.max(containerRect.top + margin, minTop);
+      const desiredTop = Math.min(Math.max(stickTop, minTop), maxTop);
+
+      const translateY = Math.round(desiredTop - baseTop);
+      tit.style.transform = `translateY(${translateY}px)`;
     });
   }
 
