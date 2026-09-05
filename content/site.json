@@ -43,19 +43,19 @@
   "assets": {
     "instrutores": {
       "kakau": {
-        "src": "Kakau_01.jpg",
+        "src": "content/instrutores/kakau/Kakau_01.jpg",
         "alt": "Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"
       },
       "samuel": {
-        "src": "Samuka_01.jpeg",
+        "src": "content/instrutores/samuel/Samuka_01.jpeg",
         "alt": "Profº. Samuel Arcanjo em posição de treino de Krav-Maga"
       },
       "lucas": {
-        "src": "Lucas_01.jpg",
+        "src": "content/instrutores/lucas/Lucas_01.jpg",
         "alt": "Profº. Lucas Freixo em treinamento de Krav-Maga"
       },
       "luma": {
-        "src": "Luma_01.jpg",
+        "src": "content/instrutores/luma/Luma_01.jpg",
         "alt": "Profª. Luma Serrão em treinamento de Krav-Maga"
       }
     }
@@ -89,7 +89,7 @@
     "microcopy_txt": "site/kakau-gatilho-microcopy.txt",
     "label_txt": "site/kakau-gatilho-label.txt",
     "cta_txt": "site/kakau-gatilho-cta.txt",
-    "avatarSrc": "Kakau_01.jpg",
+    "avatarSrc": "content/instrutores/kakau/Kakau_01.jpg",
     "avatarAlt": "Profª. Kakau (Carolina Almeida), instrutora chefe Bukan Santos"
   }
 }
