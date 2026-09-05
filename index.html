@@ -988,17 +988,20 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-turma-wa{display:none !important}
   .horarios-modal-foot{padding:10px 12px 12px;font-size:.82rem}
   /* Vertical day label to save horizontal space */
-  .horarios-dia{display:flex;align-items:center;gap:12px}
+  .horarios-dia{display:flex;align-items:center;gap:12px;position:relative}
   .horarios-dia-tit{
     writing-mode:horizontal-tb;
-    transform:rotate(-90deg);
-    transform-origin:left center;
+    transform:translateY(-50%) rotate(-90deg);
+    transform-origin:center center;
     display:inline-block;
+    position:sticky; /* keeps the label centered in the visible modal area */
+    top:50%;
+    left:6px;
+    z-index:3;
     font-size:.78rem;
     letter-spacing:.06em;
     color:var(--text-2);
     white-space:nowrap;
-    margin:0; /* center vertically with the cell */
     padding:0 6px 0 0;
     min-width:1px;
     line-height:1;
