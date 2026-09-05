@@ -615,23 +615,24 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .horarios-modal-body::-webkit-scrollbar{width:8px}
 .horarios-modal-body::-webkit-scrollbar-thumb{background:rgba(243,204,31,.35);border-radius:999px}
 .horarios-turmas{display:flex;flex-direction:column;gap:16px}
-.horarios-dia{
+  .horarios-dia{
   font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--gold);padding:10px 0 4px;margin-top:4px;
-  border-bottom:1px solid rgba(243,204,31,.18);
+  border-bottom:2px solid rgba(243,204,31,.26); /* stronger separator for day rows */
   display:flex;align-items:center;gap:8px;
+  background:linear-gradient(180deg, rgba(243,204,31,0.01), transparent 60%);
 }
 .horarios-dia::before{
   content:'';display:inline-block;width:10px;height:10px;border-radius:50%;
   background:var(--gold);box-shadow:0 0 10px var(--gold-glow);
 }
 .horarios-dia:first-child{margin-top:0;padding-top:2px}
-.horarios-dia-grid{display:flex;flex-direction:column;gap:12px;margin-top:10px}
-.horarios-turma{
+  .horarios-dia-grid{display:flex;flex-direction:column;gap:12px;margin-top:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.02)}
+  .horarios-turma{
   display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
-  padding:14px 14px 14px 14px;border-radius:16px;background:rgba(255,255,255,.03);
-  border:1.5px solid var(--line);text-decoration:none;color:inherit;cursor:pointer;
-  transition:all .25s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;
+  padding:14px;border-radius:16px;background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);text-decoration:none;color:inherit;cursor:pointer;
+  transition:all .18s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.15) inset;
 }
 .horarios-turma::before{
   content:'';position:absolute;top:0;left:0;width:4px;height:100%;
