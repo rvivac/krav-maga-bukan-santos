@@ -2563,11 +2563,61 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   function abrirHorariosModal() {
     const ov = document.getElementById('horariosOverlay');
     if (ov) { ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); }
+    // attach scroll handler so day titles stick within their cells while scrolling
+    const body = document.querySelector('.horarios-modal-body');
+    if (body) {
+      // ensure we run once to sync positions
+      updateDayTitlePositions();
+      // store handler reference so it can be removed on close
+      body._horariosScrollHandler = updateDayTitlePositions;
+      body.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
+      window.addEventListener('resize', body._horariosScrollHandler);
+    }
   }
   function fecharHorariosModal() {
     const ov = document.getElementById('horariosOverlay');
     if (ov) { ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
+    // detach scroll handler and reset title transforms
+    const body = document.querySelector('.horarios-modal-body');
+    if (body && body._horariosScrollHandler) {
+      body.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
+      window.removeEventListener('resize', body._horariosScrollHandler);
+      delete body._horariosScrollHandler;
+      body.querySelectorAll('.horarios-dia-tit').forEach(t => { t.style.transform = ''; });
+    }
   }
+
+  // Dynamically align the vertical day label while scrolling inside the modal,
+  // keeping the label within the bounds of its `.horarios-dia` cell.
+  function updateDayTitlePositions() {
+    const body = document.querySelector('.horarios-modal-body');
+    if (!body) return;
+    const scrollTop = body.scrollTop;
+    const dias = body.querySelectorAll('.horarios-dia');
+    dias.forEach(dia => {
+      const tit = dia.querySelector('.horarios-dia-tit');
+      if (!tit) return;
+      const diaOffsetTop = dia.offsetTop; // relative to body
+      const diaHeight = dia.offsetHeight;
+      const titleHeight = tit.offsetHeight;
+      const margin = 8; // top margin inside cell
+      let y = 0;
+      const relTop = diaOffsetTop - scrollTop; // distance from modal viewport top to dia top
+      if (relTop > margin) {
+        // cell is below viewport top — keep title at its natural top
+        y = 0;
+      } else if (relTop + diaHeight - titleHeight - margin < margin) {
+        // cell's bottom is above the sticky area — pin title to bottom boundary
+        y = diaHeight - titleHeight - margin;
+      } else {
+        // sticking: move title down by the amount the cell has scrolled past top
+        y = margin - relTop;
+      }
+      // Apply as transform (keeps `top` anchored at margin)
+      tit.style.transform = `translateY(${y}px)`;
+    });
+  }
+
   function abrirWhatsappHorarios() {
     const url = getWhatsappLink('whatsapp-instrutor');
     abrirUrlExterna(url);
