@@ -628,7 +628,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .horarios-dia:first-child{margin-top:0;padding-top:2px}
 .horarios-dia-grid{display:flex;flex-direction:column;gap:12px;margin-top:10px}
 .horarios-turma{
-  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:stretch;
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
   padding:14px 14px 14px 14px;border-radius:16px;background:rgba(255,255,255,.03);
   border:1.5px solid var(--line);text-decoration:none;color:inherit;cursor:pointer;
   transition:all .25s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;
@@ -655,13 +655,13 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   transform:translateX(0) translateY(0);
 }
 .horarios-turma[data-disponivel="false"]::before{background:linear-gradient(180deg,transparent,#FF5A5A 50%,transparent)}
-.horarios-turma-esq{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.horarios-turma-esq{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center}
 .horarios-turma-hora{
   background:linear-gradient(180deg,var(--gold),#D9B318);color:#0e0e10;
   padding:7px 12px;border-radius:11px;font-weight:800;font-size:.92rem;
   font-family:'JetBrains Mono',monospace;white-space:nowrap;min-width:114px;text-align:center;
   box-shadow:0 4px 14px -6px var(--gold-glow);
-  align-self:start;
+  align-self:center;
 }
 .horarios-turma-tag{
   display:inline-flex;align-items:center;gap:5px;
@@ -676,7 +676,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   background:rgba(255,90,90,.1);color:#FF8A8A;
   border:1px solid rgba(255,90,90,.35);
 }
-.horarios-turma-info{display:flex;flex-direction:column;gap:4px;min-width:0;align-self:center}
+.horarios-turma-info{display:flex;flex-direction:column;gap:4px;min-width:0;align-self:center;justify-content:center}
 .horarios-turma-turma{
   font-size:1.05rem;color:var(--text-1);font-weight:700;
   font-family:'Barlow Condensed',sans-serif;letter-spacing:.02em;
@@ -685,10 +685,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .horarios-turma-cta{
   margin-top:2px;font-size:.76rem;font-family:'Barlow Condensed',sans-serif;
   color:var(--whatsapp);letter-spacing:.08em;text-transform:uppercase;font-weight:700;
-  display:inline-flex;align-items:center;gap:6px;
+  display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;
 }
+.horarios-turma-cta svg{width:14px;height:14px;stroke-width:2.2 !important}
 .horarios-turma-dir{
-  align-self:stretch;display:flex;align-items:center;justify-content:center;
+  align-self:center;display:flex;align-items:center;justify-content:center;
   padding-left:6px;border-left:1px dashed rgba(123,91,184,.2);
 }
 .horarios-turma-wa{
