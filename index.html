@@ -989,23 +989,34 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-modal-foot{padding:10px 12px 12px;font-size:.82rem}
   /* Vertical day label to save horizontal space */
   .horarios-dia{display:flex;align-items:center;gap:12px;position:relative}
+  /* vertical label: use vertical writing mode and invert so last letter aligns to top */
   .horarios-dia-tit{
-    writing-mode:horizontal-tb;
-    transform:translateY(-50%) rotate(-90deg);
-    transform-origin:center center;
+    writing-mode:vertical-rl;
+    text-orientation:upright;
+    transform:rotate(180deg); /* invert flow so the last character is at the top */
     display:inline-block;
     position:sticky; /* keeps the label centered in the visible modal area */
-    top:50%;
+    top:12px; /* align first (inverted) char near top of cell */
     left:6px;
     z-index:3;
     font-size:.78rem;
     letter-spacing:.06em;
     color:var(--text-2);
-    white-space:nowrap;
-    padding:0 6px 0 0;
-    min-width:1px;
+    white-space:normal;
+    padding:0 8px 0 0;
+    min-width:28px; /* adapt width for vertical column */
+    max-width:48px;
     line-height:1;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
+  /* ensure sticky label doesn't scroll past the cell container's bottom */
+  .horarios-dia{position:relative}
+  .horarios-dia-grid{flex:1;min-width:0}
+
+  /* better breaking for turma names */
+  .horarios-turma-turma{word-break:break-word;hyphens:auto;overflow-wrap:break-word}
+  .horarios-turma-info{min-width:0}
   .horarios-dia-grid{flex:1}
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
