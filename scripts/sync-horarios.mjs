@@ -51,7 +51,11 @@ async function main() {
   log(`Hash SHA-256 existente=${antigoHash || '(novo)'}`);
 
   if (novoHash === antigoHash && antigoHash) {
-    log('Nenhuma alteração detectada nos horários. Nada para fazer.');
+    const strAtualizacao = fmtDataAtualizacao();
+    if (!DRY_RUN) {
+      writeFileSync(TARGET_UPDATE_TXT, strAtualizacao + '\n', { encoding: 'utf8', flag: 'w' });
+    }
+    log(`Nenhuma alteração detectada nos horários. Última verificação/sincronia atualizada → ${strAtualizacao}.`);
     setExit(0);
     return;
   }
