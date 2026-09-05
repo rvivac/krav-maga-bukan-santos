@@ -3056,6 +3056,20 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       secretTimer = setTimeout(() => { secret = ''; }, 1200);
       if (secret === 'quiz') { secret = ''; abrirQuizModal(); }
     });
+    let toquesSecretos = [];
+    let toqueTimer = null;
+    document.addEventListener('touchend', e => {
+      if (e.touches.length > 0 || e.changedTouches.length !== 1) return;
+      const agora = Date.now();
+      toquesSecretos = toquesSecretos.filter(toque => agora - toque < 700);
+      toquesSecretos.push(agora);
+      if (toquesSecretos.length === 3) {
+        toquesSecretos = [];
+        abrirQuizModal();
+      }
+      clearTimeout(toqueTimer);
+      toqueTimer = setTimeout(() => { toquesSecretos = []; }, 700);
+    }, {passive:true});
   }
 
   function bindKakauGatilhoBehavior() {
