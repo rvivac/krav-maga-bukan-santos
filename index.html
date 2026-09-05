@@ -2572,6 +2572,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       body._horariosScrollHandler = updateDayTitlePositions;
       body.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
       window.addEventListener('resize', body._horariosScrollHandler);
+      // also respond when the page itself is scrolled so titles update while
+      // the user scrolls the page (keeps labels inside their cells)
+      window.addEventListener('scroll', body._horariosScrollHandler, {passive:true});
     }
   }
   function fecharHorariosModal() {
@@ -2582,39 +2585,40 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     if (body && body._horariosScrollHandler) {
       body.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
       window.removeEventListener('resize', body._horariosScrollHandler);
+      window.removeEventListener('scroll', body._horariosScrollHandler, {passive:true});
       delete body._horariosScrollHandler;
       body.querySelectorAll('.horarios-dia-tit').forEach(t => { t.style.transform = ''; });
     }
   }
 
-  // Dynamically align the vertical day label while scrolling inside the modal,
-  // keeping the label within the bounds of its `.horarios-dia` cell.
+  // Dynamically align the vertical day label while scrolling, keeping the label
+  // within the bounds of its `.horarios-dia` cell. Uses bounding rects so this
+  // works whether the user scrolls the modal body or the page viewport.
   function updateDayTitlePositions() {
-    const body = document.querySelector('.horarios-modal-body');
-    if (!body) return;
-    const scrollTop = body.scrollTop;
-    const dias = body.querySelectorAll('.horarios-dia');
+    const modalBody = document.querySelector('.horarios-modal-body');
+    const container = modalBody || document.documentElement;
+    const containerRect = container.getBoundingClientRect();
+    const dias = (modalBody ? modalBody.querySelectorAll('.horarios-dia') : document.querySelectorAll('.horarios-dia')) || [];
     dias.forEach(dia => {
       const tit = dia.querySelector('.horarios-dia-tit');
       if (!tit) return;
-      const diaOffsetTop = dia.offsetTop; // relative to body
-      const diaHeight = dia.offsetHeight;
-      const titleHeight = tit.offsetHeight;
-      const margin = 8; // top margin inside cell
-      let y = 0;
-      const relTop = diaOffsetTop - scrollTop; // distance from modal viewport top to dia top
+      const diaRect = dia.getBoundingClientRect();
+      const diaHeight = diaRect.height || dia.offsetHeight;
+      const titleHeight = tit.offsetHeight || tit.getBoundingClientRect().height;
+      const margin = 8; // visual top margin inside cell
+      const relTop = diaRect.top - containerRect.top; // distance from container viewport top to dia top
+      let y;
       if (relTop > margin) {
-        // cell is below viewport top — keep title at its natural top
+        // cell is fully below the container top — keep title at its natural top
         y = 0;
       } else if (relTop + diaHeight - titleHeight - margin < margin) {
         // cell's bottom is above the sticky area — pin title to bottom boundary
-        y = diaHeight - titleHeight - margin;
+        y = Math.max(0, diaHeight - titleHeight - margin);
       } else {
         // sticking: move title down by the amount the cell has scrolled past top
-        y = margin - relTop;
+        y = Math.max(0, margin - relTop);
       }
-      // Apply as transform (keeps `top` anchored at margin)
-      tit.style.transform = `translateY(${y}px)`;
+      tit.style.transform = `translateY(${Math.round(y)}px)`;
     });
   }
 
