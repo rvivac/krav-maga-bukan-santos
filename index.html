@@ -987,6 +987,20 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-turma-prof{font-size:.78rem}
   .horarios-turma-wa{display:none !important}
   .horarios-modal-foot{padding:10px 12px 12px;font-size:.82rem}
+  /* Vertical day label to save horizontal space */
+  .horarios-dia{display:flex;align-items:flex-start;gap:12px}
+  .horarios-dia-tit{
+    writing-mode:horizontal-tb; /* keep text flow normal then rotate */
+    transform:rotate(-90deg);
+    transform-origin:left top;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    color:var(--text-2);
+    white-space:nowrap;
+    margin-top:8px;
+    min-width:1px; /* keeps it from collapsing */
+  }
+  .horarios-dia-grid{flex:1}
 }
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal.in-view{opacity:1;transform:translateY(0)}
