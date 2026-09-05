@@ -993,10 +993,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .horarios-dia-tit{
     writing-mode:vertical-rl;
     text-orientation:upright;
-    transform:rotate(180deg); /* invert flow so the last character is at the top */
+    /* show upright vertical text (not rotated) */
     display:inline-block;
-    position:sticky; /* keeps the label centered in the visible modal area */
-    top:12px; /* align first (inverted) char near top of cell */
+    position:sticky; /* keeps the label visible in the modal */
+    top:50%; /* center vertically relative to viewport */
+    transform:translateY(-50%);
     left:6px;
     z-index:3;
     font-size:.78rem;
