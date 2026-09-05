@@ -2755,5 +2755,31 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   }
 })();
 </script>
+<script>
+  (function(){
+    function formatHorario(el){
+      if(!el) return;
+      // insert a break after the first dash (hyphen, en-dash or em-dash)
+      el.innerHTML = el.innerHTML.replace(/\s*[-–—]\s*/, ' -<br>');
+      el.style.whiteSpace = 'normal';
+      el.style.overflowWrap = 'anywhere';
+      el.style.fontSize = window.matchMedia('(max-width:420px)').matches ? '.82rem' : '.9rem';
+      el.style.lineHeight = '1.05';
+    }
+
+    document.querySelectorAll('.horarios-turma-hora').forEach(formatHorario);
+
+    // observe for dynamically-rendered items
+    const obs = new MutationObserver(records => {
+      records.forEach(r => r.addedNodes.forEach(n => {
+        if(n.nodeType === 1) {
+          if(n.matches('.horarios-turma-hora')) formatHorario(n);
+          n.querySelectorAll && n.querySelectorAll('.horarios-turma-hora').forEach(formatHorario);
+        }
+      }));
+    });
+    obs.observe(document.body, {childList:true, subtree:true});
+  })();
+</script>
 </body>
 </html>
