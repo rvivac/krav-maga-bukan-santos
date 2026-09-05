@@ -64,7 +64,9 @@
     "titulo_txt": "site/horarios-titulo.txt",
     "cta_txt": "site/horarios-cta.txt",
     "icone_txt": "site/horarios-icon.txt",
-    "turmas_txt": "site/horarios-turmas.txt"
+    "turmas_txt": "site/horarios-turmas.txt",
+    "disclaimerAtualizacao_txt": "site/horarios-disclaimer-atualizacao.txt",
+    "disclaimerReferencia_txt": "site/horarios-disclaimer-referencia.txt"
   },
   "faq": {
     "titulo_txt": "faq/titulo.txt",
