@@ -18,7 +18,7 @@
   --gold:#F3CC1F;--gold-bright:#FFE352;--gold-deep:#BA940C;
   --gold-soft:rgba(243,204,31,.14);--gold-glow:rgba(243,204,31,.42);
   --seal-red:#D62833;--seal-red-deep:#9D121C;--seal-red-glow:rgba(214,40,51,.3);
-e   --text-1:#F6F7F9;--text-2:#C9CED5;--text-3:#8A929B;--text-4:#5A6169;
+  --text-1:#F6F7F9;--text-2:#C9CED5;--text-3:#8A929B;--text-4:#5A6169;
   --whatsapp:#25D366;--briefing-lilac:#A396C0;--briefing-red:#E31B23;--briefing-gold:#F3B61F;--line:rgba(255,255,255,.06);--line-accent:rgba(158,132,214,.28);
   --radius-sm:6px;--radius-md:10px;--radius-lg:16px;
   --shadow-lg:0 20px 60px -20px rgba(0,0,0,.8), 0 2px 8px rgba(0,0,0,.5);
@@ -80,7 +80,7 @@ h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bo
   box-shadow:0 6px 24px -6px var(--accent-glow),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,0,0,.25);
   border:1px solid rgba(243,204,31,.28);
   transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,background .25s ease,border-color .25s ease;
-  position:relative;overflow:hidden;
+  position:relative;overflow:hidden;white-space:nowrap;line-height:1;user-select:none;
 }
 .cta-btn::after{
   content:'';position:absolute;inset:0;
@@ -125,21 +125,29 @@ h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bo
   display:flex;align-items:center;justify-content:center;
 }
 .logo-badge img{width:100%;height:100%;object-fit:contain;display:block}
-.nav{display:flex;align-items:center;gap:40px}
-.nav-links{display:flex;align-items:center;gap:34px}
-.nav a{
+.nav{display:flex;align-items:center;gap:clamp(16px,2.5vw,36px)}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
+.nav-links a{
   position:relative;font-family:'Barlow Condensed',sans-serif;font-weight:600;
-  font-size:14px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--text-2);padding:6px 0;
+  font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text-2);padding:6px 0;white-space:nowrap;
 }
-.nav a::after{
+.nav-links a::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:2px;
   background:linear-gradient(90deg,var(--accent-2),var(--gold));transform:scaleX(0);transform-origin:right;
   transition:transform .35s cubic-bezier(.7,0,.3,1);box-shadow:0 0 10px var(--gold-glow);
 }
-.nav a:hover,.nav a.active{color:var(--text-1)}
-.nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:left}
-.nav-cta{padding:10px 22px;font-size:13px;min-height:44px}
+.nav-links a:hover,.nav-links a.active{color:var(--text-1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:10px 22px;min-height:42px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;line-height:1;
+  white-space:nowrap;flex-shrink:0;border-radius:var(--radius-md);
+}
+.nav-cta svg{width:15px;height:15px;flex-shrink:0;color:var(--gold);transition:transform .25s ease}
+.nav-cta:hover svg{transform:translateX(3px)}
 .menu-toggle{display:none;width:48px;height:48px;place-items:center;border-radius:8px;border:1px solid var(--line);color:var(--text-1)}
 .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{
   content:'';display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:.3s;position:relative;
@@ -232,14 +240,29 @@ h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bo
 .hero-stats div:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 10px 24px -16px var(--gold-glow)}
 .hero-stats div b{
   display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;
-  font-size:2rem;color:var(--gold-bright) !important;opacity:1;letter-spacing:.02em;line-height:1;margin-bottom:6px;text-shadow:0 0 18px var(--gold-glow),0 0 2px var(--gold-bright);
+  font-size:1.95rem;color:var(--gold-bright) !important;opacity:1;letter-spacing:.02em;line-height:1;margin-bottom:6px;text-shadow:0 0 18px var(--gold-glow),0 0 2px var(--gold-bright);
+  white-space:nowrap;
 }
-.hero-stats div b small{color:var(--gold);font-size:1.6rem;text-shadow:0 0 18px var(--gold-glow)}
-.hero-stats div span{
+.hero-stats div b span[data-value],
+.hero-stats div b small,
+.hero-stats div b small[data-suffix]{
+  display:inline;
+  font-size:inherit !important;
+  font-weight:inherit !important;
+  font-family:inherit !important;
+  color:inherit !important;
+  letter-spacing:inherit !important;
+  text-transform:none !important;
+  text-shadow:inherit !important;
+  vertical-align:baseline;
+}
+.hero-stats div [data-label],
+.hero-stats div > span{
+  display:block;
   font-size:12px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--text-3);font-family:'Barlow Condensed',sans-serif;font-weight:500;
+  line-height:1.3;
 }
-.hero-stats div b span[data-value]{color:inherit}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse-ring{
@@ -1121,8 +1144,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 }
 @media (max-width:1024px) and (min-width:769px){
   :root{--pad:48px}
-  .nav{gap:24px}
-  .nav-links{gap:24px}
+  .nav{gap:20px}
+  .nav-links{gap:18px}
+  .nav-cta{padding:9px 18px;font-size:13px;min-height:40px}
   .historia-grid{gap:32px;grid-template-columns:1fr 1fr}
   .historia-visual{min-height:420px;padding:28px}
   .historia-title{font-size:2rem}
@@ -1137,7 +1161,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .linha-tempo{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
   .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:16px}
   .hero-stats div b{font-size:1.75rem}
-  .hero-stats div b small{font-size:1.4rem}
+  .hero-stats div b small{font-size:inherit}
   .contato-band{padding:36px 40px;gap:24px}
   .contato-band .band-text h3{font-size:1.75rem}
 }
@@ -1153,16 +1177,16 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   }
   .nav.open{transform:translateY(0)}
   .nav-links{flex-direction:column;align-items:stretch;gap:0}
-  .nav a{padding:16px 4px;min-height:48px;display:flex;align-items:center;border-bottom:1px solid var(--line);font-size:15px}
-  .nav a::after{display:none}
-  .nav-cta{margin-top:18px;text-align:center;justify-content:center;min-height:48px}
+  .nav-links a{padding:16px 4px;min-height:48px;display:flex;align-items:center;border-bottom:1px solid var(--line);font-size:15px}
+  .nav-links a::after{display:none}
+  .nav-cta{margin-top:18px;padding:14px 24px;width:100%;text-align:center;justify-content:center;min-height:48px;font-size:15px;border-bottom:none}
   .menu-toggle{display:grid}
   .hero{min-height:auto;padding:108px 0 60px}
   .hero h1{font-size:clamp(1.68rem,8.4vw,2.94rem);margin-bottom:16px}
   .hero-sub{margin-bottom:32px;font-size:1.02rem;max-width:100%}
   .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:12px;margin-top:40px;padding-top:26px}
   .hero-stats div b{font-size:1.5rem}
-  .hero-stats div b small{font-size:1.2rem}
+  .hero-stats div b small{font-size:inherit}
   .hero-actions{flex-direction:column;align-items:stretch;gap:12px}
   .hero-actions .cta-btn{justify-content:center;width:100%}
   .historia-grid,.metodo-wrap,.instrutores-grid{grid-template-columns:1fr !important;gap:28px}
@@ -1261,8 +1285,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   footer{padding:40px 0 96px}
   .hero-stats{margin-top:36px;padding-top:22px;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr)) !important}
   .hero-stats div b{font-size:1.35rem;margin-bottom:4px}
-  .hero-stats div b small{font-size:1.1rem}
-  .hero-stats div span{font-size:11px;letter-spacing:.1em}
+  .hero-stats div b small{font-size:inherit}
+  .hero-stats div [data-label],.hero-stats div > span{font-size:11px;letter-spacing:.1em}
   .instrutores-head{margin-bottom:32px}
   .regras-grid{gap:14px;margin-top:16px}
   .regras-cta{margin-top:30px}
@@ -1628,7 +1652,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
           <span class="foot-design">Design &amp; Desenvolvimento · <span data-content="site.footer.creditoDesign">2026 Rvivac Guild LTDA</span></span>
         </div>
         <div class="foot-bottom foot-version">
-          <span>Versão do site: <strong data-content="site.footer.versao">05/09/2026 · 19:59 (GMT -03:00)</strong></span>
+          <span>Versão do site: <strong data-content="site.footer.versao">06/09/2026 · 12:45 (GMT -03:00)</strong></span>
         </div>
       </div>
     </footer>
@@ -1808,7 +1832,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       redesSociais:{instagram:"https://www.instagram.com/kravmagabukansantos/",facebook:"https://www.facebook.com/kravmagabukansantos/",googleReviews:"https://maps.app.goo.gl/2DuTmLF9cavCRFN18"},
       logo:{src:"logo_Bukan.png",alt:"Brasão oficial Bukan"},
       assets:{instrutores:{kakau:{src:"content/instrutores/kakau/Kakau_01.jpg",alt:"Profª. Kakau (Carolina Almeida) em treinamento de Krav-Maga"},samuel:{src:"content/instrutores/samuel/Samuka_01.jpeg",alt:"Profº. Samuel Arcanjo em posição de treino de Krav-Maga"},lucas:{src:"content/instrutores/lucas/Lucas_01.jpg",alt:"Profº. Lucas Freixo em treinamento de Krav-Maga"},luma:{src:"content/instrutores/luma/Luma_01.jpg",alt:"Profª. Luma Serrão em treinamento de Krav-Maga"}}},
-      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA",versao:"05/09/2026 · 19:59 (GMT -03:00)"},
+      footer:{copy:"© 2026 Krav-Maga Bukan Santos. Todos os direitos reservados.",sobre:"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",creditoDesign:"2026 Rvivac Guild LTDA",versao:"06/09/2026 · 12:45 (GMT -03:00)"},
       kakauGatilho:{microcopy:"Dúvidas sobre a turma? Fale direto comigo",label:"Profª Kakau · Instrutora Líder",cta:"Falar no WhatsApp →",avatarSrc:"content/instrutores/kakau/Kakau_01.jpg",avatarAlt:"Profª. Kakau (Carolina Almeida), instrutora líder Bukan Santos"},
       horarios:{titulo:"Horários das turmas",cta:"Falar no WhatsApp sobre horários",icone:"assets/icons/clock-analogico.svg",disclaimerAtualizacao:"Horários sujeitos a alteração sem aviso prévio. Confirme a disponibilidade diretamente com a unidade antes de comparecer.",disclaimerReferencia:"Grade extraída do site oficial Bukan (kravmaga-bukan.com). Unidade Santos — SP.",ultimaAtualizacao:"05/09/2026 · 03:00 (America/Sao_Paulo)",turmas:"Segunda\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nSegunda\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nSegunda\n19:00–20:00\nCrianças e Adolescentes\nCarolina De Almeida\n\nSegunda\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nTerça\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nTerça\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nTerça\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nTerça\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nQuarta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuarta\n17:00–18:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuarta\n20:30–21:30\nAdultos\nCarolina De Almeida\n\nQuinta\n07:00–08:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n08:00–09:00\nAdultos\nLuma de Abreu Serrão\n\nQuinta\n18:00–19:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real\n\nQuinta\n19:00–20:00\nAdultos\nCarolina De Almeida\n\nQuinta\n20:30–21:30\nAdultos\nSamuel Arcanjo\n\nSábado\n09:00–11:00\nAdultos e adolescentes\nLucas Rodrigues Freixo Côrte Real"},
       faq:{titulo:"Perguntas frequentes sobre a aula experimental",introducao:"O que esperar da sua primeira aula experimental:",
@@ -1828,7 +1852,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       colunasRodape:{navegacao:"Navegação",encontreNos:"Encontre-nos"},whatsappFlutuante:{label:"Agende sua aula →"}},
     hero:{tag:{texto:"Unidade oficial Bukan em Santos — SP"},titulo:{linha1:"",linha2Destaque:"A violência urbana não avisa quando chega. Esteja preparado."},
       subtituloHtml:"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados.",ctas:{primario:{texto:"Agende sua aula experimental"},secundario:{texto:"Conhecer o método",ancora:"#metodo"}},
-      stats:"45+\nAnos do Método Bukan\n\n6\nFaixas do Método Bukan\n\n100%\nFoco em Sobrevivência"},
+      stats:"45+\nAnos do Método Bukan\n\n6 Faixas\nFaixas do Método Bukan\n\n100%\nFoco em defesa pessoal"},
     escola:{cabecalho:{eyebrow:"Origem & Autoridade",titulo:"A escola e a linhagem",tituloDestaque:"Bukan",lead:"Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições."},
       visual:{tituloSuperior:"Bukan · Rehovot · Israel",tituloPrincipal:"O Brasão da Linhagem Original",timeline:"1978\nCriação do método por Imi L. e Yaron L.\n\n6 Fxs\nAs 6 faixas do método Bukan\n\nMatriz\nBukan Castle, Teresópolis",
         citacao:{texto:"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo.",autor:"— Filosofia Bukan"}},
@@ -2052,13 +2076,14 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     "site/google-reviews-url.txt":"https://maps.app.goo.gl/2DuTmLF9cavCRFN18",
     "site/footer-sobre.txt":"A escola oficial do método Bukan em Santos. Treinamento sério, credenciado e comprometido com a sua segurança real.",
     "site/footer-credito-design.txt":"2026 Rvivac Guild LTDA",
+    "site/versao.txt":"06/09/2026 · 12:45 (GMT -03:00)",
     "hero/tag.txt":"Unidade oficial Bukan em Santos — SP",
     "hero/titulo-linha1.txt":"",
     "hero/titulo-linha2destaque.txt":"A violência urbana não avisa quando chega. Esteja preparado.",
     "hero/subtitulo.txt":"Método <span class=\"hl\">oficial Bukan,</span> criado por <span class=\"hl\">Imi Lichtenfeld</span> e preservado por <span class=\"hl\">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados.",
     "hero/cta-primario.txt":"Agende sua aula experimental",
     "hero/cta-secundario.txt":"Conhecer o método",
-    "hero/stats.txt":"45+\nAnos do Método Bukan\n\n6\nFaixas do Método Bukan\n\n100%\nFoco em Sobrevivência",
+    "hero/stats.txt":"45+\nAnos do Método Bukan\n\n6 Faixas\nFaixas do Método Bukan\n\n100%\nFoco em defesa pessoal",
     "escola/cabecalho-eyebrow.txt":"Origem & Autoridade",
     "escola/cabecalho-titulo.txt":"A escola e a linhagem",
     "escola/cabecalho-titulodestaque.txt":"Bukan",
