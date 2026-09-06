@@ -18,7 +18,7 @@
   --gold:#F3CC1F;--gold-bright:#FFE352;--gold-deep:#BA940C;
   --gold-soft:rgba(243,204,31,.14);--gold-glow:rgba(243,204,31,.42);
   --seal-red:#D62833;--seal-red-deep:#9D121C;--seal-red-glow:rgba(214,40,51,.3);
-  --text-1:#F6F7F9;--text-2:#C9CED5;--text-3:#8A929B;--text-4:#5A6169;
+e   --text-1:#F6F7F9;--text-2:#C9CED5;--text-3:#8A929B;--text-4:#5A6169;
   --whatsapp:#25D366;--briefing-lilac:#A396C0;--briefing-red:#E31B23;--briefing-gold:#F3B61F;--line:rgba(255,255,255,.06);--line-accent:rgba(158,132,214,.28);
   --radius-sm:6px;--radius-md:10px;--radius-lg:16px;
   --shadow-lg:0 20px 60px -20px rgba(0,0,0,.8), 0 2px 8px rgba(0,0,0,.5);
@@ -1433,6 +1433,10 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         Método <span class="hl">oficial Bukan,</span> criado por <span class="hl">Imi Lichtenfeld</span> e preservado por <span class="hl">Yaron Liechtenstein.</span> Treinamento real de defesa pessoal para a vida urbana, com instrutores credenciados.
       </p>
       <div class="hero-actions">
+        <button class="cta-btn" id="quizOpenBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span>Teste sua Atenção</span>
+        </button>
         <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
           <span data-content="hero.ctas.primario.texto">Agende sua aula experimental</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -1735,13 +1739,13 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   </div>
 </div>
 
-<div class="quiz-modal-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Quiz avançado de consciência situacional">
+<div class="quiz-modal-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Teste sua Atenção na Rua + Dicas Práticas">
   <div class="quiz-modal" id="quizModal" role="document">
     <div class="quiz-modal-head">
       <div class="quiz-modal-head-text">
-        <div class="quiz-modal-kicker">Acesso reservado · Nível 2</div>
-        <h2>Quiz Avançado: Consciência Situacional Urbana</h2>
-        <p>Leia o cenário, escolha a decisão tática mais segura e confira a análise.</p>
+        <div class="quiz-modal-kicker">Consciência Situacional</div>
+        <h2>Teste sua Atenção na Rua + Dicas Práticas</h2>
+        <p>Leia o cenário, escolha a decisão tática mais segura e confira a análise. No final, receba dicas práticas de consciência situacional.</p>
       </div>
       <button class="quiz-modal-fechar" type="button" aria-label="Fechar quiz" id="quizFechar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -2978,7 +2982,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         .catch(() => undefined);
     }));
   }
-  let quizState = { question: 0, score: 0, answered: false };
+  let quizState = { question: 0, score: 0, answered: false, stage: 'quiz' };
   function quizEscape(text) {
     return String(text).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   }
@@ -2996,7 +3000,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       '<div class="quiz-actions"><button class="quiz-action primary" type="button" id="quizNext" hidden>' + (number === QUIZ_QUESTIONS.length ? 'Ver resultado' : 'Próxima pergunta') + '</button></div>';
   }
   function abrirQuizModal() {
-    quizState = { question: 0, score: 0, answered: false };
+    quizState = { question: 0, score: 0, answered: false, stage: 'quiz' };
     renderQuiz();
     const overlay = document.getElementById('quizOverlay');
     if (overlay) { overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); }
@@ -3009,18 +3013,35 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     const body = document.getElementById('quizBody');
     if (!body) return;
     const percent = Math.round((quizState.score / QUIZ_QUESTIONS.length) * 100);
-    body.innerHTML = '<div class="quiz-result"><h3>Quiz concluído</h3><p>Você acertou <strong>' + quizState.score + ' de ' + QUIZ_QUESTIONS.length + '</strong> questões (' + percent + '%).</p><button class="quiz-action primary" type="button" id="quizRestart">Refazer quiz</button></div>';
+    quizState.stage = 'dicas';
+    body.innerHTML = '<div class="quiz-result"><h3>Quiz concluído</h3><p>Você acertou <strong>' + quizState.score + ' de ' + QUIZ_QUESTIONS.length + '</strong> questões (' + percent + '%).</p><div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);"><p style="color: var(--text-3); font-size: 0.95rem; margin-bottom: 16px;">Agora, conheça as <strong>dicas práticas de consciência situacional</strong> para aplicar no seu dia a dia:</p><button class="quiz-action primary" type="button" id="quizVerDicas">Ver dicas práticas →</button></div></div>';
   }
+  let quizDicasSlide = 0;
+  function renderQuizDicas() {
+    const body = document.getElementById('quizBody');
+    if (!body) return;
+    const slide = DICAS_SLIDES[quizDicasSlide];
+    const slideHtml = slide.html.replace('{{WHATSAPP_LINK}}', getWhatsappLink('whatsapp-aula'));
+    const slideNum = quizDicasSlide + 1;
+    const totalSlides = DICAS_SLIDES.length;
+    const btnProxima = quizDicasSlide === totalSlides - 1 ? '<button class="quiz-action primary" type="button" id="quizFecharEAgendar">Agendar aula experimental →</button>' : '<button class="quiz-action primary" type="button" id="quizDicasProxima">Próxima dica →</button>';
+    body.innerHTML = '<div class="quiz-progress"><span>Dica ' + slideNum + ' de ' + totalSlides + '</span><div class="quiz-progress-bar"><span style="width:' + (slideNum / totalSlides * 100) + '%"></span></div></div>' +
+      '<article class="dicas-slide" style="margin: 16px 0;"><h3 style="font-family: \'Barlow Condensed\', sans-serif; font-size: 1.3rem; color: var(--text-1); margin-bottom: 16px;">' + slide.title + '</h3>' + slideHtml + '</article>' +
+      '<div class="quiz-actions" style="margin-top: 20px;">' + btnProxima + (quizDicasSlide > 0 ? '<button class="quiz-action" type="button" id="quizDicasAnterior" style="background: transparent; border: 1px solid rgba(255,255,255,.16);">← Dica anterior</button>' : '') + '</div>';
+  }
+  
   function bindQuizBehavior() {
     const overlay = document.getElementById('quizOverlay');
     const fechar = document.getElementById('quizFechar');
     if (!overlay) return;
     carregarQuizConteudo();
+    carregarDicasConteudo();
     if (fechar) fechar.addEventListener('click', fecharQuizModal);
     overlay.addEventListener('click', e => {
       if (e.target === overlay) { fecharQuizModal(); return; }
+      
       const option = e.target.closest('.quiz-option');
-      if (option && !quizState.answered) {
+      if (option && !quizState.answered && quizState.stage === 'quiz') {
         quizState.answered = true;
         const selected = Number(option.dataset.quizOption);
         const item = QUIZ_QUESTIONS[quizState.question];
@@ -3036,40 +3057,47 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         feedback.innerHTML = '<strong>' + (correct ? 'Correto.' : 'Incorreto.') + '</strong>' + quizEscape(item.options[selected][2]);
         document.getElementById('quizNext').hidden = false;
       }
+      
       const next = e.target.closest('#quizNext');
       if (next) {
         if (quizState.question === QUIZ_QUESTIONS.length - 1) renderQuizResult();
         else { quizState.question++; quizState.answered = false; renderQuiz(); }
       }
-      const restart = e.target.closest('#quizRestart');
-      if (restart) { quizState = { question: 0, score: 0, answered: false }; renderQuiz(); }
+      
+      const verDicas = e.target.closest('#quizVerDicas');
+      if (verDicas) {
+        quizDicasSlide = 0;
+        renderQuizDicas();
+      }
+      
+      const dicasProxima = e.target.closest('#quizDicasProxima');
+      if (dicasProxima) {
+        quizDicasSlide++;
+        renderQuizDicas();
+      }
+      
+      const dicasAnterior = e.target.closest('#quizDicasAnterior');
+      if (dicasAnterior) {
+        quizDicasSlide--;
+        renderQuizDicas();
+      }
+      
+      const fecharEAgendar = e.target.closest('#quizFecharEAgendar');
+      if (fecharEAgendar) {
+        fecharQuizModal();
+        setTimeout(() => {
+          const link = getWhatsappLink('whatsapp-aula');
+          abrirUrlExterna(link);
+        }, 150);
+      }
     });
+    
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && overlay.classList.contains('open')) fecharQuizModal();
     });
-    let secret = '';
-    let secretTimer = null;
-    document.addEventListener('keydown', e => {
-      if (e.ctrlKey || e.altKey || e.metaKey || e.key.length !== 1) return;
-      secret = (secret + e.key.toLowerCase()).slice(-4);
-      clearTimeout(secretTimer);
-      secretTimer = setTimeout(() => { secret = ''; }, 1200);
-      if (secret === 'quiz') { secret = ''; abrirQuizModal(); }
-    });
-    let toquesSecretos = [];
-    let toqueTimer = null;
-    document.addEventListener('touchend', e => {
-      if (e.touches.length > 0 || e.changedTouches.length !== 1) return;
-      const agora = Date.now();
-      toquesSecretos = toquesSecretos.filter(toque => agora - toque < 700);
-      toquesSecretos.push(agora);
-      if (toquesSecretos.length === 3) {
-        toquesSecretos = [];
-        abrirQuizModal();
-      }
-      clearTimeout(toqueTimer);
-      toqueTimer = setTimeout(() => { toquesSecretos = []; }, 700);
-    }, {passive:true});
+    
+    const quizBtn = document.getElementById('quizOpenBtn');
+    if (quizBtn) quizBtn.addEventListener('click', abrirQuizModal);
   }
 
   function bindKakauGatilhoBehavior() {
