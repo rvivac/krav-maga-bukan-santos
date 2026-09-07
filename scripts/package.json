@@ -8,6 +8,8 @@
     "node": ">=20"
   },
   "scripts": {
+    "dev": "node dev-server.mjs",
+    "server": "node dev-server.mjs",
     "sync": "node sync-horarios.mjs",
     "raspagem": "node sync-horarios.mjs",
     "dry-run": "node sync-horarios.mjs --dry-run"

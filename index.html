@@ -758,7 +758,41 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .horarios-modal-disclaimer-row .ico-info{color:var(--gold)}
 .horarios-modal-disclaimer-row .ico-ref{color:var(--accent)}
 .horarios-modal-disclaimer-row .ico-cal{color:var(--gold)}
-.horarios-modal-disclaimer-row.last {margin-top:4px;padding-top:4px;border-top:1px solid rgba(123,91,184,.1)}
+.horarios-modal-disclaimer-row.last {
+  margin-top:5px;padding-top:6px;border-top:1px solid rgba(123,91,184,.14);
+  align-items:center;flex-wrap:wrap;gap:8px;
+}
+.horarios-btn-reload{
+  background:transparent;border:none;padding:2px;margin:0;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--gold);border-radius:6px;line-height:1;
+  transition:transform .2s ease,filter .2s ease,color .2s ease;
+}
+.horarios-btn-reload:hover{
+  transform:scale(1.18);filter:drop-shadow(0 0 6px var(--gold));color:#FFE66D;
+}
+.horarios-btn-reload:active{transform:scale(0.95)}
+.horarios-btn-reload:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.horarios-last-update-wrap{display:inline-flex;align-items:center;flex-wrap:wrap}
+.horarios-btn-sync{
+  background:rgba(243,204,31,.08);border:1px solid rgba(243,204,31,.24);color:var(--gold);
+  border-radius:6px;padding:2px 7px;font-family:'JetBrains Mono',monospace;font-size:.70rem;
+  letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;
+  cursor:pointer;transition:all .2s ease;margin-left:2px;vertical-align:middle;
+}
+.horarios-btn-sync:hover{
+  background:rgba(243,204,31,.18);border-color:rgba(243,204,31,.48);box-shadow:0 0 10px rgba(243,204,31,.22);color:#FFF;
+}
+.horarios-btn-sync:active{transform:scale(0.96)}
+.horarios-btn-sync:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.horarios-btn-sync .ico-sync{width:11px;height:11px;margin:0;flex-shrink:0}
+.horarios-btn-reload.is-loading svg,
+.horarios-btn-sync.is-loading .ico-sync{
+  animation:spinReload .85s cubic-bezier(.4,0,.2,1) infinite;
+}
+.horarios-btn-sync.is-loading{opacity:.85;pointer-events:none}
+.horarios-btn-reload.is-loading{pointer-events:none}
+@keyframes spinReload{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .horarios-modal-foot{
   position:sticky;bottom:0;flex-shrink:0;
   padding:14px 24px 16px;border-top:1px solid var(--line-accent);
@@ -1714,8 +1748,14 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <span data-content="site.horarios.disclaimerReferencia">Grade extraída do site oficial Bukan (kravmaga-bukan.com). Unidade Santos — SP.</span>
       </div>
       <div class="horarios-modal-disclaimer-row muted last">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico-cal"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Última atualização:&nbsp;<strong data-content="site.horarios.ultimaAtualizacao" style="color:var(--text-2);font-weight:600">05/09/2026 · 03:00 (America/Sao_Paulo)</strong></span>
+        <button type="button" class="horarios-btn-reload" id="horariosBtnReload" aria-label="Forçar atualização dos horários" title="Clique para forçar a atualização dos horários">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico-cal"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </button>
+        <span class="horarios-last-update-wrap">Última atualização:&nbsp;<strong data-content="site.horarios.ultimaAtualizacao" style="color:var(--text-2);font-weight:600">05/09/2026 · 03:00 (America/Sao_Paulo)</strong></span>
+        <button type="button" class="horarios-btn-sync" id="horariosBtnSync" aria-label="Atualizar horários agora" title="Forçar atualização dos horários">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="ico-sync"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3L21.5 8M22 12.5a10 10 0 0 1-18.8 4.2L2.5 16"/></svg>
+          <span class="sync-label">atualizar</span>
+        </button>
       </div>
     </div>
     <!-- horários modal footer removed per design request -->
@@ -2756,10 +2796,119 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     fecharHorariosModal();
     setTimeout(abrirWhatsappHorarios, 80);
   }
+  async function forcarAtualizacaoHorarios() {
+    const btnReload = document.getElementById('horariosBtnReload');
+    const btnSync = document.getElementById('horariosBtnSync');
+    const label = btnSync?.querySelector('.sync-label');
+    if (btnReload?.classList.contains('is-loading') || btnSync?.classList.contains('is-loading')) return;
+
+    btnReload?.classList.add('is-loading');
+    btnSync?.classList.add('is-loading');
+    btnReload?.setAttribute('aria-busy', 'true');
+    btnSync?.setAttribute('aria-busy', 'true');
+    if (label) label.textContent = 'atualizando…';
+
+    const t = Date.now();
+    try {
+      let txtTurmas = '';
+      let txtUpdate = '';
+      let viaApi = false;
+
+      // 1. Tenta acionar a API de sincronização do servidor (que executa a raspagem e salva nos arquivos TXT)
+      try {
+        const apiRes = await fetch('/api/sync-horarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          cache: 'no-store'
+        });
+        if (apiRes.ok) {
+          const apiData = await apiRes.json();
+          if (apiData && apiData.ok) {
+            txtTurmas = apiData.turmas || '';
+            txtUpdate = apiData.ultimaAtualizacao || '';
+            viaApi = true;
+          }
+        }
+      } catch (_) {
+        // Servidor local sem API ou ambiente estático (ex: GitHub Pages)
+      }
+
+      // 2. Se não executou via API (ex: hospedagem estática no GitHub Pages), busca os arquivos TXT diretamente contornando cache
+      if (!viaApi) {
+        const [resTurmas, resUpdate] = await Promise.all([
+          fetch('content/site/horarios-turmas.txt?t=' + t, { cache: 'no-store' }),
+          fetch('content/site/horarios-ultima-atualizacao.txt?t=' + t, { cache: 'no-store' })
+        ]);
+
+        if (!resTurmas.ok) throw new Error('Falha ao buscar turmas: status ' + resTurmas.status);
+
+        txtTurmas = (await resTurmas.text()).replace(/\r/g, '').trimEnd();
+        if (resUpdate.ok) {
+          txtUpdate = (await resUpdate.text()).replace(/\r/g, '').trim();
+        }
+      }
+
+      if (txtTurmas) {
+        if (!CONTENT.site) CONTENT.site = {};
+        if (!CONTENT.site.horarios) CONTENT.site.horarios = {};
+        CONTENT.site.horarios.turmas = txtTurmas;
+        if (FALLBACK_CONTENT?.site?.horarios) FALLBACK_CONTENT.site.horarios.turmas = txtTurmas;
+        renderHorarios();
+      }
+
+      if (txtUpdate) {
+        if (!CONTENT.site) CONTENT.site = {};
+        if (!CONTENT.site.horarios) CONTENT.site.horarios = {};
+        CONTENT.site.horarios.ultimaAtualizacao = txtUpdate;
+        if (FALLBACK_CONTENT?.site?.horarios) FALLBACK_CONTENT.site.horarios.ultimaAtualizacao = txtUpdate;
+        document.querySelectorAll('[data-content="site.horarios.ultimaAtualizacao"]').forEach(el => {
+          el.textContent = txtUpdate;
+        });
+      }
+
+      const msg = viaApi
+        ? 'Horários atualizados e salvos no arquivo txt (' + (txtUpdate.split(' · ')[1] || txtUpdate) + ')'
+        : 'Grade de horários atualizada com sucesso!';
+      horariosToast(msg, 'ok', 3200);
+    } catch (err) {
+      console.warn('[horarios] Erro ao sincronizar horários:', err);
+      if (window.location.protocol === 'file:') {
+        horariosToast('No modo arquivo local (file://), abra via servidor para testar a busca.', 'err', 3200);
+      } else {
+        horariosToast('Não foi possível sincronizar no momento. Tente em instantes.', 'err', 3000);
+      }
+    } finally {
+      setTimeout(() => {
+        btnReload?.classList.remove('is-loading');
+        btnSync?.classList.remove('is-loading');
+        btnReload?.removeAttribute('aria-busy');
+        btnSync?.removeAttribute('aria-busy');
+        if (label) label.textContent = 'atualizar';
+      }, 450);
+    }
+  }
+
   function bindHorariosBehavior() {
     const fbtn = document.getElementById('horariosFloat');
     const fechar = document.getElementById('horariosFechar');
     const overlay = document.getElementById('horariosOverlay');
+    const btnReload = document.getElementById('horariosBtnReload');
+    const btnSync = document.getElementById('horariosBtnSync');
+
+    if (btnReload) {
+      btnReload.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        forcarAtualizacaoHorarios();
+      });
+    }
+    if (btnSync) {
+      btnSync.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        forcarAtualizacaoHorarios();
+      });
+    }
     if (fbtn) fbtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); abrirHorariosModal(); });
     if (fechar) fechar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fecharHorariosModal(); });
     if (overlay) {
