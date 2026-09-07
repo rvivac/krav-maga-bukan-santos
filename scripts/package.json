@@ -7,6 +7,11 @@
   "engines": {
     "node": ">=20"
   },
+  "scripts": {
+    "sync": "node sync-horarios.mjs",
+    "raspagem": "node sync-horarios.mjs",
+    "dry-run": "node sync-horarios.mjs --dry-run"
+  },
   "dependencies": {
     "zod": "^4.5.4"
   }

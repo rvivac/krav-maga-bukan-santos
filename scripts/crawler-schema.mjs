@@ -1,5 +1,13 @@
 import { createHash } from 'node:crypto';
-import { z } from './_vendor/node_modules/zod/index.js';
+
+let z;
+try {
+  const mod = await import('zod');
+  z = mod.z || mod.default?.z || mod.default;
+} catch {
+  const mod = await import('./_vendor/node_modules/zod/index.js');
+  z = mod.z || mod.default?.z || mod.default;
+}
 
 const DIAS_ORDENADOS = ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'];
 const WEEKDAY_MAP = { 1:'Segunda', 2:'Terça', 3:'Quarta', 4:'Quinta', 5:'Sexta', 6:'Sábado', 7:'Domingo' };

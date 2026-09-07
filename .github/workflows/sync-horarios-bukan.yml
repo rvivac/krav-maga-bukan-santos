@@ -15,9 +15,6 @@ on:
         default: false
         type: boolean
 
-permissions:
-  contents: write
-
 concurrency:
   group: sync-horarios-bukan
   cancel-in-progress: false
@@ -27,30 +24,25 @@ jobs:
     name: Raspagem + validação + commit
     runs-on: ubuntu-latest
     timeout-minutes: 6
-    defaults:
-      run:
-        working-directory: ./scripts
+    permissions:
+      contents: write
     steps:
       - name: Checkout código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 0
 
       - name: Configurar Node.js 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: 'npm'
-          cache-dependency-path: scripts/package.json
+          cache-dependency-path: scripts/package-lock.json
 
       - name: Instalar dependências scripts
-        run: |
-          cd "$GITHUB_WORKSPACE/scripts"
-          if [ ! -f package-lock.json ]; then
-            npm install --package-lock-only --no-audit --no-fund
-          fi
-          npm install --no-audit --no-fund
+        working-directory: scripts
+        run: npm ci --no-audit --no-fund
 
       - name: Rodar sync horários
         id: sync
@@ -58,7 +50,6 @@ jobs:
           URL_OVERRIDE: ${{ inputs.url }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          cd "$GITHUB_WORKSPACE"
           ARGS=""
           if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           if [ -n "$URL_OVERRIDE" ]; then ARGS="$ARGS --url $URL_OVERRIDE"; fi
@@ -68,22 +59,22 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         id: git_commit
         run: |
-          cd "$GITHUB_WORKSPACE"
-          git config user.name  "Bukan Santos Sync Bot"
-          git config user.email "sync-bot@kravmagabukansantos.com.br"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           if [ -z "$(git status --porcelain content/site/horarios-turmas.txt)" ]; then
             echo "result=skip" >> "$GITHUB_OUTPUT"
             echo "Nenhuma alteração para commitar. Conteúdo idêntico."
             exit 0
           fi
-          git stash push --include-untracked -- content/site/horarios-turmas.txt .cache/horarios.sha256 2>/dev/null
+          git stash push --include-untracked -- content/site/horarios-turmas.txt .cache/horarios.sha256 2>/dev/null || true
           git pull --no-rebase --ff-only origin main || git merge --no-edit origin/main || true
           git stash pop 2>/dev/null || true
           TS_BR=$(TZ='America/Sao_Paulo' date '+%Y-%m-%d %H:%M %Z')
           MSG="sync(horarios): atualiza turmas automaticamente — ${TS_BR}"
           git add content/site/horarios-turmas.txt
           if [ -f .cache/horarios.sha256 ]; then git add .cache/horarios.sha256; fi
+          if [ -f content/site/horarios-ultima-atualizacao.txt ]; then git add content/site/horarios-ultima-atualizacao.txt; fi
           git commit -m "$MSG"
           git push --set-upstream --force-with-lease origin main
           echo "result=committed" >> "$GITHUB_OUTPUT"
