@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" data-content="site.meta.description" content="" />
 <meta name="theme-color" data-content="site.meta.themeColor" content="#0B0B0B" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title data-content="site.meta.title">Krav-Maga Bukan Santos | Defesa Pessoal Real</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1842,6 +1845,26 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 (function(){
   'use strict';
 
+  // Força purga de caches do navegador e Service Workers no localhost
+  try {
+    if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        for (const r of regs) r.unregister();
+      });
+    }
+    if (typeof window !== 'undefined' && 'caches' in window) {
+      caches.keys().then(names => {
+        for (const n of names) caches.delete(n);
+      });
+    }
+  } catch (_) {}
+
+  function bustCache(url) {
+    if (!url) return url;
+    const sep = url.includes('?') ? '&' : '?';
+    return url + sep + '_v=' + Date.now();
+  }
+
   const FEATURE_ICONS = {
     shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
     target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
@@ -2085,7 +2108,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       srcList.forEach(src => { resolvedMap[src] = (FALLBACK_TXT && FALLBACK_TXT[src]) || 'Conteúdo indisponível no modo arquivo local.'; });
     }
     const fetches = file ? Promise.resolve() : Promise.all(srcList.map(src => {
-      return fetch('content/' + src, {cache:'no-cache'})
+      return fetch(bustCache('content/' + src), {cache:'no-store'})
         .then(r => r.ok ? r.text() : Promise.reject(src))
         .then(txt => { resolvedMap[src] = (txt || '').replace(/\r/g, '').trimEnd(); })
         .catch(() => { resolvedMap[src] = (FALLBACK_TXT && FALLBACK_TXT[src]) || ''; });
@@ -2517,7 +2540,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       if (idx > 0) node.classList.add('delay-' + Math.min(idx + 1, 4));
       const img = node.querySelector('.portrait img');
       const asset = assets[p.id] || {src:'', alt:''};
-      img.src = asset.src;
+      img.src = asset.src ? bustCache(asset.src) : '';
       img.alt = asset.alt || (p.nome + ' em treinamento');
       node.querySelector('[data-tag]').textContent = p.tag;
       node.querySelector('.instrutor-nome').textContent = p.nome;
@@ -3030,7 +3053,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     if (window.location.protocol === 'file:') return Promise.resolve();
     return Promise.all(DICAS_SLIDES.map((slide, index) => {
       const nome = String(index + 1).padStart(2, '0');
-      return fetch('content/dicas/slide-' + nome + '.txt', {cache:'no-cache'})
+      return fetch(bustCache('content/dicas/slide-' + nome + '.txt'), {cache:'no-store'})
         .then(response => response.ok ? response.text() : Promise.reject(response.status))
         .then(text => {
           const linhas = text.replace(/\r/g, '').split('\n');
@@ -3330,7 +3353,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       return;
     }
     const loaders = Object.keys(CONTENT_FILES).map(key => {
-      return fetch(CONTENT_FILES[key], {cache:'no-cache'})
+      return fetch(bustCache(CONTENT_FILES[key]), {cache:'no-store'})
         .then(r => r.ok ? r.json() : Promise.reject(key))
         .then(json => CONTENT[key] = json)
         .catch(() => { CONTENT[key] = FALLBACK_CONTENT[key] || {}; });

@@ -20,10 +20,10 @@ if errorlevel 1 (
 echo [1/2] Abrindo navegador em http://localhost:8080 ...
 start http://localhost:8080
 
-echo [2/2] Subindo dev server com Live Reload e sem cache...
+echo [2/2] Subindo dev server com Live Reload e auto-watch...
 echo Pressione Ctrl+C para encerrar o servidor.
 echo.
 
-node scripts/dev-server.mjs
+node --watch scripts/dev-server.mjs
 
 pause

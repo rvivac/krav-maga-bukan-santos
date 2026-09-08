@@ -68,8 +68,10 @@ const LIVE_RELOAD_SNIPPET = `
     const es = new EventSource('/__livereload');
     es.onmessage = (e) => {
       if (e.data === 'reload') {
-        console.log('[dev-server] Atualização recebida, recarregando...');
-        window.location.reload();
+        console.log('[dev-server] Atualização recebida, recarregando com cache limpo...');
+        const url = new URL(window.location.href);
+        url.searchParams.set('_r', Date.now());
+        window.location.replace(url.toString());
       }
     };
     es.onerror = () => { /* reconexão automática pelo navegador */ };
@@ -115,10 +117,11 @@ function runSyncScript() {
 }
 
 const server = http.createServer(async (req, res) => {
-  // CORS
+  // CORS e Anti-Cache Geral
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Clear-Site-Data', '"cache"');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -227,9 +230,10 @@ const server = http.createServer(async (req, res) => {
       }
       res.writeHead(200, {
         'Content-Type': contentType,
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
         'Pragma': 'no-cache',
-        'Expires': '0'
+        'Expires': '0',
+        'Clear-Site-Data': '"cache"'
       });
       return res.end(html);
     }
@@ -237,9 +241,10 @@ const server = http.createServer(async (req, res) => {
     // Para outros arquivos estáticos (JSON, TXT, imagens, etc.)
     res.writeHead(200, {
       'Content-Type': contentType,
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
       'Pragma': 'no-cache',
-      'Expires': '0'
+      'Expires': '0',
+      'Clear-Site-Data': '"cache"'
     });
     fs.createReadStream(filePath).pipe(res);
   } catch (e) {
