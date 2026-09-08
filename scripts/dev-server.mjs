@@ -25,6 +25,59 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2'
 };
 
+// Live Reload via Server-Sent Events (SSE)
+const liveReloadClients = new Set();
+
+function broadcastReload() {
+  console.log(`[dev-server ${new Date().toLocaleTimeString('pt-BR')}] Alteração detectada! Recarregando navegador...`);
+  for (const client of liveReloadClients) {
+    try {
+      client.write('data: reload\n\n');
+    } catch (_) {
+      liveReloadClients.delete(client);
+    }
+  }
+}
+
+let reloadTimer = null;
+function scheduleReload(filename) {
+  if (filename) {
+    const fn = filename.toLowerCase();
+    if (fn.includes('.git') || fn.includes('node_modules') || fn.endsWith('.tmp') || fn.endsWith('~')) {
+      return;
+    }
+  }
+  clearTimeout(reloadTimer);
+  reloadTimer = setTimeout(broadcastReload, 150);
+}
+
+// Watch nas pastas principais (content, assets, scripts, index.html)
+try {
+  fs.watch(ROOT, { recursive: true }, (eventType, filename) => {
+    scheduleReload(filename);
+  });
+} catch (err) {
+  console.warn('[dev-server] fs.watch recursive não disponível:', err.message);
+}
+
+const LIVE_RELOAD_SNIPPET = `
+<!-- [dev-server] Live Reload Automático -->
+<script>
+(() => {
+  try {
+    const es = new EventSource('/__livereload');
+    es.onmessage = (e) => {
+      if (e.data === 'reload') {
+        console.log('[dev-server] Atualização recebida, recarregando...');
+        window.location.reload();
+      }
+    };
+    es.onerror = () => { /* reconexão automática pelo navegador */ };
+  } catch (_) {}
+})();
+</script>
+`;
+
 function fmtDataAtualizacao() {
   const d = new Date();
   const br = new Intl.DateTimeFormat('pt-BR', {
@@ -75,6 +128,22 @@ const server = http.createServer(async (req, res) => {
   const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
   const pathname = decodeURIComponent(parsedUrl.pathname);
 
+  // SSE Live Reload Endpoint
+  if (pathname === '/__livereload') {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*'
+    });
+    res.write('retry: 1500\n\n');
+    liveReloadClients.add(res);
+    req.on('close', () => {
+      liveReloadClients.delete(res);
+    });
+    return;
+  }
+
   // API: Sincronizar horários e salvar no TXT
   if ((pathname === '/api/sync-horarios' || pathname === '/api/atualizar-horarios') && req.method === 'POST') {
     try {
@@ -92,7 +161,10 @@ const server = http.createServer(async (req, res) => {
         ? fs.readFileSync(targetTurmasTxt, 'utf8').replace(/\r/g, '').trimEnd()
         : '';
 
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
       return res.end(JSON.stringify({
         ok: true,
         message: 'Horários atualizados e gravados no arquivo txt com sucesso!',
@@ -102,7 +174,6 @@ const server = http.createServer(async (req, res) => {
     } catch (err) {
       console.error('[dev-server ERROR] Falha no sync:', err.message);
 
-      // Fallback: se o crawler do site oficial falhar (ex: sem conexão), ao menos grava a data da tentativa se desejado
       const targetUpdateTxt = path.join(ROOT, 'content', 'site', 'horarios-ultima-atualizacao.txt');
       const targetTurmasTxt = path.join(ROOT, 'content', 'site', 'horarios-turmas.txt');
 
@@ -115,7 +186,10 @@ const server = http.createServer(async (req, res) => {
         ? fs.readFileSync(targetTurmasTxt, 'utf8').replace(/\r/g, '').trimEnd()
         : '';
 
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
       return res.end(JSON.stringify({
         ok: true,
         warning: 'Não foi possível contatar o site oficial Bukan agora, mas a data foi atualizada.',
@@ -133,13 +207,40 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.writeHead(404, {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
       return res.end('Arquivo não encontrado: ' + pathname);
     }
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': contentType });
+
+    // Para HTML, injeta o script de Live Reload antes de </body>
+    if (ext === '.html') {
+      let html = fs.readFileSync(filePath, 'utf8');
+      if (html.includes('</body>')) {
+        html = html.replace('</body>', `${LIVE_RELOAD_SNIPPET}\n</body>`);
+      } else {
+        html += LIVE_RELOAD_SNIPPET;
+      }
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      });
+      return res.end(html);
+    }
+
+    // Para outros arquivos estáticos (JSON, TXT, imagens, etc.)
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     fs.createReadStream(filePath).pipe(res);
   } catch (e) {
     res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -148,6 +249,11 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`[dev-server] Bukan Santos rodando em http://localhost:${PORT}`);
-  console.log(`[dev-server] API disponível em http://localhost:${PORT}/api/sync-horarios`);
+  console.log(`\n========================================================`);
+  console.log(`  Bukan Santos - Dev Server Local Ativo!`);
+  console.log(`  URL Local:   http://localhost:${PORT}`);
+  console.log(`  Live Reload: ATIVADO (qualquer arquivo salvo atualiza o navegador)`);
+  console.log(`  Sem Cache:   ATIVADO (Cache-Control: no-store)`);
+  console.log(`  API Sync:    http://localhost:${PORT}/api/sync-horarios`);
+  console.log(`========================================================\n`);
 });
