@@ -1328,29 +1328,19 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   footer{padding:48px 0 100px}
   .foot-bottom{flex-direction:column;gap:10px;text-align:center;padding-top:20px}
 
-  /* Ilha de Conversão Flutuante Única no Mobile (Sem Overlap) */
+  /* Ilha de Conversão Flutuante Única no Mobile (Apenas Card da Instrutora) */
   .faq-float,
-  .horarios-float{
+  .horarios-float,
+  .whatsapp-float{
     display:none !important;
   }
-  .whatsapp-float{
-    position:fixed !important;
-    right:18px !important;
-    bottom:18px !important;
-    width:58px !important;
-    height:58px !important;
-    z-index:70 !important;
-    margin:0 !important;
-  }
-  .whatsapp-float svg{width:28px;height:28px}
-  .whatsapp-label{display:none !important}
 
   .kakau-float{
     position:fixed !important;
     left:auto !important;
     right:16px !important;
-    bottom:86px !important;
-    width:min(320px, calc(100vw - 32px)) !important;
+    bottom:16px !important;
+    width:min(330px, calc(100vw - 32px)) !important;
     max-height:160px !important;
     z-index:71 !important;
     padding:12px 38px 12px 12px !important;
@@ -1360,10 +1350,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     border-radius:16px !important;
   }
   .kakau-float::after{
-    content:'';position:absolute;bottom:-6px;right:22px;width:12px;height:12px;
-    background:linear-gradient(135deg,rgba(22,26,31,.97) 0%,rgba(10,11,13,.98) 100%);
-    border-right:1px solid var(--line-accent);border-bottom:1px solid var(--line-accent);
-    transform:rotate(45deg);
+    display:none !important;
   }
   .kakau-float-avatar{width:50px !important;height:50px !important}
   .kakau-float-label{font-size:.68rem !important}
@@ -1543,10 +1530,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .foot-brand p{font-size:.9rem;line-height:1.7;margin-bottom:18px}
   .foot-escola-mae{font-size:10.5px;letter-spacing:.08em;padding:9px 12px}
   .foot-bottom{font-size:.78rem;letter-spacing:.04em}
-  .whatsapp-float{width:54px;height:54px;right:14px;bottom:14px}
-  .whatsapp-float svg{width:25px;height:25px}
-  .kakau-float{right:12px !important;bottom:78px !important;width:calc(100vw - 24px) !important}
-  footer{padding:40px 0 96px}
+  .whatsapp-float{display:none !important}
+  .kakau-float{right:12px !important;bottom:12px !important;width:calc(100vw - 24px) !important}
+  footer{padding:40px 0 88px}
   .hero-stats{margin-top:36px;padding-top:22px;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr)) !important}
   .hero-stats div b{font-size:1.35rem;margin-bottom:4px}
   .hero-stats div b small{font-size:inherit}
@@ -3653,6 +3639,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     if (!k) return;
     let ativado = false;
     let timerId = null;
+    const isMobile = window.innerWidth <= 768;
     function ativarWidget() {
       if (ativado) return;
       ativado = true;
@@ -3663,9 +3650,10 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     function onScroll() {
       const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
       const pos = window.scrollY + window.innerHeight;
-      if (max > 0 && pos / max > 0.3) ativarWidget();
+      const threshold = isMobile ? 0.15 : 0.3;
+      if (max > 0 && pos / max > threshold) ativarWidget();
     }
-    timerId = setTimeout(ativarWidget, 12 * 1000);
+    timerId = setTimeout(ativarWidget, isMobile ? 4000 : 12000);
     window.addEventListener('scroll', onScroll, {passive:true});
     if (fechar) fechar.addEventListener('click', (e) => {
       e.preventDefault();
