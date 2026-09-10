@@ -1165,6 +1165,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 .regras-intro{max-width:720px;margin-bottom:36px}
 .regras-intro p.big{font-size:1.08rem;color:var(--text-3);line-height:1.75;margin-top:14px}
 .regras-cta{margin-top:38px;display:flex;justify-content:center}
+/* --- Seções Mobile Colapsáveis: Escola, Método e Regras --- */
+.mobile-section-toggle{display:none}
 @media (min-width:1025px){
   :root{--pad:56px}
   .instrutores-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
@@ -1260,9 +1262,159 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .section{padding:var(--pad) 0}
   .section-lead{margin-bottom:36px;font-size:1rem}
   .instrutores-head{margin-bottom:40px}
+
+  /* Seções colapsáveis no Mobile: Escola, Método e Regras */
+  .mobile-section-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    padding:16px 20px;
+    margin:20px 0 8px;
+    border-radius:var(--radius-md);
+    background:linear-gradient(180deg,rgba(30,35,40,.88) 0%,rgba(16,19,22,.94) 100%);
+    border:1px solid rgba(158,132,214,.26);
+    box-shadow:0 8px 24px -8px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);
+    color:var(--gold);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+    user-select:none;
+    transition:all .3s cubic-bezier(.2,.8,.2,1);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mobile-section-toggle:hover,
+  .mobile-section-toggle:active{
+    border-color:var(--gold);
+    box-shadow:0 8px 28px -6px var(--gold-glow);
+    background:linear-gradient(180deg,rgba(40,46,54,.95) 0%,rgba(22,26,30,.98) 100%);
+  }
+  .mobile-section-toggle .toggle-icon{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+    color:var(--gold);
+    transition:transform .35s cubic-bezier(.7,0,.3,1);
+  }
+  .mobile-section-toggle[aria-expanded="true"]{
+    border-color:var(--gold);
+    background:linear-gradient(180deg,rgba(45,35,65,.9) 0%,rgba(20,18,28,.96) 100%);
+    margin-bottom:20px;
+  }
+  .mobile-section-toggle[aria-expanded="true"] .toggle-icon{
+    transform:rotate(180deg);
+  }
+  .mobile-collapse-body:not(.is-open){
+    display:none !important;
+  }
+  .mobile-collapse-body.is-open{
+    animation:fadeIn .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .mobile-collapse-body.is-open.historia-grid{
+    display:grid !important;
+  }
+
+  /* Mobile: textos em cinza dos cards do método ocultados por padrão e abertos no clique */
+  .feature{
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .feature h3{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:0;
+  }
+  .feature h3::after{
+    content:'+';
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:rgba(243,204,31,.12);
+    border:1px solid rgba(243,204,31,.28);
+    color:var(--gold);
+    font-size:16px;
+    line-height:1;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    flex-shrink:0;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .feature.is-open h3{
+    margin-bottom:12px;
+  }
+  .feature.is-open h3::after{
+    content:'−';
+    background:rgba(243,204,31,.25);
+  }
+  .feature p{
+    display:none;
+    margin-top:4px;
+    animation:fadeIn .3s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .feature.is-open p{
+    display:block;
+  }
+
+  /* Mobile: textos em cinza da lista de diferenciais ocultados por padrão e abertos no clique */
+  .metodo-list li{
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    transition:all .25s ease;
+  }
+  .metodo-list li b{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:0;
+  }
+  .metodo-list li b::after{
+    content:'+';
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:rgba(243,204,31,.10);
+    border:1px solid rgba(243,204,31,.24);
+    color:var(--gold);
+    font-size:14px;
+    line-height:1;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    flex-shrink:0;
+    transition:all .25s ease;
+  }
+  .metodo-list li.is-open b{
+    margin-bottom:6px;
+  }
+  .metodo-list li.is-open b::after{
+    content:'−';
+    background:rgba(243,204,31,.25);
+  }
+  .metodo-list li span{
+    display:none;
+    animation:fadeIn .3s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .metodo-list li.is-open span{
+    display:block;
+  }
 }
 @media (max-width:480px){
   :root{--pad:32px}
+  .mobile-section-toggle{padding:14px 16px;font-size:14px;letter-spacing:.1em}
   .container{padding:0 18px}
   .logo-top{font-size:10.5px;letter-spacing:.34em}
   .logo-mid{font-size:18px}
@@ -1533,27 +1685,33 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     <h2 class="font-display reveal delay-1">
       <span data-content="escola.cabecalho.titulo">A escola e a linhagem </span><span class="text-accent" data-content="escola.cabecalho.tituloDestaque">Bukan</span>
     </h2>
-    <p class="section-lead reveal delay-2" data-content="escola.cabecalho.lead">
-      Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições.
-    </p>
-    <div class="historia-grid">
-      <div class="historia-visual reveal" aria-hidden="true">
-        <div class="historia-crest">
-          <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão oficial da linhagem Bukan" />
+    <button type="button" class="mobile-section-toggle" id="btnToggleEscola" aria-expanded="false" aria-controls="escolaResto">
+      <span class="toggle-label">Toque para ler sobre a escola e a linhagem</span>
+      <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="escola-resto mobile-collapse-body" id="escolaResto">
+      <p class="section-lead reveal delay-2" data-content="escola.cabecalho.lead">
+        Não é apenas uma técnica. É uma linhagem de sobrevivência nascida em Israel, preservada com rigor técnico e transmitida de geração a geração sem diluições.
+      </p>
+      <div class="historia-grid">
+        <div class="historia-visual reveal" aria-hidden="true">
+          <div class="historia-crest">
+            <img data-content-src="site.logo.src" data-content-alt="site.logo.alt" src="logo_Bukan.png" alt="Brasão oficial da linhagem Bukan" />
+          </div>
+          <h3 class="historia-title">
+            <em data-content="escola.visual.tituloSuperior">Bukan · Rehovot · Israel</em>
+            <span data-content="escola.visual.tituloPrincipal">O Brasão da Linhagem Original</span>
+          </h3>
+          <div class="linha-tempo" data-slot="timeline"></div>
+          <blockquote class="historia-quote">
+            <span data-content="escola.visual.citacao.texto">"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo."</span>
+          </blockquote>
         </div>
-        <h3 class="historia-title">
-          <em data-content="escola.visual.tituloSuperior">Bukan · Rehovot · Israel</em>
-          <span data-content="escola.visual.tituloPrincipal">O Brasão da Linhagem Original</span>
-        </h3>
-        <div class="linha-tempo" data-slot="timeline"></div>
-        <blockquote class="historia-quote">
-          <span data-content="escola.visual.citacao.texto">"Que nada seja estranho ao corpo, que nenhuma fraqueza vença a mente. Ser Bukan é fazer o certo."</span>
-        </blockquote>
-      </div>
-      <div class="historia-body" data-slot="texto-corpo">
-        <p class="reveal">
-          O <span class="hl">Krav-Maga Bukan</span> foi fundado em <strong>1978, em Israel</strong>, por <strong>Imi Lichtenfeld</strong> — criador do Krav-Maga original das Forças de Defesa de Israel — e seu sucessor <strong>Yaron Liechtenstein</strong>, em Rehovot.
-        </p>
+        <div class="historia-body" data-slot="texto-corpo">
+          <p class="reveal">
+            O <span class="hl">Krav-Maga Bukan</span> foi fundado em <strong>1978, em Israel</strong>, por <strong>Imi Lichtenfeld</strong> — criador do Krav-Maga original das Forças de Defesa de Israel — e seu sucessor <strong>Yaron Liechtenstein</strong>, em Rehovot.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -1567,7 +1725,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <h2 class="font-display">
           <span data-content="metodo.cabecalho.titulo">O diferencial do </span><span class="text-accent" data-content="metodo.cabecalho.tituloDestaque">método</span>
         </h2>
-        <p class="big" data-content-html="metodo.cabecalho.lead">
+        <button type="button" class="mobile-section-toggle" id="btnToggleMetodoLead" aria-expanded="false" aria-controls="metodoLeadBody">
+          <span class="toggle-label">Toque para ler sobre o método</span>
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <p class="big metodo-lead-body mobile-collapse-body" id="metodoLeadBody" data-content-html="metodo.cabecalho.lead">
           Não somos uma arte marcial esportiva. Somos um <strong>sistema de sobrevivência</strong> — e cada detalhe do treinamento é pensado para que você reaja da melhor forma quando segundos importam.
         </p>
         <ul class="metodo-list" data-slot="metodo-diferenciais"></ul>
@@ -1591,13 +1753,19 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       <p class="big" data-content="regras.cabecalho.lead">
         Os 15 princípios fundamentais do método Bukan, transmitidos por Imi Lichtenfeld e preservados pela linhagem oficial de Rehovot — Israel.
       </p>
+      <button type="button" class="mobile-section-toggle" id="btnToggleRegras" aria-expanded="false" aria-controls="regrasResto">
+        <span class="toggle-label">Ver as 15 Regras do Método</span>
+        <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
     </div>
-    <div class="regras-grid" data-slot="regras-fichas"></div>
-    <div class="regras-cta reveal delay-3">
-      <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
-        <span data-content="regras.cta.texto">Quero treinar essas regras</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
+    <div class="regras-resto mobile-collapse-body" id="regrasResto">
+      <div class="regras-grid" data-slot="regras-fichas"></div>
+      <div class="regras-cta reveal delay-3">
+        <a class="cta-btn" data-cta="whatsapp-aula" target="_blank" rel="noopener">
+          <span data-content="regras.cta.texto">Quero treinar essas regras</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -2648,6 +2816,77 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     }
   }
 
+  function bindMobileSectionToggles() {
+    const configs = [
+      {
+        btnId: 'btnToggleEscola',
+        targets: ['#escolaResto'],
+        labelClosed: 'Toque para ler sobre a escola e a linhagem',
+        labelOpen: 'Recolher texto'
+      },
+      {
+        btnId: 'btnToggleMetodoLead',
+        targets: ['#metodoLeadBody'],
+        labelClosed: 'Toque para ler sobre o método',
+        labelOpen: 'Recolher texto'
+      },
+      {
+        btnId: 'btnToggleRegras',
+        targets: ['#regrasResto'],
+        labelClosed: 'Ver as 15 Regras do Método',
+        labelOpen: 'Ocultar as 15 Regras'
+      }
+    ];
+
+    configs.forEach(cfg => {
+      const btn = document.getElementById(cfg.btnId);
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const isCurrentlyOpen = btn.getAttribute('aria-expanded') === 'true';
+        const willOpen = !isCurrentlyOpen;
+        btn.setAttribute('aria-expanded', String(willOpen));
+        const labelEl = btn.querySelector('.toggle-label');
+        if (labelEl) {
+          labelEl.textContent = willOpen ? cfg.labelOpen : cfg.labelClosed;
+        }
+        cfg.targets.forEach(selector => {
+          const el = document.querySelector(selector);
+          if (!el) return;
+          el.classList.toggle('is-open', willOpen);
+          if (willOpen) {
+            el.querySelectorAll('.reveal').forEach(rev => rev.classList.add('in-view'));
+          }
+        });
+        if (!willOpen) {
+          const sec = btn.closest('section');
+          if (sec) {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < 0) {
+              sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        }
+      });
+    });
+
+    // Mobile: toque em cima dos cards ou diferenciais para abrir/fechar o texto em cinza
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth > 768) return;
+      
+      const card = e.target.closest('.feature');
+      if (card) {
+        card.classList.toggle('is-open');
+        return;
+      }
+
+      const diffItem = e.target.closest('.metodo-list li');
+      if (diffItem) {
+        diffItem.classList.toggle('is-open');
+        return;
+      }
+    });
+  }
+
   function horariosToast(mensagem, tipo='ok', tempo=2200) {
     const toast = document.getElementById('horariosToast');
     if (!toast) return;
@@ -3338,6 +3577,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     renderHorarios();
     renderFaq();
     bindStaticBehavior();
+    bindMobileSectionToggles();
     bindHorariosBehavior();
     bindFaqBehavior();
     bindDicasBehavior();
