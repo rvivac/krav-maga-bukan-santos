@@ -117,6 +117,8 @@ h2.font-display{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--text-1);margin-bo
 }
 .site-header.scrolled{background:rgba(7,7,8,.88);box-shadow:0 3px 16px rgba(243,204,31,.22)}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;height:78px}
+.quick-access-bar{display:none !important}
+section[id]{scroll-margin-top:84px}
 .logo{display:flex;flex-direction:row;align-items:center;gap:12px;line-height:1.05;font-family:'Barlow Condensed',sans-serif;font-weight:800}
 .logo-stack{display:flex;flex-direction:column;gap:2px}
 .logo-top{font-size:12px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;font-weight:700;opacity:.9}
@@ -1206,8 +1208,64 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
 @media (max-width:768px){
   :root{--pad:40px}
   .site-header .container{height:70px}
+  .quick-access-bar{
+    display:block !important;
+    width:100%;
+    background:rgba(10,11,14,.95);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-top:1px solid rgba(255,255,255,.07);
+    position:relative;
+    z-index:48;
+  }
+  .quick-access-track{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    overflow-x:auto;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .quick-access-track::-webkit-scrollbar{display:none}
+  .quick-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 13px;
+    background:rgba(243,204,31,.08);
+    border:1px solid rgba(243,204,31,.35);
+    border-radius:999px;
+    color:var(--text-1);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    line-height:1;
+    flex-shrink:0;
+    cursor:pointer;
+    transition:all .2s cubic-bezier(.2,.8,.2,1);
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+  }
+  .quick-pill:hover,.quick-pill:active{
+    background:rgba(243,204,31,.22);
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:scale(.97);
+  }
+  .quick-pill .pill-ico{font-size:13px;line-height:1;display:inline-block}
+  .quick-pill-divider{
+    width:1px;
+    height:14px;
+    background:rgba(255,255,255,.12);
+    flex-shrink:0;
+  }
   .nav{
-    position:fixed;top:70px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;
+    position:fixed;top:111px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;
     padding:14px 20px 24px;background:rgba(7,7,8,.97);backdrop-filter:blur(18px) saturate(140%);
     -webkit-backdrop-filter:blur(18px) saturate(140%);
     border-bottom:1px solid var(--line-accent);transform:translateY(-120%);transition:transform .4s cubic-bezier(.7,0,.3,1);
@@ -1218,7 +1276,8 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .nav-links a::after{display:none}
   .nav-cta{margin-top:18px;padding:14px 24px;width:100%;text-align:center;justify-content:center;min-height:48px;font-size:15px;border-bottom:none}
   .menu-toggle{display:grid}
-  .hero{min-height:auto;padding:108px 0 60px}
+  .hero{min-height:auto;padding:124px 0 60px}
+  section[id]{scroll-margin-top:122px}
   .hero h1{font-size:clamp(1.68rem,8.4vw,2.94rem);margin-bottom:16px}
   .hero-sub{margin-bottom:32px;font-size:1.02rem;max-width:100%}
   .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:12px;margin-top:40px;padding-top:26px}
@@ -1620,6 +1679,25 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       <span aria-hidden="true"></span>
     </button>
   </div>
+  <!-- Barra de Acessos Rápidos Fixa no Topo (Sticky Secundário Mobile) -->
+  <aside class="quick-access-bar" id="quickAccessBar" aria-label="Acessos rápidos">
+    <div class="quick-access-track">
+      <button type="button" class="quick-pill" id="quickBtnHorarios" aria-label="Ver horários de turmas">
+        <span class="pill-ico" aria-hidden="true">🕒</span>
+        <span class="pill-txt">Horários</span>
+      </button>
+      <span class="quick-pill-divider" aria-hidden="true"></span>
+      <button type="button" class="quick-pill" id="quickBtnFaq" aria-label="Dúvidas da primeira aula">
+        <span class="pill-ico" aria-hidden="true">❓</span>
+        <span class="pill-txt">Dúvidas 1ª Aula</span>
+      </button>
+      <span class="quick-pill-divider" aria-hidden="true"></span>
+      <a href="#contato" class="quick-pill" id="quickBtnLocal" aria-label="Ver endereço e localização">
+        <span class="pill-ico" aria-hidden="true">📍</span>
+        <span class="pill-txt">Localização</span>
+      </a>
+    </div>
+  </aside>
 </header>
 
 <main id="top">
@@ -2813,6 +2891,52 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     }
   }
 
+  function bindQuickAccessBar() {
+    function closeNavIfOpen() {
+      const nav = document.getElementById('nav');
+      const menuBtn = document.getElementById('menuToggle');
+      if (nav && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        if (menuBtn) {
+          menuBtn.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    const btnHorarios = document.getElementById('quickBtnHorarios');
+    if (btnHorarios) {
+      btnHorarios.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNavIfOpen();
+        abrirHorariosModal();
+      });
+    }
+
+    const btnFaq = document.getElementById('quickBtnFaq');
+    if (btnFaq) {
+      btnFaq.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNavIfOpen();
+        abrirFaqModal();
+      });
+    }
+
+    const btnLocal = document.getElementById('quickBtnLocal');
+    if (btnLocal) {
+      btnLocal.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNavIfOpen();
+        const sec = document.getElementById('contato');
+        if (sec) {
+          sec.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.hash = '#contato';
+        }
+      });
+    }
+  }
+
   function bindMobileSectionToggles() {
     const configs = [
       {
@@ -3551,6 +3675,7 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
     renderHorarios();
     renderFaq();
     bindStaticBehavior();
+    bindQuickAccessBar();
     bindMobileSectionToggles();
     bindHorariosBehavior();
     bindFaqBehavior();
