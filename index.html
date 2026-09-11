@@ -1216,58 +1216,82 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
   .quick-access-bar{
     display:block !important;
     width:100%;
-    background:rgba(10,11,14,.95);
+    background:rgba(10,11,14,.96);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(243,204,31,.16);
     position:relative;
     z-index:48;
   }
   .quick-access-track{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    align-items:stretch;
+    gap:6px;
+    padding:6px 10px;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .quick-pill{
     display:flex;
     align-items:center;
-    gap:8px;
-    padding:6px 14px;
-    overflow-x:auto;
-    white-space:nowrap;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
-  .quick-access-track::-webkit-scrollbar{display:none}
-  .quick-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    padding:6px 13px;
+    justify-content:center;
+    gap:5px;
+    padding:7px 4px;
+    min-height:38px;
     background:rgba(243,204,31,.08);
-    border:1px solid rgba(243,204,31,.35);
-    border-radius:999px;
+    border:1px solid rgba(243,204,31,.32);
+    border-radius:9px;
     color:var(--text-1);
     font-family:'Barlow Condensed',sans-serif;
     font-size:13px;
     font-weight:700;
-    letter-spacing:.05em;
+    letter-spacing:.04em;
     text-transform:uppercase;
     text-decoration:none;
     line-height:1;
-    flex-shrink:0;
     cursor:pointer;
     transition:all .2s cubic-bezier(.2,.8,.2,1);
     -webkit-tap-highlight-color:transparent;
     user-select:none;
+    text-align:center;
+    box-sizing:border-box;
+    width:100%;
   }
   .quick-pill:hover,.quick-pill:active{
     background:rgba(243,204,31,.22);
     border-color:var(--gold);
     color:var(--gold);
-    transform:scale(.97);
+    transform:scale(.98);
   }
-  .quick-pill .pill-ico{font-size:13px;line-height:1;display:inline-block}
-  .quick-pill-divider{
-    width:1px;
-    height:14px;
-    background:rgba(255,255,255,.12);
+  .quick-pill .pill-ico{
+    font-size:13px;
+    line-height:1;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     flex-shrink:0;
+  }
+  .quick-pill .pill-txt{
+    font-size:12.5px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .quick-pill-divider{display:none !important}
+  #endereco, #colunaEndereco{scroll-margin-top:130px}
+  @keyframes pulsoEndereco{
+    0%{box-shadow:0 0 0 0 rgba(243,204,31,.6);outline:2px solid transparent}
+    20%{box-shadow:0 0 26px 6px rgba(243,204,31,.45);outline:2px solid var(--gold);background:rgba(243,204,31,.12)}
+    100%{box-shadow:0 0 0 0 transparent;outline:2px solid transparent;background:transparent}
+  }
+  .destaque-endereco{
+    animation:pulsoEndereco 2.2s ease;
+    border-radius:12px;
+    padding:6px;
+    transition:all .3s ease;
   }
   .nav{
     position:fixed;top:111px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;
@@ -1689,13 +1713,11 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
         <span class="pill-ico" aria-hidden="true">🕒</span>
         <span class="pill-txt">Horários</span>
       </button>
-      <span class="quick-pill-divider" aria-hidden="true"></span>
       <button type="button" class="quick-pill" id="quickBtnFaq" aria-label="Dúvidas da primeira aula">
         <span class="pill-ico" aria-hidden="true">❓</span>
-        <span class="pill-txt">Dúvidas 1ª Aula</span>
+        <span class="pill-txt">Dúvidas</span>
       </button>
-      <span class="quick-pill-divider" aria-hidden="true"></span>
-      <a href="#contato" class="quick-pill" id="quickBtnLocal" aria-label="Ver endereço e localização">
+      <a href="#endereco" class="quick-pill" id="quickBtnLocal" aria-label="Ver endereço e localização">
         <span class="pill-ico" aria-hidden="true">📍</span>
         <span class="pill-txt">Localização</span>
       </a>
@@ -1894,9 +1916,9 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
             <h4 data-content="nav.colunasRodape.navegacao">Navegação</h4>
             <ul data-slot="footer-nav-links"></ul>
           </div>
-          <div class="foot-col">
+          <div class="foot-col" id="colunaEndereco">
             <h4 data-content="nav.colunasRodape.encontreNos">Encontre-nos</h4>
-            <address>
+            <address id="endereco">
               <div>
                 <a class="addr-link" data-link-externo="site.contato.endereco.maps_url" target="_blank" rel="noopener" data-link-title="site.contato.endereco.maps_url" title="Abrir localização no Google Maps">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2930,11 +2952,15 @@ footer{background:var(--bg-0);border-top:1px solid var(--line-accent);padding:56
       btnLocal.addEventListener('click', (e) => {
         e.preventDefault();
         closeNavIfOpen();
-        const sec = document.getElementById('contato');
-        if (sec) {
-          sec.scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById('endereco') || document.querySelector('.foot-col address') || document.getElementById('contato');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.classList.remove('destaque-endereco');
+          void target.offsetWidth;
+          target.classList.add('destaque-endereco');
+          setTimeout(() => target.classList.remove('destaque-endereco'), 2500);
         } else {
-          window.location.hash = '#contato';
+          window.location.hash = '#endereco';
         }
       });
     }
