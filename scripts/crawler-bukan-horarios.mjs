@@ -14,9 +14,7 @@ async function fetchPagina(url, { tentativas = 2 } = {}) {
       const ctrl = new AbortController();
       const to = setTimeout(() => ctrl.abort(), TIMEOUT_MS + tent * 4000);
       // Tenta conexão direta primeiro; se falhar, recorre ao proxy AllOrigins
-      const targetUrl = (tent === 0)
-        ? url
-        : `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+      
       
       const res = await fetch(targetUrl, {
         headers: {
