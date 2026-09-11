@@ -44,6 +44,9 @@ jobs:
         working-directory: scripts
         run: npm ci --no-audit --no-fund
 
+      - name: Instalar Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Rodar sync horários
         id: sync
         env:
