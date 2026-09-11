@@ -59,6 +59,7 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         id: git_commit
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
@@ -78,6 +79,7 @@ jobs:
           git commit -m "$MSG"
           git push --set-upstream --force-with-lease origin main
           echo "result=committed" >> "$GITHUB_OUTPUT"
+
 
       - name: Resumo de saída
         if: always()
