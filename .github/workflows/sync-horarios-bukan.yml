@@ -59,9 +59,9 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         id: git_commit
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git fetch origin main
           if [ -z "$(git status --porcelain content/site/horarios-turmas.txt)" ]; then
             echo "result=skip" >> "$GITHUB_OUTPUT"
