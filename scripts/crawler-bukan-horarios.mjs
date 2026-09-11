@@ -3,7 +3,7 @@ import { WEEKDAY_MAP, horaRegex, slotRegex, validateTurmas, sortTurmas, serializ
 const USER_AGENT = 'BukanSantosBot/1.0 (+https://kravmagabukansantos.com.br; sync crawler 1x/dia)';
 const DEFAULT_URL = 'https://kravmaga-bukan.com/br/onde-treinar/bukan-santos';
 
-const TIMEOUT_MS = 12000;
+const TIMEOUT_MS = 25000;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
