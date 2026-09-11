@@ -9,6 +9,7 @@
     "start": "node scripts/dev-server.mjs",
     "server": "node scripts/dev-server.mjs",
     "sync": "node scripts/sync-horarios.mjs",
+    "sync:hostinger": "node scripts/sync-hostinger.mjs",
     "raspagem": "node scripts/sync-horarios.mjs",
     "dry-run": "node scripts/sync-horarios.mjs --dry-run"
   }
